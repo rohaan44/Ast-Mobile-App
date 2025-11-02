@@ -1,4 +1,5 @@
 import 'package:ast_official/feature/coach_dashboard/athelete_management/athlete_management_view.dart';
+import 'package:ast_official/feature/coach_dashboard/coach_Message/coach_chat_view.dart';
 import 'package:ast_official/feature/coach_dashboard/home_screen/coach_home_screen_view.dart';
 import 'package:ast_official/feature/coach_dashboard/plans/plans_management/plans_management_view.dart';
 import 'package:ast_official/feature/coach_dashboard/plans_royalties/payments_royalties_view.dart';
@@ -22,7 +23,8 @@ class CoachMainScreen extends StatelessWidget {
           CoachHomeScreenView(),
           AthleteManagementView(),
           PlansManagementView(),
-          PaymentsRoyaltiesView()
+          PaymentsRoyaltiesView(),
+          CoachChatView()
         ],
       ),
     );

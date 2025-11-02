@@ -22,12 +22,13 @@ class NotificationScreen extends StatelessWidget {
                       children: [
                         Row(
                           children: [
-                            GestureDetector(  
-                              onTap: (){
-                                Navigator.pop(context);
-                              },
-                              child: SvgPicture.asset(AssetUtils.backArrow),
-                            ),
+                           IconButton(
+          highlightColor: AppColor.transparent,
+          focusColor: AppColor.transparent,
+          splashColor: AppColor.transparent,
+          icon: SvgPicture.asset(AssetUtils.backArrow),
+          onPressed: () => Navigator.pop(context),
+        ),
                             SizedBox(width: cw(20),),
                             AppText(
                               txt: "Notifiche",

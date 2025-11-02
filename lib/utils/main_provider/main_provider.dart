@@ -10,6 +10,7 @@ import 'package:ast_official/feature/athelete_dashboard/dashboard/sub_screen/hom
 import 'package:ast_official/feature/athelete_dashboard/dashboard/sub_screen/training/training_controller.dart';
 import 'package:ast_official/feature/coach_dashboard/athelete_management/athlete_management_controller.dart';
 import 'package:ast_official/feature/coach_dashboard/athelete_management/athlete_profile/athlete_profile_controller.dart';
+import 'package:ast_official/feature/coach_dashboard/coach_Message/coach_chat_controller.dart';
 import 'package:ast_official/feature/coach_dashboard/home_screen/coach_home_screen_controller.dart';
 import 'package:ast_official/feature/coach_dashboard/plans/nutrition_plan/nutrition_plan_controller.dart';
 import 'package:ast_official/feature/coach_dashboard/plans/plan_preview/plan_preview_controller.dart';
@@ -92,6 +93,11 @@ List<SingleChildWidget> providersList = [
   ChangeNotifierProvider(
     create: (_) => TransactionsHistoryController(),
   ),
+
+  ChangeNotifierProvider(
+    create: (_) => CoachChatController(),
+  ),
+
   ////////Tutor Dashboard//////
   ChangeNotifierProvider(create: (context) => TutorHomeScreenController()),
 

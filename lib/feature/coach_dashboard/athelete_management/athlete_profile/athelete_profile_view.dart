@@ -52,17 +52,13 @@ class _AthleteProfileViewState extends State<AthleteProfileView>
               SizedBox(height: ch(20)),
 
               // 🔙 Back Button
-              GestureDetector(
-                onTap: () {
-                  log(widget.athlete.toString());
-                  Navigator.pop(context);
-                  model.setTab(0);
-                },
-                child: Container(
-                  alignment: Alignment.centerLeft,
-                  width: cw(200),
-                  child: SvgPicture.asset(AssetUtils.backArrow)),
-              ),
+           IconButton(
+          highlightColor: AppColor.transparent,
+          focusColor: AppColor.transparent,
+          splashColor: AppColor.transparent,
+          icon: SvgPicture.asset(AssetUtils.backArrow),
+          onPressed: () => Navigator.pop(context),
+        ),
 
               SizedBox(height: ch(20)),
 

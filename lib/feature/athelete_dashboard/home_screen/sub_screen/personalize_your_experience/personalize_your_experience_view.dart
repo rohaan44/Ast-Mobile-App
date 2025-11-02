@@ -37,14 +37,13 @@ class _PersonalizYourExperienceState extends State<PersonalizYourExperience> {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 // Left logo
-                GestureDetector(
-                  onTap: () {
-                    Navigator.pop(context);
-                  },
-                  child: SvgPicture.asset(
-                    AssetUtils.backArrow,
-                  ),
-                ),
+                IconButton(
+          highlightColor: AppColor.transparent,
+          focusColor: AppColor.transparent,
+          splashColor: AppColor.transparent,
+          icon: SvgPicture.asset(AssetUtils.backArrow),
+          onPressed: () => Navigator.pop(context),
+        ),
                 SizedBox(
                     width: cw(158), child: customSlider(5, 1, AppColor.white)),
                 Container(

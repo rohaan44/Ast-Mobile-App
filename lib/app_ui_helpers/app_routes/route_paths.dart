@@ -50,6 +50,8 @@ class RoutePaths {
   static const String transactionHistoryScreen = '/transactionHistoryScreen';
   static const String athleteSubscriptionsScreen =
       '/athleteSubscriptionsScreen';
+
+  static const String selectedChatScreen = '/selectedChatScreen';
   // static const String plansRoyaltiesScreen= '/plansRoyaltiesScreen';
 
 ///////////////////////////Tutor Sectio//////////////////////////////
