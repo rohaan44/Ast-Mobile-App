@@ -9,17 +9,14 @@ class CoachMainScreen extends StatelessWidget {
   const CoachMainScreen({super.key});
   @override
   Widget build(BuildContext context) {
-      final model = Provider.of<CoachBottomBar>(context);
+    final model = Provider.of<CoachBottomBar>(context);
 
     return Scaffold(
       bottomNavigationBar: coachBottomBar(),
       body: PageView(
-      onPageChanged: (index) => model.setSelectedIndex(index),
-      controller: model.pageController,
-      children: const[
-        CoachHomeScreenView(),
-        AthleteManagementView()
-      ],
+        onPageChanged: (index) => model.setSelectedIndex(index),
+        controller: model.pageController,
+        children: const [CoachHomeScreenView(), AthleteManagementView()],
       ),
     );
   }

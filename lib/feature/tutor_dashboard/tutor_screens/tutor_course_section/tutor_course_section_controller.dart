@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 class TutorCourseSectionController with ChangeNotifier {
-  final List<String> filterTabs = ['Tutti', 'Attivo', 'Completato', 'Bozza'];
+  List filterTabs = ['Tutti', 'Attivo', 'Completato', 'Bozza'];
 
   final searchController = TextEditingController();
   int _selectedTab = 0;
