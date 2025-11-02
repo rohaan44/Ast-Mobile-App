@@ -10,6 +10,9 @@ import 'package:ast_official/feature/coach_dashboard/plans/nutrition_plan/nutrit
 import 'package:ast_official/feature/coach_dashboard/plans/plan_preview/plan_preview_controller.dart';
 import 'package:ast_official/feature/coach_dashboard/plans/plans_management/plans_management_controller.dart';
 import 'package:ast_official/feature/coach_dashboard/plans/trainning_plan/training_plan_controller.dart';
+import 'package:ast_official/feature/coach_dashboard/plans_royalties/athlete_subscriptions/athlete_subscriptions_controller.dart';
+import 'package:ast_official/feature/coach_dashboard/plans_royalties/payments_royalties_controller.dart';
+import 'package:ast_official/feature/coach_dashboard/plans_royalties/transaction_history/transaction_history_controller.dart';
 import 'package:ast_official/feature/on_boarding/date_of_birth/date_of_birth_controller.dart';
 import 'package:ast_official/feature/on_boarding/otp_view/otp_controller.dart';
 import 'package:ast_official/feature/on_boarding/payment_flow/choose_your_plan/choose_your_plan_controller.dart';
@@ -71,8 +74,16 @@ List<SingleChildWidget> providersList = [
   ChangeNotifierProvider(create: (_) => TrainingPlanController()),
   ChangeNotifierProvider(create: (_) => NutritionPlanController()),
 
+ChangeNotifierProvider(
+  create: (_) => PaymentsRoyaltiesController(),
+),
 
-
+ChangeNotifierProvider(
+  create: (_) => AthleteSubscriptionsController(),
+),
+ChangeNotifierProvider(
+  create: (_) => TransactionsHistoryController(),
+),
   ////////Tutor Dashboard//////
   ChangeNotifierProvider(create: (context) => TutorHomeScreenController()),
 

@@ -12,6 +12,9 @@ import 'package:ast_official/feature/coach_dashboard/plans/nutrition_plan/nutrit
 import 'package:ast_official/feature/coach_dashboard/plans/plan_preview/plan_preview_view.dart';
 import 'package:ast_official/feature/coach_dashboard/plans/plans_management/plans_management_view.dart';
 import 'package:ast_official/feature/coach_dashboard/plans/trainning_plan/training_plan_view.dart';
+import 'package:ast_official/feature/coach_dashboard/plans_royalties/athlete_subscriptions/athlete_subscriptions_view.dart';
+import 'package:ast_official/feature/coach_dashboard/plans_royalties/payments_royalties_view.dart';
+import 'package:ast_official/feature/coach_dashboard/plans_royalties/transaction_history/transaction_history_view.dart';
 import 'package:ast_official/feature/on_boarding/date_of_birth/date_of_birth_view.dart';
 import 'package:ast_official/feature/on_boarding/otp_view/otp_view.dart';
 import 'package:ast_official/feature/on_boarding/payment_flow/choose_your_plan/choose_your_plan_view.dart';
@@ -247,7 +250,7 @@ class AppRouter {
           },
         );
 
-case RoutePaths.planPreviewScreen:
+      case RoutePaths.planPreviewScreen:
         return PageRouteBuilder(
           pageBuilder: (context, animation, secondaryAnimation) {
             return const PlanPreviewView();
@@ -257,7 +260,7 @@ case RoutePaths.planPreviewScreen:
           },
         );
 
-        case RoutePaths.trainingPlanScreen:
+      case RoutePaths.trainingPlanScreen:
         return PageRouteBuilder(
           pageBuilder: (context, animation, secondaryAnimation) {
             return const TrainingPlanView();
@@ -267,7 +270,7 @@ case RoutePaths.planPreviewScreen:
           },
         );
 
-         case RoutePaths.plansManagementScreen:
+      case RoutePaths.plansManagementScreen:
         return PageRouteBuilder(
           pageBuilder: (context, animation, secondaryAnimation) {
             return const PlansManagementView();
@@ -277,11 +280,40 @@ case RoutePaths.planPreviewScreen:
           },
         );
 
-
- case RoutePaths.nutritionPlanScreen:
+      case RoutePaths.nutritionPlanScreen:
         return PageRouteBuilder(
           pageBuilder: (context, animation, secondaryAnimation) {
             return const NutritionPlanView();
+          },
+          transitionsBuilder: (context, animation, secondaryAnimation, child) {
+            return child;
+          },
+        );
+
+      case RoutePaths.plansRoyaltiesScreen:
+        return PageRouteBuilder(
+          pageBuilder: (context, animation, secondaryAnimation) {
+            return const PaymentsRoyaltiesView();
+          },
+          transitionsBuilder: (context, animation, secondaryAnimation, child) {
+            return child;
+          },
+        );
+
+      case RoutePaths.transactionHistoryScreen:
+        return PageRouteBuilder(
+          pageBuilder: (context, animation, secondaryAnimation) {
+            return const TransactionsHistoryView();
+          },
+          transitionsBuilder: (context, animation, secondaryAnimation, child) {
+            return child;
+          },
+        );
+
+      case RoutePaths.athleteSubscriptionsScreen:
+        return PageRouteBuilder(
+          pageBuilder: (context, animation, secondaryAnimation) {
+            return const AthleteSubscriptionsView();
           },
           transitionsBuilder: (context, animation, secondaryAnimation, child) {
             return child;

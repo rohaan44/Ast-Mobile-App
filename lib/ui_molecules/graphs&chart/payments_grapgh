@@ -1,0 +1,74 @@
+import 'package:fl_chart/fl_chart.dart';
+import 'package:flutter/material.dart';
+
+class MyAreaChart extends StatelessWidget {
+  const MyAreaChart({Key? key}) : super(key: key);
+
+  // This list holds the data points for the chart.
+  // FlSpot(x, y)
+  final List<FlSpot> _dataSpots = const [
+    FlSpot(0, 1),
+    FlSpot(1, 1.3),
+    FlSpot(2, 1),
+    FlSpot(3, 1.8),
+    FlSpot(4, 2.5),
+    FlSpot(5, 3.2),
+    FlSpot(6, 3.8),
+  ];
+
+  @override
+  Widget build(BuildContext context) {
+    return AspectRatio(
+      aspectRatio: 2, // Adjust the aspect ratio to fit your UI
+      child: LineChart(
+        LineChartData(
+          // 1. Hide grid, titles, and border
+          gridData: FlGridData(show: false),
+          titlesData: FlTitlesData(show: false),
+          borderData: FlBorderData(show: false),
+          
+          // 2. Disable touch interactions (tooltips, etc.)
+          lineTouchData: LineTouchData(enabled: false),
+
+          // 3. Define the line and its fill
+          lineBarsData: [
+            LineChartBarData(
+              spots: _dataSpots,
+              isCurved: true, 
+              
+              // Set the color of the line itself
+              color: Color(0xff34C759), 
+              barWidth: 3,
+              isStrokeCapRound: true,
+              
+              // Hide the dots on the line
+             dotData: FlDotData(
+  show: true,
+  // This callback lets you customize each dot
+  getDotPainter: (spot, percent, barData, index) {
+    return FlDotCirclePainter(
+      radius: 6, // Sets the radius of the dot
+      color: Color(0xff34C759), // Sets the fill color
+      strokeWidth: 2, // Sets the border width
+      strokeColor: Colors.green, // Sets the border color
+    );
+  },
+),
+
+              // This is the crucial part: defines the fill area
+              belowBarData: BarAreaData(
+                show: true,
+                // Set the fill color with some transparency
+                color: Colors.green.withOpacity(0.2), 
+              ),
+            ),
+          ],
+          minX: 0,
+          maxX: 6,
+          minY: 0,
+          maxY: 4,
+        ),
+      ),
+    );
+  }
+}

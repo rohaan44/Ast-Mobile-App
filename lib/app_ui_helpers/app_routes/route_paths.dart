@@ -38,7 +38,12 @@ class RoutePaths {
   static const String planPreviewScreen = '/planPreviewScreen';
   static const String notificationScreen = '/notificationScreen';
   static const String trainingPlanScreen = '/trainingPlanScreen';
-    static const String nutritionPlanScreen= '/nutritionPlanScreen';
+  static const String nutritionPlanScreen= '/nutritionPlanScreen';
+  static const String plansRoyaltiesScreen= '/plansRoyaltiesScreen';
+  static const String transactionHistoryScreen = '/transactionHistoryScreen';
+    static const String athleteSubscriptionsScreen = '/athleteSubscriptionsScreen';
+   // static const String plansRoyaltiesScreen= '/plansRoyaltiesScreen';
+
 ///////////////////////////Tutor Sectio//////////////////////////////
 
   static const String tutorCourseSectionView = '/tutorCourseSectionView';

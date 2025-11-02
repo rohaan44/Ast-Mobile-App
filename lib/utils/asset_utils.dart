@@ -33,7 +33,9 @@ class AssetUtils {
   static const String icon3 = "${svg}icon3.svg";
   static const String sofaIcon = "${svg}sofa.svg";
   static const String bicepIcon = "${svg}bicep.svg";
-
+    static const String checkIcon = "${svg}check_icon.svg";
+    static const String crossIcon = "${svg}cross_icon.svg";
+    static const String clockIcon = "${svg}clock_icon.svg";
   static const String coachBottombar2 = "${svg}coach_bottombar_2.svg";
   static const String coachBottombar3 = "${svg}coach_bottombar_3.svg";
   static const String coachBottombar4 = "${svg}coach_bottombar_4.svg";
