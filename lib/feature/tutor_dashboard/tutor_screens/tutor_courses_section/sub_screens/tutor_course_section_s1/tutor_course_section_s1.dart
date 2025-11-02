@@ -29,15 +29,13 @@ class TutorCourseSectionS1View extends StatelessWidget {
                 children: [
                   Align(
                     alignment: Alignment.centerLeft,
-                    child: GestureDetector(
-                      onTap: () {
-                        Navigator.pop(context);
-                      },
-                      child: SvgPicture.asset(
-                        AssetUtils.backArrow,
-                        height: ch(24),
-                      ),
-                    ),
+                    child: IconButton(
+          highlightColor: AppColor.transparent,
+          focusColor: AppColor.transparent,
+          splashColor: AppColor.transparent,
+          icon: SvgPicture.asset(AssetUtils.backArrow),
+          onPressed: () => Navigator.pop(context),
+        ),
                   ),
                   Center(
                     child: AppText(

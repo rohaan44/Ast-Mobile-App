@@ -13,7 +13,7 @@ class AssetUtils {
   static const String selectedRoleCoach = "${png}select_role_coach.png";
   static const String selectedRoleTutor = "${png}select_role_tutor.png";
   static const String cardBg = "${png}card_back_image.png";
-  static const String avatar = "${png}avatar.png";
+  static const String avatar = "${png}person.jpg";
 
   static const String docIcon = "${png}docIcon.png";
   // static const String cardBg = "${png}card_back_image.png";
@@ -21,6 +21,9 @@ class AssetUtils {
 
   //********** */ svg icons && images
   static const String cloudIcon = "${svg}cloudIcon.svg";
+  
+  static const String smileIcon = "${svg}smile.svg";
+  static const String addIcon = "${svg}add_icon.svg";
   static const String homeIcon = "${svg}home_icon.svg";
   static const String nutritionIcon= "${svg}nutrition_icon.svg";
   static const String icon = "${svg}icon.svg";

@@ -32,14 +32,13 @@ class OtpView extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 // Left logo
-                GestureDetector(
-                  onTap: () {
-                    Navigator.pop(context);
-                  },
-                  child: SvgPicture.asset(
-                    AssetUtils.backArrow,
-                  ),
-                ),
+                IconButton(
+          highlightColor: AppColor.transparent,
+          focusColor: AppColor.transparent,
+          splashColor: AppColor.transparent,
+          icon: SvgPicture.asset(AssetUtils.backArrow),
+          onPressed: () => Navigator.pop(context),
+        ),
                 SvgPicture.asset(
                   AssetUtils.logoIcon,
                   width: cw(60),

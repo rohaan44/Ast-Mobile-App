@@ -42,8 +42,8 @@ class MyApp extends StatelessWidget {
         title: 'AST®️ Official App',
         theme: AppTheme.darkTheme,
         debugShowCheckedModeBanner: false,
-        home: const PaymentsRoyaltiesView(),
-        // initialRoute: RoutePaths.splashScreen,
+        // home: const PaymentsRoyaltiesView(),
+         initialRoute: RoutePaths.coachMainScreenView,
         onGenerateRoute: AppRouter.generateRoute,
       );
     });

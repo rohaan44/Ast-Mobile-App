@@ -5,6 +5,7 @@ import 'package:ast_official/feature/athelete_dashboard/home_screen/sub_screen/w
 import 'package:ast_official/feature/athelete_dashboard/home_screen/sub_screen/what_is_your_diet_type/what_is_your_diet_type_controller.dart';
 import 'package:ast_official/feature/coach_dashboard/athelete_management/athlete_management_controller.dart';
 import 'package:ast_official/feature/coach_dashboard/athelete_management/athlete_profile/athlete_profile_controller.dart';
+import 'package:ast_official/feature/coach_dashboard/coach_Message/coach_chat_controller.dart';
 import 'package:ast_official/feature/coach_dashboard/home_screen/coach_home_screen_controller.dart';
 import 'package:ast_official/feature/coach_dashboard/plans/nutrition_plan/nutrition_plan_controller.dart';
 import 'package:ast_official/feature/coach_dashboard/plans/plan_preview/plan_preview_controller.dart';
@@ -84,6 +85,14 @@ ChangeNotifierProvider(
 ChangeNotifierProvider(
   create: (_) => TransactionsHistoryController(),
 ),
+
+ChangeNotifierProvider(
+  create: (_) => CoachChatController(),
+),
+
+
+
+
   ////////Tutor Dashboard//////
   ChangeNotifierProvider(create: (context) => TutorHomeScreenController()),
 
