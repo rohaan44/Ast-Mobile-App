@@ -27,6 +27,9 @@ class _HomeScreenviewState extends State<HomeScreenview> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
+              SizedBox(
+                height: ch(27),
+              ),
               Row(
                 children: [
                   SvgPicture.asset(AssetUtils.cloudIcon),

@@ -5,6 +5,12 @@ class AssetUtils {
   static const String jpg = "assets/images/";
 
   static const String appbarLogo = "${png}appbar_logo.png";
+  static const String card1 = "${png}card1.png";
+  static const String card2 = "${png}card2.png";
+  static const String card3 = "${png}card3.png";
+  static const String card4 = "${png}card4.png";
+  static const String trainingCard = "${png}training_card.png";
+
   static const String walkthrogh1 = "${png}walkthrough_1.png";
   static const String walkthrogh2 = "${jpg}walkthrough_2.png";
   static const String walkthrogh3 = "${jpg}walkthrough_3.png";
@@ -20,22 +26,27 @@ class AssetUtils {
   static const String tutorContainerBG = "${png}tutor_container_bg.png";
 
   //********** */ svg icons && images
-  static const String cloudIcon = "${svg}cloudIcon.svg";
+  static const String cloudIcon = "${svg}cloud.svg";
   static const String homeIcon = "${svg}home_icon.svg";
-  static const String nutritionIcon= "${svg}nutrition_icon.svg";
-  static const String icon = "${svg}icon.svg";
+  static const String nutritionIcon = "${svg}nutrition_icon.svg";
+  static const String icon = "${svg}Icon.svg";
+
   static const String dumbelIcon = "${svg}dumbel_icon.svg";
   static const String bodyBack = "${png}body_back.png";
   static const String bodyFront = "${png}body_front.png";
 
-  static const String icon1 = "${svg}icon1.svg";
-  static const String icon2 = "${svg}icon2.svg";
-  static const String icon3 = "${svg}icon3.svg";
+  static const String icon1 = "${svg}Icon (1).svg";
+  static const String icon2 = "${svg}Icon (2).svg";
+  static const String icon3 = "${svg}Icon (3).svg";
   static const String sofaIcon = "${svg}sofa.svg";
   static const String bicepIcon = "${svg}bicep.svg";
-    static const String checkIcon = "${svg}check_icon.svg";
-    static const String crossIcon = "${svg}cross_icon.svg";
-    static const String clockIcon = "${svg}clock_icon.svg";
+
+  static const String tagIcon = "${svg}tag_icon.svg";
+
+  static const String weightLifting = "${svg}weightlifting.svg";
+  static const String checkIcon = "${svg}check_icon.svg";
+  static const String crossIcon = "${svg}cross_icon.svg";
+  static const String clockIcon = "${svg}clock_icon.svg";
   static const String coachBottombar2 = "${svg}coach_bottombar_2.svg";
   static const String coachBottombar3 = "${svg}coach_bottombar_3.svg";
   static const String coachBottombar4 = "${svg}coach_bottombar_4.svg";
@@ -49,7 +60,7 @@ class AssetUtils {
   static const String pdfIcon = "${svg}pdf_icon.svg";
   static const String galleryIcon = "${svg}gallery_icon.svg";
   static const String documentIcon = "${svg}document_icon.svg";
-  static const String weightLifting = "${svg}weightlifting.svg";
+  // static const String weightLifting = "${svg}weightlifting.svg";
   static const String tomato = "${svg}tomato.svg";
   static const String rice = "${svg}rice.svg";
   static const String legPiece = "${svg}leg_piece.svg";
@@ -57,7 +68,6 @@ class AssetUtils {
   static const String brocli = "${svg}brocli.svg";
   static const String beef = "${svg}beef.svg";
   static const String avocado = "${svg}avocado.svg";
-
 
   static const String broccoliIcon = "${svg}broccole_icon.svg";
   static const String riceIcon = "${svg}rice_icon.svg";
@@ -83,6 +93,23 @@ class AssetUtils {
   static const String isValidate = "${svg}isValidate.svg";
 
   static const String appCrossIcon = "${svg}app_cross_icon.svg";
+  static const String closeIcon = "${svg}close_icon.svg";
+  static const String breadIcon = "${svg}bread_icon.svg";
+
+  static const String pinAppleIcon = "${svg}pinApple.svg";
+  static const String fireIcon = "${svg}fire_icon.svg";
+  static const String arrowUp = "${svg}arrow_up.svg";
+
+  static const String dumbleIcon = "${svg}dumble_icon.svg";
+
+  static const String meetSliceIcon = "${svg}meet_slice.svg";
+  static const String exploreIcon = "${svg}explore.svg";
+  static const String keyboardArrow = "${svg}keyboard_arrow.svg";
+  static const String handForwardIcon = "${svg}hand_forward_icon.svg";
+  static const String uploadImg = "${svg}upload_img.svg";
+  static const String redStar = "${svg}red_star.svg";
+  static const String whiteFireIcon = "${svg}white_fire_icon.svg";
+  static const String playIcon = "${svg}play_icon.svg";
 
   static const String profileIcon = "${svg}Profile.svg";
   static const String arrowGoto = "${svg}arrow_goto.svg";

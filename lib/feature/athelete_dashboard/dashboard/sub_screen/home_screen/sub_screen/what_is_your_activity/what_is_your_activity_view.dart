@@ -1,5 +1,5 @@
 import 'package:ast_official/app_ui_helpers/app_routes/route_paths.dart';
-import 'package:ast_official/feature/athelete_dashboard/home_screen/sub_screen/what_is_your_activity/what_is_your_activity_controller.dart';
+import 'package:ast_official/feature/athelete_dashboard/dashboard/sub_screen/home_screen/sub_screen/what_is_your_activity/what_is_your_activity_controller.dart';
 import 'package:ast_official/helpers/app_layout_helper.dart';
 import 'package:ast_official/ui_molecules/app_text/app_text.dart';
 import 'package:ast_official/ui_molecules/appbar/appbar.dart';
@@ -22,13 +22,12 @@ class _WhatIsYourActivityState extends State<WhatIsYourActivity> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      
       body: Padding(
         padding: EdgeInsets.symmetric(horizontal: cw(20)),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-  SizedBox(
+            SizedBox(
               height: ch(50),
             ),
             Row(
@@ -64,7 +63,6 @@ class _WhatIsYourActivityState extends State<WhatIsYourActivity> {
                 ),
               ],
             ),
-
             SizedBox(
               height: ch(40),
             ),
@@ -83,56 +81,58 @@ class _WhatIsYourActivityState extends State<WhatIsYourActivity> {
             SizedBox(
               height: ch(50),
             ),
-        Consumer<WhatIsYourActivityController>(
-  builder: (context, model, child) {
-    final types = model.catType["type"]!;
-    final icons = model.catType["iconImage"]!;
+            Consumer<WhatIsYourActivityController>(
+              builder: (context, model, child) {
+                final types = model.catType["type"]!;
+                final icons = model.catType["iconImage"]!;
 
-    return Wrap(
-      alignment: WrapAlignment.center,
-      spacing: cw(12), // space between horizontal cards
-      runSpacing: 16, // space between rows
-      children: List.generate(types.length, (index) {
-        final isSelected = model.selectedIndex == index;
+                return Wrap(
+                  alignment: WrapAlignment.center,
+                  spacing: cw(12), // space between horizontal cards
+                  runSpacing: 16, // space between rows
+                  children: List.generate(types.length, (index) {
+                    final isSelected = model.selectedIndex == index;
 
-        return GestureDetector(
-          onTap: () => model.setSelectIndex(index),
-          child: Container(
-            width:cw(160), // 2 per row
-            height: ch(53),
-            decoration: BoxDecoration(
-              color: isSelected
-                  ? AppColor.primary
-                  : AppColor.c252525.withOpacity(0.3),
-              borderRadius: BorderRadius.circular(14),
-              border: Border.all(
-                color: isSelected ? AppColor.primary : AppColor.c252525,
-                width: 1.2,
-              ),
+                    return GestureDetector(
+                      onTap: () => model.setSelectIndex(index),
+                      child: Container(
+                        width: cw(160), // 2 per row
+                        height: ch(53),
+                        decoration: BoxDecoration(
+                          color: isSelected
+                              ? AppColor.primary
+                              : AppColor.c252525.withOpacity(0.3),
+                          borderRadius: BorderRadius.circular(14),
+                          border: Border.all(
+                            color: isSelected
+                                ? AppColor.primary
+                                : AppColor.c252525,
+                            width: 1.2,
+                          ),
+                        ),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            SvgPicture.asset(
+                              icons[index],
+                              width: 20,
+                            ),
+                            const SizedBox(width: 8),
+                            AppText(
+                              txt: types[index],
+                              fontSize: AppFontSize.f19,
+                              fontWeight: FontWeight.w500,
+                              color: AppColor.cFFFFFF,
+                            ),
+                          ],
+                        ),
+                      ),
+                    );
+                  }),
+                );
+              },
             ),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                SvgPicture.asset(
-                  icons[index],
-                  width: 20,
-                ),
-                const SizedBox(width: 8),
-                AppText(
-                  txt: types[index],
-                  fontSize:AppFontSize.f19,
-                  fontWeight: FontWeight.w500,
-                  color: AppColor.cFFFFFF,
-                ),
-              ],
-            ),
-          ),
-        );
-      }),
-    );
-  },
-)
-,const Spacer(),
+            const Spacer(),
             AppButton(
                 buttonColor: AppColor.primary,
                 onPressed: () {

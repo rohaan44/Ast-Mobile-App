@@ -30,6 +30,13 @@ class RoutePaths {
   static const String whatIsYourActivityView = '/whatIsYourActivityView';
   static const String whatIsYourDietTypeView = '/whatIsYourDietTypeView';
 
+  static const String breakFastTimeView = '/breakFastTimeView';
+  static const String dinnerTimeView = '/dinnerTimeView';
+
+  static const String dashboardHomeScreen = '/dashboardHomeScreen';
+  static const String yourPersonalizedPlanView = '/yourPersonalizedPlanView';
+  static const String trainingDetailViw = '/trainingDetailViw';
+
   /////////////////Coaches Dashboard//////////////////////
   static const String coachMainScreenView = '/coachMainScreenView';
   static const String coachHomeScreenView = '/coachHomeScreenView';
@@ -38,11 +45,12 @@ class RoutePaths {
   static const String planPreviewScreen = '/planPreviewScreen';
   static const String notificationScreen = '/notificationScreen';
   static const String trainingPlanScreen = '/trainingPlanScreen';
-  static const String nutritionPlanScreen= '/nutritionPlanScreen';
-  static const String plansRoyaltiesScreen= '/plansRoyaltiesScreen';
+  static const String nutritionPlanScreen = '/nutritionPlanScreen';
+  static const String plansRoyaltiesScreen = '/plansRoyaltiesScreen';
   static const String transactionHistoryScreen = '/transactionHistoryScreen';
-    static const String athleteSubscriptionsScreen = '/athleteSubscriptionsScreen';
-   // static const String plansRoyaltiesScreen= '/plansRoyaltiesScreen';
+  static const String athleteSubscriptionsScreen =
+      '/athleteSubscriptionsScreen';
+  // static const String plansRoyaltiesScreen= '/plansRoyaltiesScreen';
 
 ///////////////////////////Tutor Sectio//////////////////////////////
 
