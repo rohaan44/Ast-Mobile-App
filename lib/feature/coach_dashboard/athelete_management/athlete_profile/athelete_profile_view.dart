@@ -1,4 +1,3 @@
-import 'dart:developer';
 import 'package:ast_official/feature/coach_dashboard/athelete_management/athlete_profile/athlete_profile_controller.dart';
 import 'package:ast_official/helpers/app_layout_helper.dart';
 import 'package:ast_official/ui_molecules/app_text/app_text.dart';
@@ -40,7 +39,7 @@ class _AthleteProfileViewState extends State<AthleteProfileView>
 
   @override
   Widget build(BuildContext context) {
-    final model = context.read<AthleteProfileController>();
+    // final model = context.read<AthleteProfileController>();
     return Scaffold(
       backgroundColor: const Color(0xFF121212),
       body: SafeArea(
@@ -52,13 +51,13 @@ class _AthleteProfileViewState extends State<AthleteProfileView>
               SizedBox(height: ch(20)),
 
               // 🔙 Back Button
-           IconButton(
-          highlightColor: AppColor.transparent,
-          focusColor: AppColor.transparent,
-          splashColor: AppColor.transparent,
-          icon: SvgPicture.asset(AssetUtils.backArrow),
-          onPressed: () => Navigator.pop(context),
-        ),
+              IconButton(
+                highlightColor: AppColor.transparent,
+                focusColor: AppColor.transparent,
+                splashColor: AppColor.transparent,
+                icon: SvgPicture.asset(AssetUtils.backArrow),
+                onPressed: () => Navigator.pop(context),
+              ),
 
               SizedBox(height: ch(20)),
 
@@ -922,139 +921,135 @@ class _AthleteProfileViewState extends State<AthleteProfileView>
       physics: const BouncingScrollPhysics(),
       child: Column(
         children: [
-         documentCard(
-      title: "Referto medico",
-      date: "Sep 15, 2025",
-      type: "Medico",
-      iconPath: AssetUtils.pdfIcon,
-      onDownload: () {},
-    ),
-    SizedBox(height: ch(20)),
-     documentCard(
-      title: "Foto di progresso",
-      date: "Jul 05, 2025",
-      type: "Formazione",
-      iconPath: AssetUtils.galleryIcon,
-      onDownload: () {},
-    ),
-        SizedBox(height: ch(20)),
-    documentCard(
-      title: "Modulo di consenso.",
-      date: "Jul 05, 2025",
-      type: "Certificazione",
-      iconPath: AssetUtils.documentIcon,
-      onDownload: () {},
-    ),
-  
-   
+          documentCard(
+            title: "Referto medico",
+            date: "Sep 15, 2025",
+            type: "Medico",
+            iconPath: AssetUtils.pdfIcon,
+            onDownload: () {},
+          ),
+          SizedBox(height: ch(20)),
+          documentCard(
+            title: "Foto di progresso",
+            date: "Jul 05, 2025",
+            type: "Formazione",
+            iconPath: AssetUtils.galleryIcon,
+            onDownload: () {},
+          ),
+          SizedBox(height: ch(20)),
+          documentCard(
+            title: "Modulo di consenso.",
+            date: "Jul 05, 2025",
+            type: "Certificazione",
+            iconPath: AssetUtils.documentIcon,
+            onDownload: () {},
+          ),
         ],
       ),
     );
   }
 
-
   Widget documentCard({
-  required String title,
-  required String date,
-  required String type,
-  required String iconPath,
-  required VoidCallback onDownload,
-}) {
-  return Container(
-    padding: EdgeInsets.symmetric(horizontal: cw(15), vertical: ch(15)),
-    width: double.infinity,
-    height: ch(114),
-    decoration: BoxDecoration(
-      color: AppColor.c1E1E1E,
-      borderRadius: BorderRadius.circular(cw(20)),
-      border: Border.all(width: 1, color: AppColor.cC6C6C6),
-    ),
-    child: Column(
-      children: [
-        // 🔹 Top Section (Icon + Title + Date)
-        Row(
-          children: [
-            Container(
-              width: cw(50),
-              height: cw(50),
-              padding: EdgeInsets.all(cw(15)),
-              decoration: BoxDecoration(
-                color: AppColor.c252525,
-                borderRadius: BorderRadius.circular(cw(50)),
-              ),
-              child: SvgPicture.asset(
-                iconPath,
-                color: AppColor.white,
-              ),
-            ),
-            SizedBox(width: cw(15)),
-            Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                AppText(
-                  txt: title,
-                  fontSize: AppFontSize.f19,
-                  fontWeight: FontWeight.w600,
-                ),
-                SizedBox(height: ch(8)),
-                AppText(
-                  txt: date,
-                  fontSize: AppFontSize.f14 + 2,
-                  color: AppColor.white.withOpacity(0.7),
-                  fontWeight: FontWeight.w600,
-                ),
-              ],
-            ),
-          ],
-        ),
-
-        const Spacer(),
-
-        // 🔹 Bottom Section (Type + Download)
-        Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: [
-            Container(
-              padding: EdgeInsets.symmetric(
-                vertical: ch(5),
-                horizontal: cw(10),
-              ),
-              decoration: BoxDecoration(
-                color: AppColor.c656565,
-                borderRadius: BorderRadius.circular(50),
-              ),
-              child: AppText(
-                txt: type,
-                color: AppColor.white,
-                fontSize: AppFontSize.f12 + 5,
-                fontWeight: FontWeight.w500,
-              ),
-            ),
-            GestureDetector(
-              onTap: onDownload,
-              child: Container(
-                width: cw(22),
-                height: ch(22),
+    required String title,
+    required String date,
+    required String type,
+    required String iconPath,
+    required VoidCallback onDownload,
+  }) {
+    return Container(
+      padding: EdgeInsets.symmetric(horizontal: cw(15), vertical: ch(15)),
+      width: double.infinity,
+      height: ch(114),
+      decoration: BoxDecoration(
+        color: AppColor.c1E1E1E,
+        borderRadius: BorderRadius.circular(cw(20)),
+        border: Border.all(width: 1, color: AppColor.cC6C6C6),
+      ),
+      child: Column(
+        children: [
+          // 🔹 Top Section (Icon + Title + Date)
+          Row(
+            children: [
+              Container(
+                width: cw(50),
+                height: cw(50),
+                padding: EdgeInsets.all(cw(15)),
                 decoration: BoxDecoration(
-                  color: AppColor.green,
-                  borderRadius: BorderRadius.circular(5),
+                  color: AppColor.c252525,
+                  borderRadius: BorderRadius.circular(cw(50)),
                 ),
-                child: const Icon(
-                  Icons.download,
-                  size: 16,
-                  color: Colors.white,
+                child: SvgPicture.asset(
+                  iconPath,
+                  color: AppColor.white,
                 ),
               ),
-            ),
-          ],
-        ),
-      ],
-    ),
-  );
-}
+              SizedBox(width: cw(15)),
+              Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  AppText(
+                    txt: title,
+                    fontSize: AppFontSize.f19,
+                    fontWeight: FontWeight.w600,
+                  ),
+                  SizedBox(height: ch(8)),
+                  AppText(
+                    txt: date,
+                    fontSize: AppFontSize.f14 + 2,
+                    color: AppColor.white.withOpacity(0.7),
+                    fontWeight: FontWeight.w600,
+                  ),
+                ],
+              ),
+            ],
+          ),
 
+          const Spacer(),
 
- Widget activityCard({
+          // 🔹 Bottom Section (Type + Download)
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Container(
+                padding: EdgeInsets.symmetric(
+                  vertical: ch(5),
+                  horizontal: cw(10),
+                ),
+                decoration: BoxDecoration(
+                  color: AppColor.c656565,
+                  borderRadius: BorderRadius.circular(50),
+                ),
+                child: AppText(
+                  txt: type,
+                  color: AppColor.white,
+                  fontSize: AppFontSize.f12 + 5,
+                  fontWeight: FontWeight.w500,
+                ),
+              ),
+              GestureDetector(
+                onTap: onDownload,
+                child: Container(
+                  width: cw(22),
+                  height: ch(22),
+                  decoration: BoxDecoration(
+                    color: AppColor.green,
+                    borderRadius: BorderRadius.circular(5),
+                  ),
+                  child: const Icon(
+                    Icons.download,
+                    size: 16,
+                    color: Colors.white,
+                  ),
+                ),
+              ),
+            ],
+          ),
+        ],
+      ),
+    );
+  }
+
+  Widget activityCard({
     required Widget child,
     bool isGradient = true,
     double borderRadius = 16,
