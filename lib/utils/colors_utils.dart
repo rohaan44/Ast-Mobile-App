@@ -136,7 +136,6 @@ class AppColor {
   static const c121212 = Color(0xff121212);
   static const cDC251B = Color(0xffDC251B);
   static const cD51E146E = Color(0xffD51E14);
-  // static const c42A8FF = Color(0xff42A8FF);
   static const c34C759 = Color(0xff34C759);
   static const cFFCC00 = Color(0xffFFCC00);
   static const cFF383C = Color(0xffFF383C);
@@ -149,13 +148,11 @@ class AppColor {
   static const cEB5923 = Color(0xffEB5923);
 
   static const c2D2D2D = Color(0xff2D2D2D);
-  // static const c34C759 = Color(0xff34C759);
   static const c626262 = Color(0xff626262);
   static const c6C6C6C = Color(0xff6C6C6C);
   static const cEB5725 = Color(0xffEB5725);
   static const c7E7E7E = Color(0xff7E7E7E);
   static const c686868 = Color(0xff686868);
   static const c292929 = Color(0xff292929);
-  // static const cFF8D28 = Color(0xffFF8D28);
   static const c00C3D0 = Color(0xff00C3D0);
 }
