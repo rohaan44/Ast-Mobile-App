@@ -1,9 +1,14 @@
 import 'package:ast_official/app_ui_helpers/app_routes/route_paths.dart';
+import 'package:ast_official/feature/athelete_dashboard/dashboard/dashboard_home_screen/dashboard_home_screen.dart';
 import 'package:ast_official/feature/athelete_dashboard/dashboard/dashboard_view.dart';
-import 'package:ast_official/feature/athelete_dashboard/home_screen/home_screen_view.dart';
-import 'package:ast_official/feature/athelete_dashboard/home_screen/sub_screen/personalize_your_experience/personalize_your_experience_view.dart';
-import 'package:ast_official/feature/athelete_dashboard/home_screen/sub_screen/what_is_your_activity/what_is_your_activity_view.dart';
-import 'package:ast_official/feature/athelete_dashboard/home_screen/sub_screen/what_is_your_diet_type/what_is_your_diet_type_view.dart';
+import 'package:ast_official/feature/athelete_dashboard/dashboard/sub_screen/home_screen/home_screen_view.dart';
+import 'package:ast_official/feature/athelete_dashboard/dashboard/sub_screen/home_screen/sub_screen/breakfast_time/breakfast_time_view.dart';
+import 'package:ast_official/feature/athelete_dashboard/dashboard/sub_screen/home_screen/sub_screen/dinner_time/dinner_time_view.dart';
+import 'package:ast_official/feature/athelete_dashboard/dashboard/sub_screen/home_screen/sub_screen/personalize_your_experience/personalize_your_experience_view.dart';
+import 'package:ast_official/feature/athelete_dashboard/dashboard/sub_screen/home_screen/sub_screen/what_is_your_activity/what_is_your_activity_view.dart';
+import 'package:ast_official/feature/athelete_dashboard/dashboard/sub_screen/home_screen/sub_screen/what_is_your_diet_type/what_is_your_diet_type_view.dart';
+import 'package:ast_official/feature/athelete_dashboard/dashboard/sub_screen/home_screen/sub_screen/your_personalized_plan/your_personalized_plan_view.dart';
+import 'package:ast_official/feature/athelete_dashboard/dashboard/sub_screen/training/sub_screen/training_detail_view.dart';
 import 'package:ast_official/feature/on_boarding/date_of_birth/date_of_birth_view.dart';
 import 'package:ast_official/feature/on_boarding/otp_view/otp_view.dart';
 import 'package:ast_official/feature/on_boarding/payment_flow/choose_your_plan/choose_your_plan_view.dart';
@@ -110,7 +115,7 @@ class AppRouter {
             return child;
           },
         );
-         case RoutePaths.selectObjective:
+      case RoutePaths.selectObjective:
         return PageRouteBuilder(
           pageBuilder: (context, animation, secondaryAnimation) {
             return const SelectObjectiveView();
@@ -119,7 +124,7 @@ class AppRouter {
             return child;
           },
         );
-         case RoutePaths.welcomeView:
+      case RoutePaths.welcomeView:
         return PageRouteBuilder(
           pageBuilder: (context, animation, secondaryAnimation) {
             return const WelcomeView();
@@ -128,7 +133,7 @@ class AppRouter {
             return child;
           },
         );
-        case RoutePaths.chooseYourPlan:
+      case RoutePaths.chooseYourPlan:
         return PageRouteBuilder(
           pageBuilder: (context, animation, secondaryAnimation) {
             return const ChooseYourPlanView();
@@ -137,7 +142,7 @@ class AppRouter {
             return child;
           },
         );
-         case RoutePaths.walletView:
+      case RoutePaths.walletView:
         return PageRouteBuilder(
           pageBuilder: (context, animation, secondaryAnimation) {
             return const WalletView();
@@ -146,7 +151,7 @@ class AppRouter {
             return child;
           },
         );
-         case RoutePaths.successView:
+      case RoutePaths.successView:
         return PageRouteBuilder(
           pageBuilder: (context, animation, secondaryAnimation) {
             return const SuccessView();
@@ -196,6 +201,61 @@ class AppRouter {
         return PageRouteBuilder(
           pageBuilder: (context, animation, secondaryAnimation) {
             return const WhatIsYourDietTypeView();
+          },
+          transitionsBuilder: (context, animation, secondaryAnimation, child) {
+            return child;
+          },
+        );
+
+      case RoutePaths.breakFastTimeView:
+        return PageRouteBuilder(
+          pageBuilder: (context, animation, secondaryAnimation) {
+            return const BreakFastTimeView();
+          },
+          transitionsBuilder: (context, animation, secondaryAnimation, child) {
+            return child;
+          },
+        );
+      case RoutePaths.dinnerTimeView:
+        return PageRouteBuilder(
+          pageBuilder: (context, animation, secondaryAnimation) {
+            return const DinnerTimeView();
+          },
+          transitionsBuilder: (context, animation, secondaryAnimation, child) {
+            return child;
+          },
+        );
+
+      case RoutePaths.yourPersonalizedPlanView:
+        return PageRouteBuilder(
+          pageBuilder: (context, animation, secondaryAnimation) {
+            return const YourPersonalizedPlanView();
+          },
+          transitionsBuilder: (context, animation, secondaryAnimation, child) {
+            return child;
+          },
+        );
+      case RoutePaths.dashboardHomeScreen:
+        return PageRouteBuilder(
+          pageBuilder: (context, animation, secondaryAnimation) {
+            return DashboardHomeScreen();
+          },
+          transitionsBuilder: (context, animation, secondaryAnimation, child) {
+            return child;
+          },
+        );
+      case RoutePaths.trainingDetailViw:
+        return PageRouteBuilder(
+          pageBuilder: (context, animation, secondaryAnimation) {
+            final args = settings.arguments as Map?;
+
+            return TrainingDetailView(
+              title: args?["title"] ?? "",
+              subTitle: args?["subTitle"],
+              difficultyLevel: args?["difficultyLevel"],
+              cardImg: args?["cardImg"],
+              date: args?["date"],
+            );
           },
           transitionsBuilder: (context, animation, secondaryAnimation, child) {
             return child;

@@ -27,6 +27,9 @@ class _HomeScreenviewState extends State<HomeScreenview> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
+              SizedBox(
+                height: ch(27),
+              ),
               Row(
                 children: [
                   SvgPicture.asset(AssetUtils.cloudIcon),
@@ -56,8 +59,10 @@ class _HomeScreenviewState extends State<HomeScreenview> {
               ),
               InkWell(
                 onTap: () {
-                  Navigator.pushNamedAndRemoveUntil(context,
-                      RoutePaths.personalizeYourExperienceView, (route) => false);
+                  Navigator.pushNamedAndRemoveUntil(
+                      context,
+                      RoutePaths.personalizeYourExperienceView,
+                      (route) => false);
                 },
                 child: Container(
                   height: ch(63),
@@ -278,7 +283,7 @@ class _HomeScreenviewState extends State<HomeScreenview> {
                         )
                       ],
                     ),
-        
+
                     // CircularPercentIndicator(
                     //   radius: 25.0,
                     //   lineWidth: cw(7),

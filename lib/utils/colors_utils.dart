@@ -10,8 +10,8 @@ class AppColor {
   static const red = Color(0xffFF3A2F); // Error
   static const blue = Color(0xff4D9BDA);
   static const c231F20 = Color(0xff231F20);
- static const c161616 = Color(0xff161616);
- static const c1E1E1E = Color(0xff1E1E1E);
+  static const c161616 = Color(0xff161616);
+  static const c1E1E1E = Color(0xff1E1E1E);
   static const brown = Color(0xff8B6E4A);
   static const cFFB236 = Color(0xffFFB236);
   static const c336255 = Color(0xff336255);
@@ -27,7 +27,7 @@ class AppColor {
   static const cE8E9E9 = Color(0xffE8E9E9);
   static const c252525 = Color(0xff252525);
   static const c454545 = Color(0xff454545);
-  
+
   // Gray Scale Palette
   static const transparent = Colors.transparent;
 
@@ -125,4 +125,19 @@ class AppColor {
   static const c162F28 = Color(0xff162F28);
   static const c151515 = Color(0xff151515);
   static const c121212 = Color(0xff121212);
+  static const cDC251B = Color(0xffDC251B);
+  static const cD51E146E = Color(0xffD51E14);
+  static const c42A8FF = Color(0xff42A8FF);
+  static const c34C759 = Color(0xff34C759);
+  static const cFFCC00 = Color(0xffFFCC00);
+  static const cFF383C = Color(0xffFF383C);
+  static const cFF8B5C = Color(0xffFF8B5C);
+
+  static const cFE6D38 = Color(0xffFE6D38);
+
+  static const cFF4343 = Color(0xffFF4343);
+  static const cFF8D28 = Color(0xffFF8D28);
+  static const cEB5923 = Color(0xffEB5923);
+
+  static const c2D2D2D = Color(0xff2D2D2D);
 }

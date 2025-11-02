@@ -1,5 +1,6 @@
 import 'package:ast_official/feature/athelete_dashboard/dashboard/dashboard_controller.dart';
-import 'package:ast_official/feature/athelete_dashboard/home_screen/home_screen_view.dart';
+import 'package:ast_official/feature/athelete_dashboard/dashboard/sub_screen/home_screen/home_screen_view.dart';
+import 'package:ast_official/feature/athelete_dashboard/dashboard/sub_screen/training/training_view.dart';
 import 'package:ast_official/helpers/app_layout_helper.dart';
 import 'package:ast_official/utils/colors_utils.dart';
 import 'package:flutter/material.dart';
@@ -17,7 +18,7 @@ class _DashboardViewState extends State<DashboardView> {
   int selectedIndex = 0;
   final List<Widget> screenList = [
     const HomeScreenview(),
-    homeScreen(),
+    const TrainingView(),
     homeScreen(),
     homeScreen(),
     homeScreen(),
@@ -32,6 +33,8 @@ class _DashboardViewState extends State<DashboardView> {
           children: [
             Positioned.fill(
               child: PageView(
+                physics: const NeverScrollableScrollPhysics(),
+                clipBehavior: Clip.none,
                 controller: model.pageController,
                 onPageChanged: model.setSelectedIndex,
                 children: screenList,
@@ -65,7 +68,11 @@ Widget _bottomNavBar() {
       height: 72,
       width: double.infinity,
       decoration: BoxDecoration(
-        color: Colors.black.withOpacity(0.25),
+        color: AppColor.c252525.withOpacity(0.25),
+        boxShadow: [
+          BoxShadow(
+              offset: Offset(30, 16), color: AppColor.c000000.withOpacity(0.15))
+        ],
         borderRadius: BorderRadius.circular(50),
       ),
       child: Consumer<DashboardController>(
@@ -94,15 +101,15 @@ Widget _bottomNavBar() {
                     shape: BoxShape.circle,
                     color: isSelected
                         ? Colors.red.withOpacity(0.9)
-                        : Colors.transparent,
+                        : AppColor.c1E1E1E,
                   ),
                   child: Center(
                     child: SvgPicture.asset(
                       model.iconsList[index],
-                      colorFilter: ColorFilter.mode(
-                        isSelected ? Colors.white : Colors.grey.shade400,
-                        BlendMode.srcIn,
-                      ),
+                      // colorFilter: ColorFilter.mode(
+                      //   isSelected ? AppColor.cFFFFFF : AppColor.cFFFFFF,
+                      //   BlendMode.srcIn,
+                      // ),
                       height: ch(24),
                       width: cw(24),
                     ),
