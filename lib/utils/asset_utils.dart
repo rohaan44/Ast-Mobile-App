@@ -127,4 +127,10 @@ class AssetUtils {
   static const String write = "${svg}write.svg";
   static const String scholarCap = "${svg}scholar_cap.svg";
   static const String circularAdd = "${svg}circular_add.svg";
+  static const String exit = "${svg}exit.svg";
+  static const String user = "${svg}user.svg";
+  static const String language = "${svg}language.svg";
+  static const String lock = "${svg}lock.svg";
+  static const String dropDownArrow = "${svg}ldropDownArrow.svg";
+  static const String uploadIcon = "${svg}uploadIcon.svg";
 }

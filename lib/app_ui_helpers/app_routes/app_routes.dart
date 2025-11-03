@@ -42,6 +42,10 @@ import 'package:ast_official/feature/tutor_dashboard/tutor_screens/tutor_course_
 import 'package:ast_official/feature/tutor_dashboard/tutor_screens/tutor_course_section/sub_screens/tutor_course_section_s4/tutor_course_section_s4.dart';
 import 'package:ast_official/feature/tutor_dashboard/tutor_screens/tutor_course_section/sub_screens/tutor_course_section_s5/tutor_course_section_s5.dart';
 import 'package:ast_official/feature/tutor_dashboard/tutor_screens/tutor_course_section/tutor_course_section.dart';
+import 'package:ast_official/feature/tutor_dashboard/tutor_screens/tutor_profile_settings_section/sub_screens/tutor_profile_settings_section_s2/tutor_profile_settings_section_s2.dart';
+import 'package:ast_official/feature/tutor_dashboard/tutor_screens/tutor_profile_settings_section/sub_screens/tutor_profile_settings_section_s3/tutor_profile_settings_section_s3.dart';
+import 'package:ast_official/feature/tutor_dashboard/tutor_screens/tutor_profile_settings_section/sub_screens/tutor_profile_settings_section_s4/tutor_profile_settings_section_s4.dart';
+import 'package:ast_official/feature/tutor_dashboard/tutor_screens/tutor_profile_settings_section/tutor_profile_settings_section.dart';
 import 'package:ast_official/feature/tutor_dashboard/tutor_screens/tutor_submission_section/tutor_submission_section.dart';
 import 'package:flutter/cupertino.dart';
 
@@ -381,7 +385,7 @@ class AppRouter {
             return child;
           },
         );
-        case RoutePaths.selectedChatScreen:
+      case RoutePaths.selectedChatScreen:
         return PageRouteBuilder(
           pageBuilder: (context, animation, secondaryAnimation) {
             return const SelectedChatView();
@@ -390,8 +394,6 @@ class AppRouter {
             return child;
           },
         );
-
-
 
 //////// Tutor Profile Settings
       case RoutePaths.tutorCourseSectionView:
@@ -474,6 +476,42 @@ class AppRouter {
         return PageRouteBuilder(
           pageBuilder: (context, animation, secondaryAnimation) {
             return const TutorSubmissionSectionView();
+          },
+          transitionsBuilder: (context, animation, secondaryAnimation, child) {
+            return child;
+          },
+        );
+      case RoutePaths.tutorProfileSettingsSectionView:
+        return PageRouteBuilder(
+          pageBuilder: (context, animation, secondaryAnimation) {
+            return const TutorProfileSettingsSectionView();
+          },
+          transitionsBuilder: (context, animation, secondaryAnimation, child) {
+            return child;
+          },
+        );
+      case RoutePaths.tutorProfileSettingsSectionS2View:
+        return PageRouteBuilder(
+          pageBuilder: (context, animation, secondaryAnimation) {
+            return const TutorProfileSettingsSectionS2View();
+          },
+          transitionsBuilder: (context, animation, secondaryAnimation, child) {
+            return child;
+          },
+        );
+      case RoutePaths.tutorProfileSettingsSectionS3View:
+        return PageRouteBuilder(
+          pageBuilder: (context, animation, secondaryAnimation) {
+            return const TutorProfileSettingsSectionS3View();
+          },
+          transitionsBuilder: (context, animation, secondaryAnimation, child) {
+            return child;
+          },
+        );
+      case RoutePaths.tutorProfileSettingsSectionS4View:
+        return PageRouteBuilder(
+          pageBuilder: (context, animation, secondaryAnimation) {
+            return const TutorProfileSettingsSectionS4View();
           },
           transitionsBuilder: (context, animation, secondaryAnimation, child) {
             return child;

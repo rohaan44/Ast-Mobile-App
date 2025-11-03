@@ -66,4 +66,12 @@ class RoutePaths {
   static const String athleteProfileView = '/athleteProfileView';
   static const String tutorSubmissionSectionView =
       '/tutorSubmissionSectionView';
+  static const String tutorProfileSettingsSectionView =
+      '/tutorProfileSettingsSectionView';
+  static const String tutorProfileSettingsSectionS2View =
+      '/tutorProfileSettingsSectionS2View';
+  static const String tutorProfileSettingsSectionS3View =
+      '/tutorProfileSettingsSectionS3View';
+  static const String tutorProfileSettingsSectionS4View =
+      '/tutorProfileSettingsSectionS4View';
 }

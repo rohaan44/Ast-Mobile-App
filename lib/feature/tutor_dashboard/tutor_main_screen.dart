@@ -1,4 +1,5 @@
 import 'package:ast_official/feature/tutor_dashboard/tutor_screens/tutor_course_section/tutor_course_section.dart';
+import 'package:ast_official/feature/tutor_dashboard/tutor_screens/tutor_profile_settings_section/tutor_profile_settings_section.dart';
 import 'package:ast_official/feature/tutor_dashboard/tutor_screens/tutor_submission_section/tutor_submission_section.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -35,6 +36,7 @@ class TutorMainScreen extends StatelessWidget {
           TutorHomeScreenView(),
           TutorCourseSectionView(),
           TutorSubmissionSectionView(),
+          TutorProfileSettingsSectionView(),
         ],
       ),
       bottomNavigationBar: tutorBottomBar(),
