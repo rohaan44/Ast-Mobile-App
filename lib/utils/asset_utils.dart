@@ -20,6 +20,7 @@ class AssetUtils {
   static const String selectedRoleTutor = "${png}select_role_tutor.png";
   static const String cardBg = "${png}card_back_image.png";
   static const String avatar = "${png}person.jpg";
+  static const String person = "${png}person.png";
 
   static const String docIcon = "${png}docIcon.png";
   // static const String cardBg = "${png}card_back_image.png";
@@ -133,4 +134,6 @@ class AssetUtils {
   static const String lock = "${svg}lock.svg";
   static const String dropDownArrow = "${svg}ldropDownArrow.svg";
   static const String uploadIcon = "${svg}uploadIcon.svg";
+  static const String profileUpload = "${svg}profileUpload.svg";
+  static const String cameraIcon = "${svg}cameraIcon.svg";
 }
