@@ -1,6 +1,5 @@
 import 'package:ast_official/app_ui_helpers/app_routes/app_routes.dart';
 import 'package:ast_official/app_ui_helpers/app_routes/route_paths.dart';
-import 'package:ast_official/feature/athelete_dashboard/sub_screen/athelet_chat/athelet_chat_view.dart';
 import 'package:ast_official/utils/colors_utils.dart';
 import 'package:ast_official/utils/main_provider/main_provider.dart';
 import 'package:ast_official/utils/theme/app_theme.dart';
@@ -40,8 +39,8 @@ class MyApp extends StatelessWidget {
         title: 'AST®️ Official App',
         theme: AppTheme.darkTheme,
         debugShowCheckedModeBanner: false,
-        home: const AtheletChatView(),
-        // initialRoute: RoutePaths.splashScreen,
+        // home: const PaymentsRoyaltiesView(),
+        initialRoute: RoutePaths.splashScreen,
         onGenerateRoute: AppRouter.generateRoute,
       );
     });
