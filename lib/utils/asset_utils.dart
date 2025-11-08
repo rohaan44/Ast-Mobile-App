@@ -40,7 +40,7 @@ class AssetUtils {
   static const String dumbelIcon = "${svg}dumbel_icon.svg";
   static const String bodyBack = "${png}body_back.png";
   static const String bodyFront = "${png}body_front.png";
-
+  static const String sideBody = "${png}side_body.png";
   static const String icon1 = "${svg}Icon (1).svg";
   static const String icon2 = "${svg}Icon (2).svg";
   static const String icon3 = "${svg}Icon (3).svg";
@@ -48,7 +48,7 @@ class AssetUtils {
   static const String bicepIcon = "${svg}bicep.svg";
 
   static const String tagIcon = "${svg}tag_icon.svg";
-
+  static const String colonIcon = "${svg}colons.svg";
   static const String infoIcon = "${svg}info_icon.svg";
   static const String weightLifting = "${svg}weightlifting.svg";
   static const String checkIcon = "${svg}check_icon.svg";
