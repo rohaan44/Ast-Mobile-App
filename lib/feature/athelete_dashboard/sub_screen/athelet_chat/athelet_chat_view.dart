@@ -108,8 +108,9 @@ class AtheletChatView extends StatelessWidget {
                           children: [
                             AppText(
                               txt: chat["time"].toString(),
+                              fontWeight: FontWeight.normal,
                               color: AppColor.white.withOpacity(0.6),
-                              fontSize: AppFontSize.f14 + 1,
+                              fontSize: AppFontSize.f15 + 1,
                             ),
                             SizedBox(height: ch(8)),
                             if (chat["unread"]! as int > 0)
