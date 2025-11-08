@@ -35,14 +35,14 @@ class DashboardHomeScreen extends StatelessWidget {
               padding: EdgeInsets.symmetric(horizontal: cw(20)),
               child: Row(
                 children: [
-                  SvgPicture.asset(AssetUtils.cloudIcon),
+                SvgPicture.asset(AssetUtils.cloudIcon,width: cw(20)),
                   SizedBox(
                     width: cw(7),
                   ),
                   AppText(
                     txt: "•",
                     color: AppColor.cFFFFFF,
-                    fontSize: 12,
+                    fontSize: AppFontSize.f15,
                     height: 1.5,
                   ),
                   SizedBox(
@@ -52,7 +52,7 @@ class DashboardHomeScreen extends StatelessWidget {
                     txt: " 90°C pioggia leggera oggi.",
                     fontWeight: FontWeight.w200,
                     color: AppColor.cFFFFFF,
-                    fontSize: 12,
+                    fontSize: AppFontSize.f16,
                     height: 1.5,
                   ),
                 ],
@@ -497,26 +497,26 @@ Widget walkingBox() {
       children: [
         Row(
           children: [
-            SvgPicture.asset(AssetUtils.cloudIcon),
+               SvgPicture.asset(AssetUtils.walkIcon,width: cw(20),),
             SizedBox(
               width: cw(7),
             ),
             AppText(
               txt: "•",
               color: AppColor.cFFFFFF,
-              fontSize: 12,
+              fontSize: AppFontSize.f15,
               height: 1.5,
             ),
             SizedBox(
               width: cw(7),
             ),
-            AppText(
-              txt: "Camminando",
-              fontWeight: FontWeight.w200,
-              color: AppColor.cFFFFFF,
-              fontSize: 12,
-              height: 1.5,
-            ),
+              AppText(
+                          txt: "Camminando",
+                          fontWeight: FontWeight.w500,
+                          color: AppColor.cFFFFFF,
+                          fontSize: AppFontSize.f16,
+                          height: 1.5,
+                        ),
             const Spacer(),
             Container(
               height: ch(26),

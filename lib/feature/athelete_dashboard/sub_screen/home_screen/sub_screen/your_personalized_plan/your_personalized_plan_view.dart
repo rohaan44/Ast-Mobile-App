@@ -158,10 +158,10 @@ class _YourPersonalizedPlanViewState extends State<YourPersonalizedPlanView> {
                 buttonColor: AppColor.primary,
                 onPressed: () {
                   Navigator.pushNamedAndRemoveUntil(context,
-                      RoutePaths.whatIsYourDietTypeView, (route) => false);
+                      RoutePaths.homeScreenView, (route) => false);
                 },
                 text: "Procedi con il piano",
-                fontSize: 16,
+                fontSize: AppFontSize.f16,
                 textColor: AppColor.cFFFFFF,
                 fontWeight: FontWeight.w600),
             SizedBox(

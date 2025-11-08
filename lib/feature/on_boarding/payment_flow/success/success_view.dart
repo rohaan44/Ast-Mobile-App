@@ -189,22 +189,26 @@ class SuccessView extends StatelessWidget {
                       Expanded(
                         child: AppButton(
                             text: "Fato",
-                            onPressed: () {
-                              final athleteFlowData = context
-                                  .read<FlowDataProvider>()
-                                  .getFlowData(customerOnboarding);
-                              if (athleteFlowData!["value"] == "Coach") {
-                                Navigator.pushNamedAndRemoveUntil(
-                                    context,
-                                    RoutePaths.coachMainScreenView,
-                                    (route) => false);
-                              } else {
-                                Navigator.pushNamedAndRemoveUntil(
-                                    context,
-                                    RoutePaths.homeScreenView,
-                                    (route) => false);
-                              }
-                            }),
+                          onPressed: () {
+  final athleteFlowData = context
+      .read<FlowDataProvider>()
+      .getFlowData(customerOnboarding);
+  final role = athleteFlowData != null ? athleteFlowData["value"] ?? "" : "";
+
+  if (role == "Coach") {
+    Navigator.pushNamedAndRemoveUntil(
+      context,
+      RoutePaths.coachMainScreenView,
+      (route) => false,
+    );
+  } else {
+    Navigator.pushNamedAndRemoveUntil(
+      context,
+      RoutePaths.homeScreenView,
+      (route) => false,
+    );
+  }
+},),
                       ),
                     ],
                   ),

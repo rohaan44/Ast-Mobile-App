@@ -38,16 +38,23 @@ class _PersonalizYourExperienceState extends State<PersonalizYourExperience> {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 // Left logo
+
+
                 GestureDetector(
-                  onTap: () {
-                    Navigator.pop(context);
-                  },
-                  child: SvgPicture.asset(
-                    AssetUtils.backArrow,
-                  ),
-                ),
+            behavior: HitTestBehavior.opaque,
+            onTap: () =>Navigator.pop(context),
+            child: Padding(
+              padding: const EdgeInsets.all(8.0), // small tap area
+              child: SvgPicture.asset(
+                AssetUtils.backArrow,
+                height: ch(20),
+                width: cw(20),
+              ),
+            ),
+          ),
+                
                 SizedBox(
-                    width: cw(158), child: customSlider(5, 1, AppColor.white)),
+                    width: cw(160), child: customSlider(5, 1, AppColor.white)),
                 Container(
                   width: cw(57),
                   height: ch(26),
@@ -182,8 +189,8 @@ class _PersonalizYourExperienceState extends State<PersonalizYourExperience> {
             AppButton(
                 buttonColor: AppColor.primary,
                 onPressed: () {
-                  Navigator.pushNamedAndRemoveUntil(context,
-                      RoutePaths.whatIsYourActivityView, (route) => false);
+                  Navigator.pushNamed(context,
+                      RoutePaths.whatIsYourActivityView);
                 },
                 text: "Avanti",
                 fontSize: 16,

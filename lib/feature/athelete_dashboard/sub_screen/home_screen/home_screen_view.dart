@@ -3,6 +3,7 @@ import 'package:ast_official/helpers/app_layout_helper.dart';
 import 'package:ast_official/ui_molecules/app_text/app_text.dart';
 import 'package:ast_official/utils/asset_utils.dart';
 import 'package:ast_official/utils/colors_utils.dart';
+import 'package:ast_official/utils/font_size.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:sizer/sizer.dart';
@@ -32,14 +33,14 @@ class _HomeScreenviewState extends State<HomeScreenview> {
               ),
               Row(
                 children: [
-                  SvgPicture.asset(AssetUtils.cloudIcon),
+                  SvgPicture.asset(AssetUtils.cloudIcon,width: cw(20)),
                   SizedBox(
                     width: cw(7),
                   ),
                   AppText(
                     txt: "•",
                     color: AppColor.cFFFFFF,
-                    fontSize: 12,
+                    fontSize: AppFontSize.f15,
                     height: 1.5,
                   ),
                   SizedBox(
@@ -49,7 +50,7 @@ class _HomeScreenviewState extends State<HomeScreenview> {
                     txt: " 90°C pioggia leggera oggi.",
                     fontWeight: FontWeight.w200,
                     color: AppColor.cFFFFFF,
-                    fontSize: 12,
+                    fontSize: AppFontSize.f16,
                     height: 1.5,
                   ),
                 ],
@@ -59,10 +60,10 @@ class _HomeScreenviewState extends State<HomeScreenview> {
               ),
               InkWell(
                 onTap: () {
-                  Navigator.pushNamedAndRemoveUntil(
+                  Navigator.pushNamed(
                       context,
                       RoutePaths.personalizeYourExperienceView,
-                      (route) => false);
+                      );
                 },
                 child: Container(
                   height: ch(63),
@@ -133,7 +134,7 @@ class _HomeScreenviewState extends State<HomeScreenview> {
                   children: [
                     Row(
                       children: [
-                        SvgPicture.asset(AssetUtils.cloudIcon),
+                        SvgPicture.asset(AssetUtils.walkIcon,width: cw(20),),
                         SizedBox(
                           width: cw(7),
                         ),
@@ -148,9 +149,9 @@ class _HomeScreenviewState extends State<HomeScreenview> {
                         ),
                         AppText(
                           txt: "Camminando",
-                          fontWeight: FontWeight.w200,
+                          fontWeight: FontWeight.w500,
                           color: AppColor.cFFFFFF,
-                          fontSize: 12,
+                          fontSize: AppFontSize.f16,
                           height: 1.5,
                         ),
                         const Spacer(),
@@ -186,7 +187,7 @@ class _HomeScreenviewState extends State<HomeScreenview> {
                                 AppText(
                                   txt: "0",
                                   color: AppColor.cFFFFFF,
-                                  fontSize: 20,
+                                  fontSize: AppFontSize.f20,
                                 ),
                                 SizedBox(
                                   width: cw(5),
@@ -195,7 +196,7 @@ class _HomeScreenviewState extends State<HomeScreenview> {
                                   txt: "Passi",
                                   fontWeight: FontWeight.w200,
                                   color: AppColor.cFFFFFF.withOpacity(0.7),
-                                  fontSize: 12,
+                                fontSize: AppFontSize.f20,
                                 ),
                               ],
                             ),
@@ -207,7 +208,7 @@ class _HomeScreenviewState extends State<HomeScreenview> {
                                 AppText(
                                   txt: "0",
                                   color: AppColor.cFFFFFF.withOpacity(0.7),
-                                  fontSize: 20,
+                                  fontSize: AppFontSize.f20,
                                 ),
                                 SizedBox(
                                   width: cw(5),
@@ -215,8 +216,9 @@ class _HomeScreenviewState extends State<HomeScreenview> {
                                 AppText(
                                   txt: "km  ",
                                   fontWeight: FontWeight.w200,
+                                  
                                   color: AppColor.cFFFFFF.withOpacity(0.7),
-                                  fontSize: 12,
+                                 fontSize: AppFontSize.f20,
                                 ),
                                 SizedBox(
                                   width: cw(7),
@@ -224,7 +226,7 @@ class _HomeScreenviewState extends State<HomeScreenview> {
                                 AppText(
                                   txt: "•",
                                   color: AppColor.cFFFFFF,
-                                  fontSize: 12,
+                                  fontSize: AppFontSize.f20,
                                   height: 1.5,
                                 ),
                                 SizedBox(
@@ -233,7 +235,7 @@ class _HomeScreenviewState extends State<HomeScreenview> {
                                 AppText(
                                   txt: "0",
                                   color: AppColor.cFFFFFF.withOpacity(0.7),
-                                  fontSize: 20,
+                                  fontSize: AppFontSize.f20,
                                 ),
                                 SizedBox(
                                   width: cw(4),
@@ -242,7 +244,7 @@ class _HomeScreenviewState extends State<HomeScreenview> {
                                   txt: "kcal  ",
                                   fontWeight: FontWeight.w200,
                                   color: AppColor.cFFFFFF.withOpacity(0.7),
-                                  fontSize: 12,
+                                  fontSize: AppFontSize.f20,
                                 ),
                                 SizedBox(
                                   width: cw(7),
@@ -250,7 +252,7 @@ class _HomeScreenviewState extends State<HomeScreenview> {
                                 AppText(
                                   txt: "•",
                                   color: AppColor.cFFFFFF,
-                                  fontSize: 12,
+                                  fontSize: AppFontSize.f20,
                                   height: 1.5,
                                 ),
                                 SizedBox(
@@ -259,7 +261,7 @@ class _HomeScreenviewState extends State<HomeScreenview> {
                                 AppText(
                                   txt: "0",
                                   color: AppColor.cFFFFFF.withOpacity(0.7),
-                                  fontSize: 20,
+                                  fontSize: AppFontSize.f20,
                                 ),
                                 SizedBox(
                                   width: cw(5),
@@ -268,7 +270,7 @@ class _HomeScreenviewState extends State<HomeScreenview> {
                                   txt: "kg",
                                   fontWeight: FontWeight.w200,
                                   color: AppColor.cFFFFFF.withOpacity(0.7),
-                                  fontSize: 12,
+                                  fontSize: AppFontSize.f20,
                                 ),
                               ],
                             ),

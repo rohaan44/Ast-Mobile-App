@@ -122,17 +122,22 @@ final isReset = flowData != null ? flowData["isReset"] ?? false : false;
                                 final data = context
                                     .read<FlowDataProvider>()
                                     .getFlowData(customerOnboarding);
-                                if (data!["value"] == "Tutor") {
+
+                                final role = data?["value"] ?? "";
+
+                                if (role == "Tutor") {
                                   Navigator.pushNamedAndRemoveUntil(
-                                      context,
-                                      RoutePaths.tutorMainScreen,
-                                      (route) => false);
+                                    context,
+                                    RoutePaths.tutorMainScreen,
+                                    (route) => false,
+                                  );
                                 } else {
-                                  Navigator.pushNamed(context,
-                                  isReset?
-                                       RoutePaths.resetPasswordScreen:
-                                      RoutePaths.dateOfBirth, 
-                                      );
+                                  Navigator.pushNamed(
+                                    context,
+                                    isReset
+                                        ? RoutePaths.resetPasswordScreen
+                                        : RoutePaths.dateOfBirth,
+                                  );
                                 }
                               },
                               text: "Verifica",

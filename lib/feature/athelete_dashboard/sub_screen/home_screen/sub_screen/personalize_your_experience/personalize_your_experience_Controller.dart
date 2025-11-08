@@ -8,9 +8,9 @@ class PersonalizYourExperienceController with ChangeNotifier {
   int get selectedIndex => _selectedIndex;
 
   List<String> get kgList =>
-      List.generate(66, (index) => (0 + index).toString());
+      List.generate(121, (index) => (0 + index).toString());
   List<String> get libbreList =>
-      List.generate(136, (index) => (0 + index).toString());
+      List.generate(301, (index) => (0 + index).toString());
 
   List<String> get currentList => _isKg ? kgList : libbreList;
 

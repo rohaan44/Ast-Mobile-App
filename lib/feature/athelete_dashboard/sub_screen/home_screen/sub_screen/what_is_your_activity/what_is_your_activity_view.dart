@@ -29,20 +29,26 @@ class _WhatIsYourActivityState extends State<WhatIsYourActivity> {
           children: [
             SizedBox(
               height: ch(50),
+
+              
             ),
             Row(
               crossAxisAlignment: CrossAxisAlignment.center,
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 // Left logo
-                GestureDetector(
-                  onTap: () {
-                    Navigator.pop(context);
-                  },
-                  child: SvgPicture.asset(
-                    AssetUtils.backArrow,
-                  ),
-                ),
+               GestureDetector(
+            behavior: HitTestBehavior.opaque,
+            onTap: () =>  Navigator.pop(context),
+            child: Padding(
+              padding: const EdgeInsets.all(8.0), // small tap area
+              child: SvgPicture.asset(
+                AssetUtils.backArrow,
+                height: ch(20),
+                width: cw(15),
+              ),
+            ),
+          ),
                 SizedBox(
                     width: cw(158), child: customSlider(5, 2, AppColor.white)),
                 Container(
@@ -136,8 +142,8 @@ class _WhatIsYourActivityState extends State<WhatIsYourActivity> {
             AppButton(
                 buttonColor: AppColor.primary,
                 onPressed: () {
-                  Navigator.pushNamedAndRemoveUntil(context,
-                      RoutePaths.whatIsYourDietTypeView, (route) => false);
+                  Navigator.pushNamed(context,
+                      RoutePaths.whatIsYourDietTypeView);
                 },
                 text: "Avanti",
                 fontSize: 16,
