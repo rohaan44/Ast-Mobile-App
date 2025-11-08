@@ -149,17 +149,14 @@ class AssetUtils {
   static const String redDumble = "${svg}red_dumble.svg";
   static const String goldenStar = "${svg}golden_star.svg";
   static const String tag = "${svg}tag.svg";
-<<<<<<< HEAD
   static const String stravaIcon = "${svg}strava_icon.svg";
   static const String myFitnessPalIcon = "${svg}my_fitness_pal.svg";
   static const String googleFitIcon = "${svg}google_fit_icon.svg";
   static const String appleHealthIcon = "${svg}apple_health_icon.svg";
   static const String emailIcon = "${svg}email_icon.svg";
   static const String integrationIcon = "${svg}integration_icon.svg";
-  
+
   static const String lockIcon = "${svg}lock_icon.svg";
-=======
   static const String profileUpload = "${svg}profileUpload.svg";
   static const String cameraIcon = "${svg}cameraIcon.svg";
->>>>>>> feature/tutor_v1
 }
