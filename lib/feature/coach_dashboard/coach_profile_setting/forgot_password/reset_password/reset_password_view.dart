@@ -1,5 +1,5 @@
 import 'package:ast_official/app_ui_helpers/app_routes/route_paths.dart';
-import 'package:ast_official/feature/on_boarding/otp_view/otp_controller.dart';
+import 'package:ast_official/feature/coach_dashboard/coach_profile_setting/forgot_password/reset_password/reset_password_controller.dart';
 import 'package:ast_official/helpers/app_layout_helper.dart';
 import 'package:ast_official/ui_molecules/app_dismis_keyboard.dart';
 import 'package:ast_official/ui_molecules/app_helper/app_constant.dart';
@@ -15,13 +15,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:provider/provider.dart';
 
-class OtpView extends StatelessWidget {
-  const OtpView({super.key});
+class ResetPasswordView extends StatelessWidget {
+  const ResetPasswordView({super.key});
 
   @override
   Widget build(BuildContext context) {
-           final flowData = context.read<FlowDataProvider>().getFlowData(resetPassword);
-final isReset = flowData != null ? flowData["isReset"] ?? false : false;
     return Scaffold(
         body: AppDismissKeyboard(
       child: Stack(children: [
@@ -83,7 +81,7 @@ final isReset = flowData != null ? flowData["isReset"] ?? false : false;
                               height: ch(20),
                             ),
                             AppText(
-                              txt: "Verifica OTP",
+                              txt: "Reimposta password",
                               fontSize: AppFontSize.f20,
                               fontWeight: FontWeight.w500,
                               color: AppColor.cFFFFFF,
@@ -94,7 +92,7 @@ final isReset = flowData != null ? flowData["isReset"] ?? false : false;
                             ),
                             AppText(
                               txt:
-                                  "Inserisci il codice di verifica che abbiamo inviato\n alla tua email kel**@gmail.com.   ",
+                                  "Inserisci il tuo indirizzo email per cercare il tuo account",
                               fontSize: AppFontSize.f18,
                               fontWeight: FontWeight.w400,
                               color: AppColor.cFFFFFF.withOpacity(0.5),
@@ -103,58 +101,49 @@ final isReset = flowData != null ? flowData["isReset"] ?? false : false;
                             SizedBox(
                               height: ch(25),
                             ),
-                            Consumer<OtpController>(
+                            Consumer<ResetPasswordController>(
                                 builder: (context, model, child) {
                               return primaryTextField(
-                                  keyboardType: TextInputType.number,
+                                  prefixIcon:
+                                      SvgPicture.asset(AssetUtils.lockIcon),
+                                  keyboardType: TextInputType.emailAddress,
                                   obscureText: true,
                                   border: InputBorder.none,
-                                  hintText: "Inserisci il codice qui",
+                                  hintText: "Nuova parola d'ordine",
                                   // prefixIcon: const Icon(CupertinoIcons.lock),
                                   // suffixIcon: Icon(Icons.remove_red_eye),
-                                  controller: model.otpTextController);
+                                  controller: model.passController);
+                            }),
+                            SizedBox(
+                              height: ch(20),
+                            ),
+                            Consumer<ResetPasswordController>(
+                                builder: (context, model, child) {
+                              return primaryTextField(
+                                  prefixIcon:
+                                      SvgPicture.asset(AssetUtils.lockIcon),
+                                  keyboardType: TextInputType.emailAddress,
+                                  obscureText: true,
+                                  border: InputBorder.none,
+                                  hintText: "Conferma password",
+                                  // prefixIcon: const Icon(CupertinoIcons.lock),
+                                  // suffixIcon: Icon(Icons.remove_red_eye),
+                                  controller: model.confirmPassController);
                             }),
                             SizedBox(
                               height: ch(25),
                             ),
                             AppButton(
                               onPressed: () {
-                                final data = context
-                                    .read<FlowDataProvider>()
-                                    .getFlowData(customerOnboarding);
-                                if (data!["value"] == "Tutor") {
-                                  Navigator.pushNamedAndRemoveUntil(
-                                      context,
-                                      RoutePaths.tutorMainScreen,
-                                      (route) => false);
-                                } else {
-                                  Navigator.pushNamed(context,
-                                  isReset?
-                                       RoutePaths.resetPasswordScreen:
-                                      RoutePaths.dateOfBirth, 
-                                      );
-                                }
+                                context.read<FlowDataProvider>().clearFlow(resetPassword);
+                                Navigator.pushNamedAndRemoveUntil(context, RoutePaths.coachMainScreenView , (route) => false);
+                               
                               },
-                              text: "Verifica",
+                              text: "Reimposta password",
                             ),
                             SizedBox(
                               height: ch(25),
                             ),
-                            Row(
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              children: [
-                                AppText(
-                                  txt: "Non hai ricevuto il codice?",
-                                  color: AppColor.white.withOpacity(0.50),
-                                  fontSize: AppFontSize.f15,
-                                ),
-                                AppText(
-                                  txt: "Invia di nuovo il codice",
-                                  color: AppColor.white,
-                                  fontSize: AppFontSize.f15,
-                                )
-                              ],
-                            )
                           ],
                         ),
                       ))
