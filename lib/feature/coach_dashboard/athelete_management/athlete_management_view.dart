@@ -1,7 +1,6 @@
 import 'package:ast_official/feature/coach_dashboard/athelete_management/athlete_management_controller.dart';
 import 'package:ast_official/feature/coach_dashboard/athelete_management/athlete_profile/athelete_profile_view.dart';
 import 'package:ast_official/helpers/app_layout_helper.dart';
-import 'package:ast_official/ui_molecules/app_text/app_text.dart';
 import 'package:ast_official/ui_molecules/appbar/appbar.dart';
 import 'package:ast_official/ui_molecules/listtile/athlete_listtile.dart';
 import 'package:ast_official/ui_molecules/primary_textfield/primary_text_field.dart';
