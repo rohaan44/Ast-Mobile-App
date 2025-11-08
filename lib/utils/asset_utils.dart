@@ -20,6 +20,7 @@ class AssetUtils {
   static const String selectedRoleTutor = "${png}select_role_tutor.png";
   static const String cardBg = "${png}card_back_image.png";
   static const String avatar = "${png}person.jpg";
+  static const String person = "${png}person.png";
 
   static const String profilePic = "${png}profile_pic.jpg";
 
@@ -137,6 +138,7 @@ class AssetUtils {
   static const String lock = "${svg}lock.svg";
   static const String dropDownArrow = "${svg}ldropDownArrow.svg";
   static const String uploadIcon = "${svg}uploadIcon.svg";
+<<<<<<< HEAD
   static const String stravaIcon = "${svg}strava_icon.svg";
   static const String myFitnessPalIcon = "${svg}my_fitness_pal.svg";
   static const String googleFitIcon = "${svg}google_fit_icon.svg";
@@ -145,4 +147,8 @@ class AssetUtils {
   static const String integrationIcon = "${svg}integration_icon.svg";
   
   static const String lockIcon = "${svg}lock_icon.svg";
+=======
+  static const String profileUpload = "${svg}profileUpload.svg";
+  static const String cameraIcon = "${svg}cameraIcon.svg";
+>>>>>>> feature/tutor_v1
 }

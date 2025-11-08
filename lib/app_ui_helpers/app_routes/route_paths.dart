@@ -79,6 +79,8 @@ class RoutePaths {
       '/tutorSubmissionSectionView';
   static const String tutorProfileSettingsSectionView =
       '/tutorProfileSettingsSectionView';
+  static const String tutorProfileSettingsSectionS1View =
+      '/tutorProfileSettingsSectionS1View';
   static const String tutorProfileSettingsSectionS2View =
       '/tutorProfileSettingsSectionS2View';
   static const String tutorProfileSettingsSectionS3View =
