@@ -19,7 +19,11 @@ class AssetUtils {
   static const String selectedRoleCoach = "${png}select_role_coach.png";
   static const String selectedRoleTutor = "${png}select_role_tutor.png";
   static const String cardBg = "${png}card_back_image.png";
+  static const String ticketBg = "${png}ticket_bg.png";
+
   static const String avatar = "${png}person.jpg";
+  static const String posture1 = "${png}posture1.png";
+  static const String posture2 = "${png}posture2.png";
 
   static const String docIcon = "${png}docIcon.png";
   // static const String cardBg = "${png}card_back_image.png";
@@ -37,6 +41,7 @@ class AssetUtils {
   static const String dumbelIcon = "${svg}dumbel_icon.svg";
   static const String bodyBack = "${png}body_back.png";
   static const String bodyFront = "${png}body_front.png";
+  static const String group6 = "${png}Group 6.png";
 
   static const String icon1 = "${svg}Icon (1).svg";
   static const String icon2 = "${svg}Icon (2).svg";
@@ -58,6 +63,8 @@ class AssetUtils {
   static const String tutorBottomIcon2 = "${svg}tutorBottomIcon2.svg";
   static const String tutorBottomIcon3 = "${svg}tutorBottomIcon3.svg";
   static const String tutorBottomIcon4 = "${svg}tutorBottomIcon4.svg";
+  static const String writeCheckIcon = "${svg}write_check_icon.svg";
+  static const String stickerIcon = "${svg}sticker.svg";
 
   static const String searchIcon = "${svg}search_icon.svg";
   static const String pdfIcon = "${svg}pdf_icon.svg";
@@ -133,4 +140,8 @@ class AssetUtils {
   static const String lock = "${svg}lock.svg";
   static const String dropDownArrow = "${svg}ldropDownArrow.svg";
   static const String uploadIcon = "${svg}uploadIcon.svg";
+  static const String circularCheck = "${svg}circular_check.svg";
+  static const String redDumble = "${svg}red_dumble.svg";
+  static const String goldenStar = "${svg}golden_star.svg";
+  static const String tag = "${svg}tag.svg";
 }

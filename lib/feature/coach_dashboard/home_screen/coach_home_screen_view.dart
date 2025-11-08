@@ -17,36 +17,35 @@ class CoachHomeScreenView extends StatelessWidget {
       body: SafeArea(
         child: Column(
           children: [
-             Padding(
-               padding: EdgeInsets.symmetric( horizontal: cw(20), vertical: ch(20)),
-               child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      AppText(
-                        txt: "Pannello Di Controllo",
-                        fontSize: AppFontSize.f24,
-                        isItalic: true,
-                        color: AppColor.white,
-                        fontWeight: FontWeight.w600,
-                      ),
-                      GestureDetector(
-                        child: SvgPicture.asset(
-                          AssetUtils.profileIcon,
-                          height: ch(40),
-                        ),
-                      )
-                    ],
+            Padding(
+              padding:
+                  EdgeInsets.symmetric(horizontal: cw(20), vertical: ch(20)),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  AppText(
+                    txt: "Pannello Di Controllo",
+                    fontSize: AppFontSize.f24,
+                    isItalic: true,
+                    color: AppColor.white,
+                    fontWeight: FontWeight.w600,
                   ),
-             ),
-                
+                  GestureDetector(
+                    child: SvgPicture.asset(
+                      AssetUtils.profileIcon,
+                      height: ch(40),
+                    ),
+                  )
+                ],
+              ),
+            ),
             Expanded(
               child: SingleChildScrollView(
-                 padding: EdgeInsets.symmetric(horizontal: cw(20)),
-                physics:const BouncingScrollPhysics(),
+                padding: EdgeInsets.symmetric(horizontal: cw(20)),
+                physics: const BouncingScrollPhysics(),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                   
                     Row(
                       children: [
                         Expanded(
@@ -83,7 +82,7 @@ class CoachHomeScreenView extends StatelessWidget {
                         ),
                         Expanded(
                             child: activityCardItem(
-                              image:const AssetImage(AssetUtils.cardBg),
+                          image: const AssetImage(AssetUtils.cardBg),
                           title: "Suggerimenti",
                           subtitle: "Dell'intelligenza\nArtificiale",
                           countLabel: "5 Suggerimenti",
@@ -186,10 +185,10 @@ class CoachHomeScreenView extends StatelessWidget {
                           fontWeight: FontWeight.w600,
                         ),
                         GestureDetector(
-                            onTap: () {
-                                Navigator.pushNamed(context, RoutePaths.notificationScreen);
-                              },
-                            
+                          onTap: () {
+                            Navigator.pushNamed(
+                                context, RoutePaths.notificationScreen);
+                          },
                           child: Row(
                             crossAxisAlignment: CrossAxisAlignment.center,
                             children: [
@@ -200,23 +199,43 @@ class CoachHomeScreenView extends StatelessWidget {
                                 decoration: TextDecoration.underline,
                                 decorationColor: AppColor.c42A8FF,
                               ),
-                              SizedBox(width: cw(4),),
-                              SvgPicture.asset(AssetUtils.arrowForward,color:  AppColor.c42A8FF,)
+                              SizedBox(
+                                width: cw(4),
+                              ),
+                              SvgPicture.asset(
+                                AssetUtils.arrowForward,
+                                color: AppColor.c42A8FF,
+                              )
                             ],
                           ),
                         )
                       ],
+                    ),
+                    SizedBox(
+                      height: ch(15),
+                    ),
+                    notificationCard(
+                        title: "Check-in",
+                        title_2: " In Ritardo",
+                        subtitle: "L'atleta John Doe ha una causa in sospeso"),
+                    SizedBox(
+                      height: ch(15),
+                    ),
+                    notificationCard(
+                        title: "Nuovo Piano: ",
+                        title_2: " Parte Superiore Del Corpo",
+                        subtitle:
+                            "L'intelligenza artificiale ha generato un nuovo piano"),
+                    SizedBox(
+                      height: ch(15),
+                    ),
+                    notificationCard(
+                        title: "Check-in ",
+                        title_2: " inviato",
+                        subtitle: "L'atleta Jane Roe ha inviato"),
+                    SizedBox(
+                      height: ch(50),
                     )
-                 
-                ,SizedBox(height: ch(15),),
-                notificationCard(title: "Check-in", title_2: " In Ritardo", subtitle: "L'atleta John Doe ha una causa in sospeso"),
-                SizedBox(height: ch(15),),
-                notificationCard(title: "Nuovo Piano: ", title_2: " Parte Superiore Del Corpo", subtitle: "L'intelligenza artificiale ha generato un nuovo piano"),
-                SizedBox(height: ch(15),),
-                notificationCard(title: "Check-in ", title_2: " inviato", subtitle: "L'atleta Jane Roe ha inviato"),
-                
-                          
-                SizedBox(height: ch(50),)
                   ],
                 ),
               ),
@@ -235,15 +254,19 @@ Widget activityCard({
   double borderWidth = 2,
   EdgeInsets? padding,
   double? width,
-  ImageProvider? image,  
+  ImageProvider? image,
   double? height,
 }) {
   return Container(
     width: width,
     height: height,
     decoration: BoxDecoration(
-     image: image != null 
-          ? DecorationImage(image: image, fit: BoxFit.cover,colorFilter: ColorFilter.mode(AppColor.background.withOpacity(0.8), BlendMode.darken))
+      image: image != null
+          ? DecorationImage(
+              image: image,
+              fit: BoxFit.cover,
+              colorFilter: ColorFilter.mode(
+                  AppColor.background.withOpacity(0.8), BlendMode.darken))
           : null,
       border: Border.all(
           width: isGradient == false ? 3 : 0,
@@ -288,7 +311,7 @@ Widget activityCardItem({
   double? height,
   bool isSpacer = false,
   VoidCallback? onTap,
- ImageProvider? image,
+  ImageProvider? image,
 }) {
   return GestureDetector(
     onTap: onTap,
@@ -296,8 +319,8 @@ Widget activityCardItem({
       isGradient: isGradient,
       width: width,
       height: height,
-      image: image
-          ,child: Column(
+      image: image,
+      child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           if (isSpacer == true) ...[const Spacer()],
@@ -308,7 +331,6 @@ Widget activityCardItem({
             isItalic: true,
             height: 1.5,
           ),
-
           SizedBox(height: ch(15)),
           Container(
             width: cw(114),
@@ -338,58 +360,57 @@ Widget activityCardItem({
   );
 }
 
-
 Widget notificationCard({
   required String title,
- required String title_2,
- required String subtitle,
- }
-){
+  required String title_2,
+  required String subtitle,
+}) {
   return Container(
     alignment: Alignment.center,
-    padding:  EdgeInsets.symmetric(vertical: ch(16.0), horizontal: cw(16.0)),
-   decoration: BoxDecoration(
-
+    padding: EdgeInsets.symmetric(vertical: ch(16.0), horizontal: cw(16.0)),
+    decoration: BoxDecoration(
       color: AppColor.white.withOpacity(0.05),
       borderRadius: BorderRadius.circular(cw(20)), // Rounded corners
     ),
     child: Row(
       crossAxisAlignment: CrossAxisAlignment.center,
-
       children: <Widget>[
         Container(
-          width: cw(50),
-          height: ch(50),
-          padding: EdgeInsets.all(cw(15)),
-          decoration: const BoxDecoration(
-            color: AppColor.c252525,
-            shape: BoxShape.circle,
-          ),
-          child: SvgPicture.asset(AssetUtils.bellIcon,width: 18,height: 18,)
-        ),
-         SizedBox(width: cw(16)),
+            width: cw(50),
+            height: ch(50),
+            padding: EdgeInsets.all(cw(15)),
+            decoration: const BoxDecoration(
+              color: AppColor.c252525,
+              shape: BoxShape.circle,
+            ),
+            child: SvgPicture.asset(
+              AssetUtils.bellIcon,
+              width: 18,
+              height: 18,
+            )),
+        SizedBox(width: cw(16)),
         Expanded(
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
               RichText(
-                text:  TextSpan(
+                text: TextSpan(
                   children: [
                     TextSpan(
                       text: title,
                       style: TextStyle(
                         color: AppColor.white,
-                        fontSize: AppFontSize.f20-2,
+                        fontSize: AppFontSize.f20 - 2,
                         fontWeight: FontWeight.w900,
-                        height: 1.2, 
+                        height: 1.2,
                       ),
                     ),
                     TextSpan(
                       text: title_2,
                       style: TextStyle(
-                         color: AppColor.white,
-                       fontSize: AppFontSize.f20-2,
+                        color: AppColor.white,
+                        fontSize: AppFontSize.f20 - 2,
                         fontWeight: FontWeight.w900,
                         height: 1.2,
                       ),
@@ -397,14 +418,14 @@ Widget notificationCard({
                   ],
                 ),
               ),
-              SizedBox(height: ch(4)), 
-               AppText(txt:
-                subtitle,
-                  color: AppColor.white.withOpacity(0.5),
-                  fontSize: AppFontSize.f16,
-                  fontWeight: FontWeight.normal,
-                  maxLines: 1,
-                  overflow: TextOverflow.ellipsis,
+              SizedBox(height: ch(4)),
+              AppText(
+                txt: subtitle,
+                color: AppColor.white.withOpacity(0.5),
+                fontSize: AppFontSize.f16,
+                fontWeight: FontWeight.normal,
+                maxLines: 1,
+                overflow: TextOverflow.ellipsis,
               ),
             ],
           ),
@@ -413,5 +434,3 @@ Widget notificationCard({
     ),
   );
 }
-
-
