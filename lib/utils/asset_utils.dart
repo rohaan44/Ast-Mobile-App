@@ -141,6 +141,8 @@ class AssetUtils {
   static const String myFitnessPalIcon = "${svg}my_fitness_pal.svg";
   static const String googleFitIcon = "${svg}google_fit_icon.svg";
   static const String appleHealthIcon = "${svg}apple_health_icon.svg";
-
-    static const String integrationIcon = "${svg}integration_icon.svg";
+  static const String emailIcon = "${svg}email_icon.svg";
+  static const String integrationIcon = "${svg}integration_icon.svg";
+  
+  static const String lockIcon = "${svg}lock_icon.svg";
 }

@@ -55,7 +55,8 @@ class RoutePaths {
   static const String integrationScreen = '/integrationScreen';
 
   static const String coachEditProfileView = '/coachEditProfileView';
-
+  static const String resetPasswordEmailScreen = '/resetPasswordEmailScreen';
+  static const String resetPasswordScreen = '/resetPasswordScreen';
   static const String coachRenewCertificationView = '/coachRenewCertificationView';
   static const String coachInfoView = '/coachInfoView';
   static const String selectedChatScreen = '/selectedChatScreen';

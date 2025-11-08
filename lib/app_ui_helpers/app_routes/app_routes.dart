@@ -16,7 +16,10 @@ import 'package:ast_official/feature/coach_dashboard/coach_profile_setting/coach
 import 'package:ast_official/feature/coach_dashboard/coach_profile_setting/coach_edit_profile/coach_edit_profile_view.dart';
 import 'package:ast_official/feature/coach_dashboard/coach_profile_setting/coach_profile_setting_view.dart';
 import 'package:ast_official/feature/coach_dashboard/coach_profile_setting/coach_renew_certificate/coach_renew_certificate_view.dart';
+import 'package:ast_official/feature/coach_dashboard/coach_profile_setting/forgot_password/reset_password/reset_password_view.dart';
+import 'package:ast_official/feature/coach_dashboard/coach_profile_setting/forgot_password/reset_password_email/reset_password_email_view.dart';
 import 'package:ast_official/feature/coach_dashboard/coach_profile_setting/integration/integration_view.dart';
+import 'package:ast_official/feature/coach_dashboard/coach_profile_setting/language/language_view.dart';
 import 'package:ast_official/feature/coach_dashboard/home_screen/coach_home_screen_view.dart';
 import 'package:ast_official/feature/coach_dashboard/notification/notification_screen.dart';
 import 'package:ast_official/feature/coach_dashboard/plans/nutrition_plan/nutrition_plan_view.dart';
@@ -451,7 +454,27 @@ case RoutePaths.coachEditProfileView:
          case RoutePaths.languageSelectedScreen:
         return PageRouteBuilder(
           pageBuilder: (context, animation, secondaryAnimation) {
-            return const IntegrationView();
+            return const LanguageView();
+          },
+          transitionsBuilder: (context, animation, secondaryAnimation, child) {
+            return child;
+          },
+        );
+
+        case RoutePaths.resetPasswordEmailScreen:
+        return PageRouteBuilder(
+          pageBuilder: (context, animation, secondaryAnimation) {
+            return const ResetPasswordEmailView();
+          },
+          transitionsBuilder: (context, animation, secondaryAnimation, child) {
+            return child;
+          },
+        );
+
+            case RoutePaths.resetPasswordScreen:
+        return PageRouteBuilder(
+          pageBuilder: (context, animation, secondaryAnimation) {
+            return const ResetPasswordView();
           },
           transitionsBuilder: (context, animation, secondaryAnimation, child) {
             return child;

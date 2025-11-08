@@ -1,27 +1,25 @@
 import 'package:ast_official/app_ui_helpers/app_routes/route_paths.dart';
-import 'package:ast_official/feature/on_boarding/otp_view/otp_controller.dart';
+import 'package:ast_official/feature/coach_dashboard/coach_profile_setting/forgot_password/reset_password_email/reset_password_email_controller.dart';
 import 'package:ast_official/helpers/app_layout_helper.dart';
 import 'package:ast_official/ui_molecules/app_dismis_keyboard.dart';
 import 'package:ast_official/ui_molecules/app_helper/app_constant.dart';
 import 'package:ast_official/ui_molecules/app_helper/app_helpers.dart';
 import 'package:ast_official/ui_molecules/app_text/app_text.dart';
-import 'package:ast_official/ui_molecules/buttons/app_primary_button.dart';
 import 'package:ast_official/ui_molecules/primary_textfield/primary_text_field.dart';
+import 'package:ast_official/ui_molecules/buttons/app_primary_button.dart';
 import 'package:ast_official/utils/asset_utils.dart';
 import 'package:ast_official/utils/colors_utils.dart';
 import 'package:ast_official/utils/font_size.dart';
 import 'package:ast_official/utils/gradients/app_gradients.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:provider/provider.dart';
 
-class OtpView extends StatelessWidget {
-  const OtpView({super.key});
+class ResetPasswordEmailView extends StatelessWidget {
+  const ResetPasswordEmailView({super.key});
 
   @override
   Widget build(BuildContext context) {
-           final flowData = context.read<FlowDataProvider>().getFlowData(resetPassword);
-final isReset = flowData != null ? flowData["isReset"] ?? false : false;
     return Scaffold(
         body: AppDismissKeyboard(
       child: Stack(children: [
@@ -83,7 +81,7 @@ final isReset = flowData != null ? flowData["isReset"] ?? false : false;
                               height: ch(20),
                             ),
                             AppText(
-                              txt: "Verifica OTP",
+                              txt: "Reimposta password",
                               fontSize: AppFontSize.f20,
                               fontWeight: FontWeight.w500,
                               color: AppColor.cFFFFFF,
@@ -94,7 +92,7 @@ final isReset = flowData != null ? flowData["isReset"] ?? false : false;
                             ),
                             AppText(
                               txt:
-                                  "Inserisci il codice di verifica che abbiamo inviato\n alla tua email kel**@gmail.com.   ",
+                                  "Inserisci il tuo indirizzo email per cercare il tuo account",
                               fontSize: AppFontSize.f18,
                               fontWeight: FontWeight.w400,
                               color: AppColor.cFFFFFF.withOpacity(0.5),
@@ -103,58 +101,50 @@ final isReset = flowData != null ? flowData["isReset"] ?? false : false;
                             SizedBox(
                               height: ch(25),
                             ),
-                            Consumer<OtpController>(
+                            Consumer<ResetPasswordEmailController>(
                                 builder: (context, model, child) {
                               return primaryTextField(
-                                  keyboardType: TextInputType.number,
-                                  obscureText: true,
+                                  prefixIcon:
+                                      SvgPicture.asset(AssetUtils.emailIcon),
+                                  keyboardType: TextInputType.emailAddress,
+                                  // obscureText: true,
                                   border: InputBorder.none,
-                                  hintText: "Inserisci il codice qui",
+                                  hintText: "Indirizzo E-mail",
                                   // prefixIcon: const Icon(CupertinoIcons.lock),
                                   // suffixIcon: Icon(Icons.remove_red_eye),
-                                  controller: model.otpTextController);
+                                  controller: model.emailController);
                             }),
                             SizedBox(
                               height: ch(25),
                             ),
                             AppButton(
                               onPressed: () {
-                                final data = context
+                                context
                                     .read<FlowDataProvider>()
-                                    .getFlowData(customerOnboarding);
-                                if (data!["value"] == "Tutor") {
-                                  Navigator.pushNamedAndRemoveUntil(
-                                      context,
-                                      RoutePaths.tutorMainScreen,
-                                      (route) => false);
-                                } else {
-                                  Navigator.pushNamed(context,
-                                  isReset?
-                                       RoutePaths.resetPasswordScreen:
-                                      RoutePaths.dateOfBirth, 
-                                      );
-                                }
+                                    .addOrUpdateFlow(
+                                  flowTag: resetPassword,
+                                  data: {
+                                    "isReset": true,
+                                  },
+                                );
+                                Navigator.pushNamedAndRemoveUntil(context,
+                                    RoutePaths.otpView, (route) => false);
+                                //     final data =context.read<FlowDataProvider>().getFlowData(customerOnboarding);
+                                //     if (data!["value"]=="Tutor") {
+                                //  Navigator.pushNamedAndRemoveUntil(context,
+                                //         RoutePaths.tutorMainScreen, (route) => false);
+
+                                //     }else{
+                                //       Navigator.pushNamedAndRemoveUntil(context,
+                                //         RoutePaths.dateOfBirth, (route) => false);
+
+                                //     }
                               },
-                              text: "Verifica",
+                              text: "Invia codice",
                             ),
                             SizedBox(
                               height: ch(25),
                             ),
-                            Row(
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              children: [
-                                AppText(
-                                  txt: "Non hai ricevuto il codice?",
-                                  color: AppColor.white.withOpacity(0.50),
-                                  fontSize: AppFontSize.f15,
-                                ),
-                                AppText(
-                                  txt: "Invia di nuovo il codice",
-                                  color: AppColor.white,
-                                  fontSize: AppFontSize.f15,
-                                )
-                              ],
-                            )
                           ],
                         ),
                       ))

@@ -12,7 +12,10 @@ import 'package:ast_official/feature/coach_dashboard/athelete_management/athlete
 import 'package:ast_official/feature/coach_dashboard/athelete_management/athlete_profile/athlete_profile_controller.dart';
 import 'package:ast_official/feature/coach_dashboard/coach_Message/coach_chat_controller.dart';
 import 'package:ast_official/feature/coach_dashboard/coach_profile_setting/coach_edit_profile/coach_edit_profile_controller.dart';
+import 'package:ast_official/feature/coach_dashboard/coach_profile_setting/forgot_password/reset_password/reset_password_controller.dart';
+import 'package:ast_official/feature/coach_dashboard/coach_profile_setting/forgot_password/reset_password_email/reset_password_email_controller.dart';
 import 'package:ast_official/feature/coach_dashboard/coach_profile_setting/integration/integration_controller.dart';
+import 'package:ast_official/feature/coach_dashboard/coach_profile_setting/language/language_controller.dart';
 import 'package:ast_official/feature/coach_dashboard/home_screen/coach_home_screen_controller.dart';
 import 'package:ast_official/feature/coach_dashboard/plans/nutrition_plan/nutrition_plan_controller.dart';
 import 'package:ast_official/feature/coach_dashboard/plans/plan_preview/plan_preview_controller.dart';
@@ -116,7 +119,16 @@ List<SingleChildWidget> providersList = [
   ChangeNotifierProvider(
     create: (_) => IntegrationController(),
   ),
+  ChangeNotifierProvider(
+    create: (_) => LanguageSelectorController(),
+  ),
 
+  ChangeNotifierProvider(
+    create: (_) => ResetPasswordEmailController(),
+  ),
+   ChangeNotifierProvider(
+    create: (_) => ResetPasswordController(),
+  ),
   ////////Tutor Dashboard//////
   ChangeNotifierProvider(create: (context) => TutorHomeScreenController()),
 

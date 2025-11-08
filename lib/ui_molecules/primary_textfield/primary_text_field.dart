@@ -93,7 +93,10 @@ Widget primaryTextField({
                 ),
             prefixIcon: Padding(
               padding: EdgeInsets.only(
-                  right: cw(8)), // 👈 adds space between icon and text
+                  right: cw(8),
+                  left: cw(16)
+                  ),
+                   // 👈 adds space between icon and text
               child: prefixIcon,
             ),
             prefixIconConstraints: BoxConstraints(
