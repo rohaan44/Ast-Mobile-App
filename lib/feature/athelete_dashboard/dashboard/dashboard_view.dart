@@ -1,6 +1,9 @@
 import 'package:ast_official/feature/athelete_dashboard/dashboard/dashboard_controller.dart';
-import 'package:ast_official/feature/athelete_dashboard/dashboard/sub_screen/home_screen/home_screen_view.dart';
-import 'package:ast_official/feature/athelete_dashboard/dashboard/sub_screen/training/training_view.dart';
+import 'package:ast_official/feature/athelete_dashboard/sub_screen/athelet_chat/athelet_chat_view.dart';
+import 'package:ast_official/feature/athelete_dashboard/sub_screen/athelet_coaches/athelet_coaches_view.dart';
+import 'package:ast_official/feature/athelete_dashboard/sub_screen/check_in/check_in_view.dart';
+import 'package:ast_official/feature/athelete_dashboard/sub_screen/dashboard_home_screen/dashboard_home_screen.dart';
+import 'package:ast_official/feature/athelete_dashboard/sub_screen/training/training_view.dart';
 import 'package:ast_official/helpers/app_layout_helper.dart';
 import 'package:ast_official/utils/colors_utils.dart';
 import 'package:flutter/material.dart';
@@ -17,11 +20,12 @@ class DashboardView extends StatefulWidget {
 class _DashboardViewState extends State<DashboardView> {
   int selectedIndex = 0;
   final List<Widget> screenList = [
-    const HomeScreenview(),
+    const DashboardHomeScreen(),
+    // const HomeScreenview(),
     const TrainingView(),
-    homeScreen(),
-    homeScreen(),
-    homeScreen(),
+    const AtheletCoachesView(),
+    const CheckIn(),
+    const AtheletChatView()
   ];
   @override
   Widget build(BuildContext context) {

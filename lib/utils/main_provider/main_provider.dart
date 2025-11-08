@@ -1,13 +1,22 @@
 import 'package:ast_official/feature/athelete_dashboard/dashboard/dashboard_controller.dart';
-import 'package:ast_official/feature/athelete_dashboard/dashboard/dashboard_home_screen/dashboard_home_screen_controller.dart';
-import 'package:ast_official/feature/athelete_dashboard/dashboard/sub_screen/home_screen/home_screen_controller.dart';
-import 'package:ast_official/feature/athelete_dashboard/dashboard/sub_screen/home_screen/sub_screen/breakfast_time/breakfast_time_controller.dart';
-import 'package:ast_official/feature/athelete_dashboard/dashboard/sub_screen/home_screen/sub_screen/dinner_time/dinner_time_controller.dart';
-import 'package:ast_official/feature/athelete_dashboard/dashboard/sub_screen/home_screen/sub_screen/personalize_your_experience/personalize_your_experience_Controller.dart';
-import 'package:ast_official/feature/athelete_dashboard/dashboard/sub_screen/home_screen/sub_screen/what_is_your_activity/what_is_your_activity_controller.dart';
-import 'package:ast_official/feature/athelete_dashboard/dashboard/sub_screen/home_screen/sub_screen/what_is_your_diet_type/what_is_your_diet_type_controller.dart';
-import 'package:ast_official/feature/athelete_dashboard/dashboard/sub_screen/home_screen/sub_screen/your_personalized_plan/your_personalized_plan_controller.dart';
-import 'package:ast_official/feature/athelete_dashboard/dashboard/sub_screen/training/training_controller.dart';
+import 'package:ast_official/feature/athelete_dashboard/sub_screen/athelet_chat/athelet_chat_controller.dart';
+import 'package:ast_official/feature/athelete_dashboard/sub_screen/dashboard_home_screen/dashboard_home_screen_controller.dart';
+import 'package:ast_official/feature/athelete_dashboard/sub_screen/athelet_coaches/athelet_coaches_controller.dart';
+import 'package:ast_official/feature/athelete_dashboard/sub_screen/check_in/check_in_controller.dart';
+import 'package:ast_official/feature/athelete_dashboard/sub_screen/check_in/sub_screen/body_measurement/body_measurement_controller.dart';
+import 'package:ast_official/feature/athelete_dashboard/sub_screen/check_in/sub_screen/checkin_diet/checkin_diet_controller.dart';
+import 'package:ast_official/feature/athelete_dashboard/sub_screen/check_in/sub_screen/review_your_checkin/review_your_checkin_controller.dart';
+import 'package:ast_official/feature/athelete_dashboard/sub_screen/check_in/sub_screen/status_feedback/status_feedback_controller..dart';
+import 'package:ast_official/feature/athelete_dashboard/sub_screen/home_screen/home_screen_controller.dart';
+import 'package:ast_official/feature/athelete_dashboard/sub_screen/home_screen/sub_screen/breakfast_time/breakfast_time_controller.dart';
+import 'package:ast_official/feature/athelete_dashboard/sub_screen/home_screen/sub_screen/dinner_time/dinner_time_controller.dart';
+import 'package:ast_official/feature/athelete_dashboard/sub_screen/home_screen/sub_screen/personalize_your_experience/personalize_your_experience_Controller.dart';
+import 'package:ast_official/feature/athelete_dashboard/sub_screen/home_screen/sub_screen/what_is_your_activity/what_is_your_activity_controller.dart';
+import 'package:ast_official/feature/athelete_dashboard/sub_screen/home_screen/sub_screen/what_is_your_diet_type/what_is_your_diet_type_controller.dart';
+import 'package:ast_official/feature/athelete_dashboard/sub_screen/home_screen/sub_screen/your_personalized_plan/your_personalized_plan_controller.dart';
+import 'package:ast_official/feature/athelete_dashboard/sub_screen/training/sub_screen/training_complete/training_complete_controller.dart';
+import 'package:ast_official/feature/athelete_dashboard/sub_screen/training/sub_screen/training_detail/training_detail_controller.dart';
+import 'package:ast_official/feature/athelete_dashboard/sub_screen/training/training_controller.dart';
 import 'package:ast_official/feature/coach_dashboard/athelete_management/athlete_management_controller.dart';
 import 'package:ast_official/feature/coach_dashboard/athelete_management/athlete_profile/athlete_profile_controller.dart';
 import 'package:ast_official/feature/coach_dashboard/coach_Message/coach_chat_controller.dart';
@@ -80,6 +89,15 @@ List<SingleChildWidget> providersList = [
   ChangeNotifierProvider(create: (context) => WhatIsYourActivityController()),
   ChangeNotifierProvider(create: (context) => DashboardHomeScreenController()),
   ChangeNotifierProvider(create: (context) => TrainingViewController()),
+  ChangeNotifierProvider(create: (context) => TrainingDetailController()),
+  ChangeNotifierProvider(create: (context) => TrainingCompleteController()),
+  ChangeNotifierProvider(create: (context) => AtheletCoachesController()),
+  ChangeNotifierProvider(create: (context) => CheckInController()),
+  ChangeNotifierProvider(create: (context) => CheckInDietController()),
+  ChangeNotifierProvider(create: (context) => BodyMeasurementController()),
+  ChangeNotifierProvider(create: (context) => StatusFeedbackController()),
+  ChangeNotifierProvider(create: (context) => ReviewYourCheckInController()),
+  ChangeNotifierProvider(create: (context) => AtheletChatController()),
 
   ////////Coaches Dashboard//////
 

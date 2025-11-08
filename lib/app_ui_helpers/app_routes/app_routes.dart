@@ -1,14 +1,19 @@
 import 'package:ast_official/app_ui_helpers/app_routes/route_paths.dart';
-import 'package:ast_official/feature/athelete_dashboard/dashboard/dashboard_home_screen/dashboard_home_screen.dart';
+import 'package:ast_official/feature/athelete_dashboard/sub_screen/dashboard_home_screen/dashboard_home_screen.dart';
 import 'package:ast_official/feature/athelete_dashboard/dashboard/dashboard_view.dart';
-import 'package:ast_official/feature/athelete_dashboard/dashboard/sub_screen/home_screen/home_screen_view.dart';
-import 'package:ast_official/feature/athelete_dashboard/dashboard/sub_screen/home_screen/sub_screen/breakfast_time/breakfast_time_view.dart';
-import 'package:ast_official/feature/athelete_dashboard/dashboard/sub_screen/home_screen/sub_screen/dinner_time/dinner_time_view.dart';
-import 'package:ast_official/feature/athelete_dashboard/dashboard/sub_screen/home_screen/sub_screen/personalize_your_experience/personalize_your_experience_view.dart';
-import 'package:ast_official/feature/athelete_dashboard/dashboard/sub_screen/home_screen/sub_screen/what_is_your_activity/what_is_your_activity_view.dart';
-import 'package:ast_official/feature/athelete_dashboard/dashboard/sub_screen/home_screen/sub_screen/what_is_your_diet_type/what_is_your_diet_type_view.dart';
-import 'package:ast_official/feature/athelete_dashboard/dashboard/sub_screen/home_screen/sub_screen/your_personalized_plan/your_personalized_plan_view.dart';
-import 'package:ast_official/feature/athelete_dashboard/dashboard/sub_screen/training/sub_screen/training_detail_view.dart';
+import 'package:ast_official/feature/athelete_dashboard/sub_screen/check_in/sub_screen/body_measurement/body_measurement_view.dart';
+import 'package:ast_official/feature/athelete_dashboard/sub_screen/check_in/sub_screen/checkin_diet/checkin_diet_view.dart';
+import 'package:ast_official/feature/athelete_dashboard/sub_screen/check_in/sub_screen/review_your_checkin/review_your_checkin_view.dart';
+import 'package:ast_official/feature/athelete_dashboard/sub_screen/check_in/sub_screen/status_feedback/status_feedback_view.dart';
+import 'package:ast_official/feature/athelete_dashboard/sub_screen/home_screen/home_screen_view.dart';
+import 'package:ast_official/feature/athelete_dashboard/sub_screen/home_screen/sub_screen/breakfast_time/breakfast_time_view.dart';
+import 'package:ast_official/feature/athelete_dashboard/sub_screen/home_screen/sub_screen/dinner_time/dinner_time_view.dart';
+import 'package:ast_official/feature/athelete_dashboard/sub_screen/home_screen/sub_screen/personalize_your_experience/personalize_your_experience_view.dart';
+import 'package:ast_official/feature/athelete_dashboard/sub_screen/home_screen/sub_screen/what_is_your_activity/what_is_your_activity_view.dart';
+import 'package:ast_official/feature/athelete_dashboard/sub_screen/home_screen/sub_screen/what_is_your_diet_type/what_is_your_diet_type_view.dart';
+import 'package:ast_official/feature/athelete_dashboard/sub_screen/home_screen/sub_screen/your_personalized_plan/your_personalized_plan_view.dart';
+import 'package:ast_official/feature/athelete_dashboard/sub_screen/training/sub_screen/training_complete/training_complete.dart';
+import 'package:ast_official/feature/athelete_dashboard/sub_screen/training/sub_screen/training_detail/training_detail_view.dart';
 import 'package:ast_official/feature/coach_dashboard/athelete_management/athlete_profile/athelete_profile_view.dart';
 import 'package:ast_official/feature/coach_dashboard/coach_Message/selected_chat/selected_chat_view.dart';
 import 'package:ast_official/feature/coach_dashboard/coach_main_screen.dart';
@@ -603,10 +608,58 @@ case RoutePaths.coachEditProfileView:
             return child;
           },
         );
+
       case RoutePaths.tutorProfileSettingsSectionS4View:
         return PageRouteBuilder(
           pageBuilder: (context, animation, secondaryAnimation) {
             return const TutorProfileSettingsSectionS4View();
+          },
+          transitionsBuilder: (context, animation, secondaryAnimation, child) {
+            return child;
+          },
+        );
+
+      case RoutePaths.trainingComplete:
+        return PageRouteBuilder(
+          pageBuilder: (context, animation, secondaryAnimation) {
+            return const TrainingComplete();
+          },
+          transitionsBuilder: (context, animation, secondaryAnimation, child) {
+            return child;
+          },
+        );
+
+      case RoutePaths.checkInDietView:
+        return PageRouteBuilder(
+          pageBuilder: (context, animation, secondaryAnimation) {
+            return const CheckInDietView();
+          },
+          transitionsBuilder: (context, animation, secondaryAnimation, child) {
+            return child;
+          },
+        );
+      case RoutePaths.bodyMeasurementView:
+        return PageRouteBuilder(
+          pageBuilder: (context, animation, secondaryAnimation) {
+            return const BodyMeasurementView();
+          },
+          transitionsBuilder: (context, animation, secondaryAnimation, child) {
+            return child;
+          },
+        );
+      case RoutePaths.statusFeedbackView:
+        return PageRouteBuilder(
+          pageBuilder: (context, animation, secondaryAnimation) {
+            return const StatusFeedbackView();
+          },
+          transitionsBuilder: (context, animation, secondaryAnimation, child) {
+            return child;
+          },
+        );
+      case RoutePaths.reviewYourCheckInView:
+        return PageRouteBuilder(
+          pageBuilder: (context, animation, secondaryAnimation) {
+            return const ReviewYourCheckInView();
           },
           transitionsBuilder: (context, animation, secondaryAnimation, child) {
             return child;

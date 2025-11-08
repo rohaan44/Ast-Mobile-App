@@ -6,8 +6,8 @@ import 'package:ast_official/utils/colors_utils.dart';
 import 'package:ast_official/utils/font_size.dart';
 
 Widget primaryTextField({
-  required String hintText, // ✅ hint text required
-  Widget? prefixIcon, // ✅ prefix required
+  required String hintText,
+  Widget? prefixIcon,
   Widget? suffixIcon,
   TextEditingController? controller,
   Function(String)? onChanged,
@@ -27,19 +27,26 @@ Widget primaryTextField({
   Color? borderColor,
   FocusNode? focusNode,
   double? borderRadius,
+  double? textFieldHeight,
 }) {
+  final fieldHeight = textFieldHeight ?? ch(52);
+  final isTall = fieldHeight > ch(60); // 👈 agar height zyada hai to top align
+
   return Container(
-    // width: cw(327),
-    height: ch(52),
-    padding: EdgeInsets.zero,
+    height: fieldHeight,
     decoration: BoxDecoration(
       borderRadius: BorderRadius.circular(cw(borderRadius ?? 14)),
       border: Border.all(color: AppColor.c252525),
       color: fillColor ?? AppColor.c151515,
     ),
     child: Padding(
-      padding: EdgeInsets.symmetric(horizontal: ch(0)),
-      child: Center(
+      padding: EdgeInsets.symmetric(
+        horizontal: prefixIcon != null ? cw(10) : cw(16),
+      ),
+      child: Align(
+        alignment: isTall
+            ? Alignment.topCenter
+            : Alignment.center, // 👈 smart alignment
         child: TextFormField(
           autovalidateMode: AutovalidateMode.onUserInteraction,
           cursorColor: AppColor.red,
@@ -50,8 +57,6 @@ Widget primaryTextField({
           obscureText: obscureText,
           textInputAction: textInputAction,
           keyboardType: keyboardType,
-          // cursorColor: AppColor.grey,
-          // cursorHeight: (2.3).h,
           maxLength: maxLength,
           inputFormatters: inputFormatters ??
               InputFormatterHelper.allowCharactersNumbersAndSpace,
@@ -61,7 +66,6 @@ Widget primaryTextField({
                 fontSize: AppFontSize.f16,
                 fontWeight: FontWeight.w500,
               ),
-
           decoration: InputDecoration(
             counterText: "",
             fillColor: fillColor ?? AppColor.c151515,
@@ -83,35 +87,45 @@ Widget primaryTextField({
                     width: cw(1),
                   ),
                 ),
-            hintText: hintText, // ✅ only hint text
+            hintText: hintText,
             hintStyle: hintStyle ??
                 TextStyle(
                   fontSize: AppFontSize.f15,
-                  //height: 1,
                   fontWeight: FontWeight.w400,
                   color: AppColor.cFFFFFF.withOpacity(0.5),
                 ),
-            prefixIcon: Padding(
-              padding: EdgeInsets.only(
-                  right: cw(8),
-                  left: cw(16)
-                  ),
-                   // 👈 adds space between icon and text
-              child: prefixIcon,
-            ),
-            prefixIconConstraints: BoxConstraints(
-              minWidth: cw(24),
-              minHeight: ch(24),
-            ),
-            suffixIcon: Padding(
-              padding: EdgeInsets.only(
-                  right: cw(8)), // 👈 adds space between icon and text
-              child: suffixIcon,
-            ),
-            suffixIconConstraints: const BoxConstraints(),
-            //  prefixIconConstraints: const BoxConstraints(),
+
+            // ✅ Prefix icon
+            prefixIcon: prefixIcon != null
+                ? Padding(
+                    padding: EdgeInsets.only(right: cw(8)),
+                    child: prefixIcon,
+                  )
+                : null,
+            prefixIconConstraints: prefixIcon != null
+                ? BoxConstraints(
+                    minWidth: cw(24),
+                    minHeight: ch(24),
+                  )
+                : const BoxConstraints(),
+
+            // ✅ Suffix icon
+            suffixIcon: suffixIcon != null
+                ? Padding(
+                    padding: EdgeInsets.only(left: cw(8)),
+                    child: suffixIcon,
+                  )
+                : null,
+            suffixIconConstraints: suffixIcon != null
+                ? const BoxConstraints()
+                : const BoxConstraints(),
+
             isDense: true,
-            // contentPadding: EdgeInsets.only(bottom: ch(4)),
+            contentPadding: EdgeInsets.only(
+              top:
+                  isTall ? ch(10) : 0, // 👈 agar height zyada ho to top padding
+              bottom: isTall ? 0 : ch(2),
+            ),
           ),
           onChanged: onChanged,
           onTap: onTap,

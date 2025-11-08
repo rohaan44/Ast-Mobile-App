@@ -36,6 +36,11 @@ class RoutePaths {
   static const String dashboardHomeScreen = '/dashboardHomeScreen';
   static const String yourPersonalizedPlanView = '/yourPersonalizedPlanView';
   static const String trainingDetailViw = '/trainingDetailViw';
+  static const String trainingComplete = '/trainingComplete';
+  static const String checkInDietView = '/checkInDietView';
+  static const String bodyMeasurementView = '/bodyMeasurementView';
+  static const String reviewYourCheckInView = '/reviewYourCheckInView';
+  static const String statusFeedbackView = '/statusFeedbackView';
 
   /////////////////Coaches Dashboard//////////////////////
   static const String coachMainScreenView = '/coachMainScreenView';
