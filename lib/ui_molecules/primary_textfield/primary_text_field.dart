@@ -28,6 +28,7 @@ Widget primaryTextField({
   FocusNode? focusNode,
   double? borderRadius,
   double? textFieldHeight,
+  double? containerPadding,
 }) {
   final fieldHeight = textFieldHeight ?? ch(52);
   final isTall = fieldHeight > ch(60); // 👈 agar height zyada hai to top align

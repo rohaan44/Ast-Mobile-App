@@ -66,8 +66,8 @@ class RoutePaths {
   static const String coachInfoView = '/coachInfoView';
   static const String selectedChatScreen = '/selectedChatScreen';
   static const String languageSelectedScreen = '/languageSelectedScreen';
-
-
+  static const String selectedCheckInScreen = '/selectedCheckInScreen';
+static const String editCheckInScreen = '/editCheckInScreen';
   // static const String plansRoyaltiesScreen= '/plansRoyaltiesScreen';
 
 ///////////////////////////Tutor Sectio//////////////////////////////

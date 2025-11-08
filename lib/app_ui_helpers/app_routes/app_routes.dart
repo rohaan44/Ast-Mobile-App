@@ -15,6 +15,8 @@ import 'package:ast_official/feature/athelete_dashboard/sub_screen/home_screen/s
 import 'package:ast_official/feature/athelete_dashboard/sub_screen/training/sub_screen/training_complete/training_complete.dart';
 import 'package:ast_official/feature/athelete_dashboard/sub_screen/training/sub_screen/training_detail/training_detail_view.dart';
 import 'package:ast_official/feature/coach_dashboard/athelete_management/athlete_profile/athelete_profile_view.dart';
+import 'package:ast_official/feature/coach_dashboard/check_in/edit_ai_suggestion/edit_ai_suggestion_view.dart';
+import 'package:ast_official/feature/coach_dashboard/check_in/seleted_check_in/selected_check_in_view.dart';
 import 'package:ast_official/feature/coach_dashboard/coach_Message/selected_chat/selected_chat_view.dart';
 import 'package:ast_official/feature/coach_dashboard/coach_main_screen.dart';
 import 'package:ast_official/feature/coach_dashboard/coach_profile_setting/coach_Info/coach_info_view.dart';
@@ -481,6 +483,26 @@ case RoutePaths.coachEditProfileView:
         return PageRouteBuilder(
           pageBuilder: (context, animation, secondaryAnimation) {
             return const ResetPasswordView();
+          },
+          transitionsBuilder: (context, animation, secondaryAnimation, child) {
+            return child;
+          },
+        );
+
+               case RoutePaths.selectedCheckInScreen:
+        return PageRouteBuilder(
+          pageBuilder: (context, animation, secondaryAnimation) {
+            return const SelectedCheckInView();
+          },
+          transitionsBuilder: (context, animation, secondaryAnimation, child) {
+            return child;
+          },
+        );
+
+                 case RoutePaths.editCheckInScreen:
+        return PageRouteBuilder(
+          pageBuilder: (context, animation, secondaryAnimation) {
+            return const EditAiSuggestionView();
           },
           transitionsBuilder: (context, animation, secondaryAnimation, child) {
             return child;

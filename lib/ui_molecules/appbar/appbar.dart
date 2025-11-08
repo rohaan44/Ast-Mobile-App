@@ -207,6 +207,7 @@ Widget centerTextBackIconAppbar({
 Widget textProfileSettingAppbar({
   required BuildContext context,
   required String text,
+  double? fontSize,
   bool textIsItalic = false,
   Function? onTap,
 }) {
@@ -218,7 +219,7 @@ Widget textProfileSettingAppbar({
         children: [
           AppText(
             txt: text,
-            fontSize: AppFontSize.f24,
+            fontSize: fontSize?? AppFontSize.f24,
             isItalic: true,
             color: AppColor.white,
             fontWeight: FontWeight.w600,

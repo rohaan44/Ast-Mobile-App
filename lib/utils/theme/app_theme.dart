@@ -5,7 +5,21 @@ import 'package:flutter/material.dart';
 class AppTheme {
   static ThemeData darkTheme = ThemeData(
     chipTheme: const ChipThemeData(iconTheme: IconThemeData(), showCheckmark: false,
-    selectedColor: AppColor.red, elevation: 1),
+    selectedColor: AppColor.red, elevation: 1,
+      // surfaceTintColor: Colors.transparent,
+  shadowColor: Colors.transparent,
+  selectedShadowColor: Colors.transparent,
+  pressElevation: 0,
+  // elevation: 0,
+  // showCheckmark: false,
+
+  // 🖤 Disable splash + highlight colors
+  // splashColor: Colors.transparent,
+  disabledColor: Colors.transparent,
+  // materialTapTargetSize: MaterialTapTargetSize.shrinkWrap,
+    
+    
+    ),
 splashFactory: NoSplash.splashFactory,
         splashColor: Colors.transparent,
     highlightColor: Colors.transparent,
