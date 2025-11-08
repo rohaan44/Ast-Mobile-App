@@ -1,6 +1,8 @@
 import 'package:ast_official/app_ui_helpers/app_routes/route_paths.dart';
 import 'package:ast_official/feature/on_boarding/select_role/select_role_controller.dart';
 import 'package:ast_official/helpers/app_layout_helper.dart';
+import 'package:ast_official/ui_molecules/app_helper/app_constant.dart';
+import 'package:ast_official/ui_molecules/app_helper/app_helpers.dart';
 import 'package:ast_official/ui_molecules/app_text/app_text.dart';
 import 'package:ast_official/ui_molecules/buttons/app_primary_button.dart';
 import 'package:ast_official/utils/app_divider.dart';
@@ -16,6 +18,8 @@ class ChooseYourPlanView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+   final flowData = context.read<FlowDataProvider>().getFlowData(certificationRenew);
+final isRenew = flowData != null ? flowData["isRenew"] ?? false : false;
     return Scaffold(
       body: SafeArea(
         child: Padding(
@@ -28,7 +32,12 @@ class ChooseYourPlanView extends StatelessWidget {
                 children: [
                   SvgPicture.asset(AssetUtils.walkthroughIcon),
                   GestureDetector(
-                    onTap: () {},
+                    onTap: () {
+                      
+                      if (isRenew!=null&& isRenew==true) {
+                        Navigator.pushNamedAndRemoveUntil(context, RoutePaths.coachMainScreenView, (route) => false);
+                      }
+                    },
                     child: SvgPicture.asset(AssetUtils.appCrossIcon),
                   )
                 ],
@@ -106,11 +115,11 @@ class ChooseYourPlanView extends StatelessWidget {
 
               if (context.read<SelectRoleController>().selectedRole ==
                 "Coach") ...[
-                  plainCard("Quota di Certificazione ", "€549/mese", "(Una tantum)",true),
+                  plainCard("Quota di Certificazione ", "€549/mese", "(Una tantum)",(isRenew!=null&& isRenew==true)?false:true),
                  SizedBox(
                 height: ch(10),
               ),
-                   plainCard("Rinnovo della Licenza", "€549/mese", "Annuale",false),
+                   plainCard("Rinnovo della Licenza", "€549/mese", "Annuale",(isRenew!=null&& isRenew==true)?true:false),
                  
 
                 ]else

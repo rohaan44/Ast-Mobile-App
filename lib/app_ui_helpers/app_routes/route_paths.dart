@@ -41,6 +41,7 @@ class RoutePaths {
   static const String coachMainScreenView = '/coachMainScreenView';
   static const String coachHomeScreenView = '/coachHomeScreenView';
 
+  static const String coachProfileSettingScreen = '/coachProfileSettingScreen';
   static const String plansManagementScreen = '/plansManagementScreen';
   static const String planPreviewScreen = '/planPreviewScreen';
   static const String notificationScreen = '/notificationScreen';
@@ -51,7 +52,16 @@ class RoutePaths {
   static const String athleteSubscriptionsScreen =
       '/athleteSubscriptionsScreen';
 
+  static const String integrationScreen = '/integrationScreen';
+
+  static const String coachEditProfileView = '/coachEditProfileView';
+
+  static const String coachRenewCertificationView = '/coachRenewCertificationView';
+  static const String coachInfoView = '/coachInfoView';
   static const String selectedChatScreen = '/selectedChatScreen';
+  static const String languageSelectedScreen = '/languageSelectedScreen';
+
+
   // static const String plansRoyaltiesScreen= '/plansRoyaltiesScreen';
 
 ///////////////////////////Tutor Sectio//////////////////////////////

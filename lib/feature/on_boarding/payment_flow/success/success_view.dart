@@ -20,6 +20,9 @@ class SuccessView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final flowData =
+        context.read<FlowDataProvider>().getFlowData(certificationRenew);
+    final isRenew = flowData != null ? flowData["isRenew"] ?? false : false;
     return Scaffold(
       body: SafeArea(
         child: Padding(
@@ -33,47 +36,57 @@ class SuccessView extends StatelessWidget {
                   Text("🎉", style: TextStyle(fontSize: AppFontSize.f40)),
                   const SizedBox(height: 16),
 
-                  if(context.read<SelectRoleController>().selectedRole=="Athlete")...[
+                  if (context.read<SelectRoleController>().selectedRole ==
+                      "Athlete") ...[
                     AppText(
-                    txt: "Abbonamento attivato con successo",
-                    fontSize: AppFontSize.f24,
-                    fontWeight: FontWeight.w600,
-                    color: AppColor.white,
-                    textAlign: TextAlign.center,
-                  ),
-                  ]else...[
+                      txt: "Abbonamento attivato con successo",
+                      fontSize: AppFontSize.f24,
+                      fontWeight: FontWeight.w600,
+                      color: AppColor.white,
+                      textAlign: TextAlign.center,
+                    ),
+                  ] else ...[
 // ✅ Title
-                  AppText(
-                    txt: "Tasse di rinnovo della licenza presentate",
-                    fontSize: AppFontSize.f24,
-                    fontWeight: FontWeight.w600,
-                    color: AppColor.white,
-                    textAlign: TextAlign.center,
-                  ),
+                    if (isRenew) ...[
+                      AppText(
+                        txt: "Tasse di rinnovo della licenza presentate",
+                        fontSize: AppFontSize.f24,
+                        fontWeight: FontWeight.w600,
+                        color: AppColor.white,
+                        textAlign: TextAlign.center,
+                      ),
+                    ] else
+                      AppText(
+                        txt: "Canoni di licenza presentati",
+                        fontSize: AppFontSize.f24,
+                        fontWeight: FontWeight.w600,
+                        color: AppColor.white,
+                        textAlign: TextAlign.center,
+                      ),
                   ],
-                  
+
                   SizedBox(height: ch(10)),
 
-                  if(context.read<SelectRoleController>().selectedRole=="Athlete")...[
+                  if (context.read<SelectRoleController>().selectedRole ==
+                      "Athlete") ...[
                     AppText(
-                    txt:
-                        "Ora hai accesso ai tuoi piani personalizzati, ai check-in settimanali e alla chat con il coach.",
-                    fontSize: AppFontSize.f18,
-                    color: AppColor.white.withOpacity(0.6),
-                    textAlign: TextAlign.center,
-                    height: 1.5,
-                  ),
-                  ]else...[
+                      txt:
+                          "Ora hai accesso ai tuoi piani personalizzati, ai check-in settimanali e alla chat con il coach.",
+                      fontSize: AppFontSize.f18,
+                      color: AppColor.white.withOpacity(0.6),
+                      textAlign: TextAlign.center,
+                      height: 1.5,
+                    ),
+                  ] else ...[
                     AppText(
-                    txt:
-                        "Ora riprendi il tuo percorso di formazione e guadagno Smartly. Iniziamo a creare il tuo primo certificato.",
-                    fontSize: AppFontSize.f18,
-                    color: AppColor.white.withOpacity(0.6),
-                    textAlign: TextAlign.center,
-                    height: 1.5,
-                  ),
+                      txt:
+                          "Ora inizia la tua formazione e inizia a guadagnare con Smartly. Iniziamo a creare il tuo primo certifica",
+                      fontSize: AppFontSize.f18,
+                      color: AppColor.white.withOpacity(0.6),
+                      textAlign: TextAlign.center,
+                      height: 1.5,
+                    ),
                   ],
-                  
 
                   SizedBox(height: ch(30)),
                   DottedDivider(
@@ -82,8 +95,14 @@ class SuccessView extends StatelessWidget {
                   SizedBox(height: ch(20)),
 
                   // Payment details
-                  _detailRow("ID PAGAMENTO", provider.paymentId,
-                      "Importo pagato", context.read<SelectRoleController>().selectedRole=="Athlete"?"€79.00":"€549.00"),
+                  _detailRow(
+                      "ID PAGAMENTO",
+                      provider.paymentId,
+                      "Importo pagato",
+                      context.read<SelectRoleController>().selectedRole ==
+                              "Athlete"
+                          ? "€79.00"
+                          : isRenew? "€249.00": "€549.00"),
 
                   SizedBox(height: ch(20)),
 
@@ -115,19 +134,28 @@ class SuccessView extends StatelessWidget {
                         ),
                         if (context.read<WalletController>().selectedMethod ==
                             "apple") ...[
-                          SvgPicture.asset(AssetUtils.appleIcon,height: ch(30),)
-                        ] else if(context.read<WalletController>().selectedMethod ==
-                            "stripe")...[
-                               SvgPicture.asset(AssetUtils.stripeIcon)
-                        ]else if(context.read<WalletController>().selectedMethod ==
-                            "paypal")...[
-                               SvgPicture.asset(AssetUtils.paypalIcon,height: ch(30))
-                        ]else if(context.read<WalletController>().selectedMethod ==
-                            "google")...[
-                               SvgPicture.asset(AssetUtils.googleIcon,height: ch(30))
-                        ]
-                        
-                        ,
+                          SvgPicture.asset(
+                            AssetUtils.appleIcon,
+                            height: ch(30),
+                          )
+                        ] else if (context
+                                .read<WalletController>()
+                                .selectedMethod ==
+                            "stripe") ...[
+                          SvgPicture.asset(AssetUtils.stripeIcon)
+                        ] else if (context
+                                .read<WalletController>()
+                                .selectedMethod ==
+                            "paypal") ...[
+                          SvgPicture.asset(AssetUtils.paypalIcon,
+                              height: ch(30))
+                        ] else if (context
+                                .read<WalletController>()
+                                .selectedMethod ==
+                            "google") ...[
+                          SvgPicture.asset(AssetUtils.googleIcon,
+                              height: ch(30))
+                        ],
                       ],
                     ),
                   ),
@@ -162,13 +190,19 @@ class SuccessView extends StatelessWidget {
                         child: AppButton(
                             text: "Fato",
                             onPressed: () {
-                              final athleteFlowData = context.read<FlowDataProvider>().getFlowData(customerOnboarding);
-                              if (athleteFlowData!["value"]=="Coach") {
-                                Navigator.pushNamedAndRemoveUntil(context, RoutePaths.coachMainScreenView, (route) => false);
-                              }
-                              else{
-                                
-                              Navigator.pushNamedAndRemoveUntil(context, RoutePaths.homeScreenView, (route) => false);
+                              final athleteFlowData = context
+                                  .read<FlowDataProvider>()
+                                  .getFlowData(customerOnboarding);
+                              if (athleteFlowData!["value"] == "Coach") {
+                                Navigator.pushNamedAndRemoveUntil(
+                                    context,
+                                    RoutePaths.coachMainScreenView,
+                                    (route) => false);
+                              } else {
+                                Navigator.pushNamedAndRemoveUntil(
+                                    context,
+                                    RoutePaths.homeScreenView,
+                                    (route) => false);
                               }
                             }),
                       ),

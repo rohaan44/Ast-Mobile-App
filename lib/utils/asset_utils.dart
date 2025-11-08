@@ -21,6 +21,8 @@ class AssetUtils {
   static const String cardBg = "${png}card_back_image.png";
   static const String avatar = "${png}person.jpg";
 
+  static const String profilePic = "${png}profile_pic.jpg";
+
   static const String docIcon = "${png}docIcon.png";
   // static const String cardBg = "${png}card_back_image.png";
   static const String tutorContainerBG = "${png}tutor_container_bg.png";
@@ -28,6 +30,7 @@ class AssetUtils {
   //********** */ svg icons && images
   static const String cloudIcon = "${svg}cloud.svg";
 
+  static const String cardIcon = "${svg}card.svg";
   static const String smileIcon = "${svg}smile.svg";
   static const String addIcon = "${svg}add_icon.svg";
   static const String homeIcon = "${svg}home_icon.svg";
@@ -46,6 +49,7 @@ class AssetUtils {
 
   static const String tagIcon = "${svg}tag_icon.svg";
 
+  static const String infoIcon = "${svg}info_icon.svg";
   static const String weightLifting = "${svg}weightlifting.svg";
   static const String checkIcon = "${svg}check_icon.svg";
   static const String crossIcon = "${svg}cross_icon.svg";
@@ -133,4 +137,10 @@ class AssetUtils {
   static const String lock = "${svg}lock.svg";
   static const String dropDownArrow = "${svg}ldropDownArrow.svg";
   static const String uploadIcon = "${svg}uploadIcon.svg";
+  static const String stravaIcon = "${svg}strava_icon.svg";
+  static const String myFitnessPalIcon = "${svg}my_fitness_pal.svg";
+  static const String googleFitIcon = "${svg}google_fit_icon.svg";
+  static const String appleHealthIcon = "${svg}apple_health_icon.svg";
+
+    static const String integrationIcon = "${svg}integration_icon.svg";
 }

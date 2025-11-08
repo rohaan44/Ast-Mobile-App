@@ -6,6 +6,7 @@ class AppColor {
 
   // Primary Palette
   static const c2C2C32 = Color(0xFF2C2C32);
+  // static const cFF8D28 = Color(0xFFFF8D28);
   static const c00C8B3 = Color(0xFF00C8B3);
   static const c313131 = Color(0xFF313131);
   static const c656565 = Color(0xFF656565);

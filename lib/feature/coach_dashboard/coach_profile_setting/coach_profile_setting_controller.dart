@@ -1,10 +1,18 @@
 import 'dart:io';
 import 'package:flutter/material.dart';
 
-class TutorProfileSettingsSectionController with ChangeNotifier {
+class CoachProfileSettingController with ChangeNotifier {
   File? _profileImage;
 
   File? get profileImage => _profileImage;
+bool _isNotification = true;
+
+bool get isNotification => _isNotification;
+
+set isNotification(bool value) {
+  _isNotification = value;
+  notifyListeners();
+}
 
   /// Pick image using file_picker
   // Future<void> pickProfileImage() async {

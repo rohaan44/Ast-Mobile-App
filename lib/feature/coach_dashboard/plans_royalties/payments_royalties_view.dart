@@ -2,6 +2,7 @@ import 'dart:math';
 import 'package:ast_official/app_ui_helpers/app_routes/route_paths.dart';
 import 'package:ast_official/feature/coach_dashboard/plans/trainning_plan/training_plan_view.dart';
 import 'package:ast_official/feature/coach_dashboard/plans_royalties/payments_royalties_controller.dart';
+import 'package:ast_official/ui_molecules/appbar/appbar.dart';
 import 'package:ast_official/ui_molecules/graphs&chart/payments_grapgh';
 import 'package:ast_official/utils/gradients/app_gradients.dart';
 import 'package:flutter/material.dart';
@@ -26,27 +27,8 @@ class PaymentsRoyaltiesView extends StatelessWidget {
           padding: EdgeInsets.symmetric(horizontal: cw(20)),
           child: Column(
             children: [
-              SizedBox(height: ch(20)),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  IconButton(
-          highlightColor: AppColor.transparent,
-          focusColor: AppColor.transparent,
-          splashColor: AppColor.transparent,
-          icon: SvgPicture.asset(AssetUtils.backArrow),
-          onPressed: () => Navigator.pop(context),
-        ),
-                  AppText(
-                    txt: "Pagamenti e Royalties",
-                    color: AppColor.white,
-                    fontSize: AppFontSize.f19 + 2,
-                    fontWeight: FontWeight.w600,
-                  ),
-                  const SizedBox.shrink()
-                ],
-              ),
-              SizedBox(height: ch(25)),
+              centerTextBackIconAppbar(
+                  context: context, text: "Pagamenti e Royalties"),
               Expanded(
                 child: SingleChildScrollView(
                   physics: const BouncingScrollPhysics(),
@@ -194,7 +176,8 @@ class PaymentsRoyaltiesView extends StatelessWidget {
                       SizedBox(height: ch(25)),
 
                       sectionHeader("Transazioni la Storia", onViewAll: () {
-                        Navigator.pushNamed(context, RoutePaths.transactionHistoryScreen);
+                        Navigator.pushNamed(
+                            context, RoutePaths.transactionHistoryScreen);
                       }),
                       SizedBox(height: ch(15)),
                       activityCard(
@@ -282,19 +265,20 @@ class PaymentsRoyaltiesView extends StatelessWidget {
                       // Transactions
 
                       SizedBox(height: ch(25)),
-   sectionHeader("Abbonamento Atlete", onViewAll: () {
-       Navigator.pushNamed(context, RoutePaths.athleteSubscriptionsScreen);
-   }),
-    SizedBox(height: ch(15)),
+                      sectionHeader("Abbonamento Atlete", onViewAll: () {
+                        Navigator.pushNamed(
+                            context, RoutePaths.athleteSubscriptionsScreen);
+                      }),
+                      SizedBox(height: ch(15)),
                       activityCard(
                           child: Column(
                         children: [
                           ...controller.subscriptions.map((s) {
                             final color = s["status"] == "Attivo" ||
                                     s["status"] == "Attiva"
-                                ?const Color(0xff34C759)
+                                ? const Color(0xff34C759)
                                 : s["status"] == "Annullata"
-                                    ?const Color(0xffFF3A2F)
+                                    ? const Color(0xffFF3A2F)
                                     : const Color(0xffFF8D28);
 
                             return Column(
@@ -325,7 +309,9 @@ class PaymentsRoyaltiesView extends StatelessWidget {
                                               fontSize: AppFontSize.f16,
                                               fontWeight: FontWeight.w600,
                                             ),
-                                            SizedBox(height: ch(10),),
+                                            SizedBox(
+                                              height: ch(10),
+                                            ),
                                             AppText(
                                               txt: s["type"],
                                               fontSize: AppFontSize.f15,
@@ -377,7 +363,7 @@ class PaymentsRoyaltiesView extends StatelessWidget {
                           })
                         ],
                       )),
-                     
+
                       SizedBox(height: ch(40)),
                     ],
                   ),

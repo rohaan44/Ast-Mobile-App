@@ -11,6 +11,8 @@ import 'package:ast_official/feature/athelete_dashboard/dashboard/sub_screen/tra
 import 'package:ast_official/feature/coach_dashboard/athelete_management/athlete_management_controller.dart';
 import 'package:ast_official/feature/coach_dashboard/athelete_management/athlete_profile/athlete_profile_controller.dart';
 import 'package:ast_official/feature/coach_dashboard/coach_Message/coach_chat_controller.dart';
+import 'package:ast_official/feature/coach_dashboard/coach_profile_setting/coach_edit_profile/coach_edit_profile_controller.dart';
+import 'package:ast_official/feature/coach_dashboard/coach_profile_setting/integration/integration_controller.dart';
 import 'package:ast_official/feature/coach_dashboard/home_screen/coach_home_screen_controller.dart';
 import 'package:ast_official/feature/coach_dashboard/plans/nutrition_plan/nutrition_plan_controller.dart';
 import 'package:ast_official/feature/coach_dashboard/plans/plan_preview/plan_preview_controller.dart';
@@ -46,6 +48,8 @@ import 'package:ast_official/ui_molecules/bottombar/coach_bottombar/coach_bottom
 import 'package:ast_official/ui_molecules/bottombar/tutor_bottombar/tutor_bottombar_controller.dart';
 import 'package:provider/provider.dart';
 import 'package:provider/single_child_widget.dart';
+
+import '../../feature/coach_dashboard/coach_profile_setting/coach_profile_setting_controller.dart';
 
 List<SingleChildWidget> providersList = [
   ChangeNotifierProvider(create: (context) => SelectRoleController()),
@@ -100,6 +104,17 @@ List<SingleChildWidget> providersList = [
 
   ChangeNotifierProvider(
     create: (_) => CoachChatController(),
+  ),
+  ChangeNotifierProvider(
+    create: (_) => CoachProfileSettingController(),
+  ),
+
+  ChangeNotifierProvider(
+    create: (_) => CoachEditProfileController(),
+  ),
+
+  ChangeNotifierProvider(
+    create: (_) => IntegrationController(),
   ),
 
   ////////Tutor Dashboard//////

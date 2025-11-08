@@ -75,7 +75,7 @@ class TutorProfileSettingsSectionView extends StatelessWidget {
                         color: AppColor.grey,
                         onSelected: (value) {
                           if (value == 'upload') {
-                            model.pickProfileImage();
+                            // model.pickProfileImage();
                           } else if (value == 'delete') {
                             model.deleteProfileImage();
                           }
@@ -107,7 +107,7 @@ class TutorProfileSettingsSectionView extends StatelessWidget {
                         ],
                         child: Container(
                           padding: EdgeInsets.all(cw(8)),
-                          decoration: BoxDecoration(
+                          decoration: const BoxDecoration(
                             color: AppColor.blue,
                             shape: BoxShape.circle,
                           ),

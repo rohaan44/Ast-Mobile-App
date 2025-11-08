@@ -38,7 +38,7 @@ Widget primaryTextField({
       color: fillColor ?? AppColor.c151515,
     ),
     child: Padding(
-      padding: EdgeInsets.symmetric(horizontal: ch(16)),
+      padding: EdgeInsets.symmetric(horizontal: ch(0)),
       child: Center(
         child: TextFormField(
           autovalidateMode: AutovalidateMode.onUserInteraction,
