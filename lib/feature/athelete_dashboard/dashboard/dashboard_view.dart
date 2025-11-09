@@ -10,8 +10,13 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:provider/provider.dart';
 
+// ignore: must_be_immutable
 class DashboardView extends StatefulWidget {
-  const DashboardView({super.key});
+  Widget? firstPage;
+  DashboardView({
+    super.key,
+    this.firstPage,
+  });
 
   @override
   State<DashboardView> createState() => _DashboardViewState();
@@ -19,14 +24,29 @@ class DashboardView extends StatefulWidget {
 
 class _DashboardViewState extends State<DashboardView> {
   int selectedIndex = 0;
-  final List<Widget> screenList = [
-    const DashboardHomeScreen(),
-    // const HomeScreenview(),
-    const TrainingView(),
-    const AtheletCoachesView(),
-    const CheckIn(),
-    const AtheletChatView()
-  ];
+  late List<Widget> screenList; // ✅ Declare here
+
+  // final List<Widget> screenList = [
+  //   widget.firstPage ?? const DashboardHomeScreen(),
+  //   // const HomeScreenview(),
+  //   const TrainingView(),
+  //   const AtheletCoachesView(),
+  //   const CheckIn(),
+  //   const AtheletChatView()
+  // ];
+
+  @override
+  void initState() {
+    super.initState();
+    screenList = [
+      widget.firstPage ?? const DashboardHomeScreen(),
+      const TrainingView(),
+      const AtheletCoachesView(),
+      const CheckIn(),
+      const AtheletChatView(),
+    ];
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
