@@ -209,9 +209,13 @@ class AppRouter {
         );
 
       case RoutePaths.dashboardView:
+        final firstPage = settings.arguments as Widget?; // optional argument
+
         return PageRouteBuilder(
           pageBuilder: (context, animation, secondaryAnimation) {
-            return const DashboardView();
+            return DashboardView(
+              firstPage: firstPage,
+            );
           },
           transitionsBuilder: (context, animation, secondaryAnimation, child) {
             return child;
