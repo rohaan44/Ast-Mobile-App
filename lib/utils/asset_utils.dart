@@ -162,4 +162,6 @@ class AssetUtils {
   static const String profileUpload = "${svg}profileUpload.svg";
   static const String cameraIcon = "${svg}cameraIcon.svg";
   static const String walkIcon = "${svg}walk_icon.svg";
+  static const String notePad = "${svg}notePad.svg";
+  static const String certificate = "${svg}certificate.svg";
 }
