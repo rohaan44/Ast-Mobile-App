@@ -1,3 +1,4 @@
+import 'package:ast_official/app_ui_helpers/app_routes/route_paths.dart';
 import 'package:ast_official/feature/tutor_dashboard/tutor_screens/tutor_submission_section/tutor_submission_section_controller.dart';
 import 'package:ast_official/helpers/app_layout_helper.dart';
 import 'package:ast_official/ui_molecules/app_dismis_keyboard.dart';
@@ -111,63 +112,67 @@ class TutorSubmissionSectionView extends StatelessWidget {
                         statusColor = AppColor.c626262;
                       }
 
-                      return Container(
-                        // height: ch(100),
-                        margin: EdgeInsets.only(bottom: ch(12)),
-                        padding: EdgeInsets.all(cw(16)),
-                        decoration: BoxDecoration(
-                          color: AppColor.c252525,
-                          borderRadius: BorderRadius.circular(16),
-                        ),
-                        child: Row(
-                          crossAxisAlignment: CrossAxisAlignment.center,
-                          children: [
-                            SizedBox(width: cw(12)),
-                            Expanded(
-                              child: Column(
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: [
-                                  AppText(
-                                    txt: course['title'],
-                                    color: AppColor.cFFFFFF,
-                                    fontSize: AppFontSize.f19,
-                                    fontWeight: FontWeight.bold,
-                                    height: 1.3,
-                                  ),
-                                  SizedBox(height: ch(4)),
-                                  AppText(
-                                    txt: course['modules'],
-                                    color: AppColor.cFFFFFF.withOpacity(0.7),
-                                    fontSize: AppFontSize.f15,
-                                    height: 1.3,
-                                  ),
-                                  SizedBox(height: ch(4)),
-                                  AppText(
-                                    txt: course['students'],
-                                    color: AppColor.cFFFFFF.withOpacity(0.7),
-                                    fontSize: AppFontSize.f15,
-                                    height: 1.3,
-                                  ),
-                                  SizedBox(height: ch(6)),
-                                ],
+                      return InkWell(
+                        onTap: () => Navigator.pushNamed(
+                            context, RoutePaths.tutorSubmissionSectionS1View),
+                        child: Container(
+                          // height: ch(100),
+                          margin: EdgeInsets.only(bottom: ch(12)),
+                          padding: EdgeInsets.all(cw(16)),
+                          decoration: BoxDecoration(
+                            color: AppColor.c252525,
+                            borderRadius: BorderRadius.circular(16),
+                          ),
+                          child: Row(
+                            crossAxisAlignment: CrossAxisAlignment.center,
+                            children: [
+                              SizedBox(width: cw(12)),
+                              Expanded(
+                                child: Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    AppText(
+                                      txt: course['title'],
+                                      color: AppColor.cFFFFFF,
+                                      fontSize: AppFontSize.f19,
+                                      fontWeight: FontWeight.bold,
+                                      height: 1.3,
+                                    ),
+                                    SizedBox(height: ch(4)),
+                                    AppText(
+                                      txt: course['modules'],
+                                      color: AppColor.cFFFFFF.withOpacity(0.7),
+                                      fontSize: AppFontSize.f15,
+                                      height: 1.3,
+                                    ),
+                                    SizedBox(height: ch(4)),
+                                    AppText(
+                                      txt: course['students'],
+                                      color: AppColor.cFFFFFF.withOpacity(0.7),
+                                      fontSize: AppFontSize.f15,
+                                      height: 1.3,
+                                    ),
+                                    SizedBox(height: ch(6)),
+                                  ],
+                                ),
                               ),
-                            ),
-                            Container(
-                              padding: EdgeInsets.symmetric(
-                                  horizontal: cw(16.5), vertical: ch(5)),
-                              decoration: BoxDecoration(
-                                color: statusColor,
-                                borderRadius: BorderRadius.circular(12),
+                              Container(
+                                padding: EdgeInsets.symmetric(
+                                    horizontal: cw(16.5), vertical: ch(5)),
+                                decoration: BoxDecoration(
+                                  color: statusColor,
+                                  borderRadius: BorderRadius.circular(12),
+                                ),
+                                child: AppText(
+                                  txt: course['status'],
+                                  color: Colors.white,
+                                  fontSize: AppFontSize.f18,
+                                ),
                               ),
-                              child: AppText(
-                                txt: course['status'],
-                                color: Colors.white,
-                                fontSize: AppFontSize.f18,
-                              ),
-                            ),
-                            const Icon(Icons.chevron_right,
-                                color: Colors.grey, size: 28),
-                          ],
+                              const Icon(Icons.chevron_right,
+                                  color: Colors.grey, size: 28),
+                            ],
+                          ),
                         ),
                       );
                     },

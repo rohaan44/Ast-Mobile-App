@@ -31,6 +31,7 @@ class AssetUtils {
   static const String docIcon = "${png}docIcon.png";
   // static const String cardBg = "${png}card_back_image.png";
   static const String tutorContainerBG = "${png}tutor_container_bg.png";
+  static const String qrIcon = "${png}qrIcon.png";
 
   //********** */ svg icons && images
   static const String cloudIcon = "${svg}cloud.svg";
@@ -160,5 +161,5 @@ class AssetUtils {
   static const String lockIcon = "${svg}lock_icon.svg";
   static const String profileUpload = "${svg}profileUpload.svg";
   static const String cameraIcon = "${svg}cameraIcon.svg";
-    static const String walkIcon = "${svg}walk_icon.svg";
+  static const String walkIcon = "${svg}walk_icon.svg";
 }

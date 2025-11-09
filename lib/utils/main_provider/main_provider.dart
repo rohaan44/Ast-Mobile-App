@@ -48,6 +48,11 @@ import 'package:ast_official/feature/on_boarding/select_weight/select_weight_con
 import 'package:ast_official/feature/on_boarding/sign_in/sign_in_controller.dart';
 import 'package:ast_official/feature/on_boarding/welcome_screen/welcome_controller.dart';
 import 'package:ast_official/feature/tutor_dashboard/home_screen/tutor_home_screen_controller.dart';
+import 'package:ast_official/feature/tutor_dashboard/tutor_screens/tutor_certificate_section/sub_screens/tutor_certificate_section_s1/tutor_certificate_section_s1_controller.dart';
+import 'package:ast_official/feature/tutor_dashboard/tutor_screens/tutor_certificate_section/sub_screens/tutor_certificate_section_s2/tutor_certificate_section_s2_controller.dart';
+import 'package:ast_official/feature/tutor_dashboard/tutor_screens/tutor_certificate_section/sub_screens/tutor_certificate_section_s3/tutor_certificate_section_s3_controller.dart';
+import 'package:ast_official/feature/tutor_dashboard/tutor_screens/tutor_certificate_section/sub_screens/tutor_certificate_section_s4/tutor_certificate_section_s4_controller.dart';
+import 'package:ast_official/feature/tutor_dashboard/tutor_screens/tutor_certificate_section/tutor_certificate_section_controller.dart';
 import 'package:ast_official/feature/tutor_dashboard/tutor_screens/tutor_course_section/sub_screens/tutor_course_section_s1/tutor_course_section_s1_controller.dart';
 import 'package:ast_official/feature/tutor_dashboard/tutor_screens/tutor_course_section/sub_screens/tutor_course_section_s2/tutor_course_section_s2_controller.dart';
 import 'package:ast_official/feature/tutor_dashboard/tutor_screens/tutor_course_section/sub_screens/tutor_course_section_s3/tutor_course_section_s3_controller.dart';
@@ -58,6 +63,9 @@ import 'package:ast_official/feature/tutor_dashboard/tutor_screens/tutor_profile
 import 'package:ast_official/feature/tutor_dashboard/tutor_screens/tutor_profile_settings_section/sub_screens/tutor_profile_settings_section_s3/tutor_profile_settings_section_s3_controller.dart';
 import 'package:ast_official/feature/tutor_dashboard/tutor_screens/tutor_profile_settings_section/sub_screens/tutor_profile_settings_section_s4/tutor_profile_settings_section_s4_controller.dart';
 import 'package:ast_official/feature/tutor_dashboard/tutor_screens/tutor_profile_settings_section/tutor_profile_settings_section_controller.dart';
+import 'package:ast_official/feature/tutor_dashboard/tutor_screens/tutor_submission_section/sub_screens/tutor_submission_section_s1/tutor_submission_section_s1_controller.dart';
+import 'package:ast_official/feature/tutor_dashboard/tutor_screens/tutor_submission_section/sub_screens/tutor_submission_section_s2/tutor_submission_section_s2_controller.dart';
+import 'package:ast_official/feature/tutor_dashboard/tutor_screens/tutor_submission_section/tutor_submission_section_controller.dart';
 import 'package:ast_official/ui_molecules/app_helper/app_helpers.dart';
 import 'package:ast_official/ui_molecules/bottombar/coach_bottombar/coach_bottombar_controller.dart';
 import 'package:ast_official/ui_molecules/bottombar/tutor_bottombar/tutor_bottombar_controller.dart';
@@ -147,18 +155,17 @@ List<SingleChildWidget> providersList = [
   ChangeNotifierProvider(
     create: (_) => ResetPasswordEmailController(),
   ),
-   ChangeNotifierProvider(
+  ChangeNotifierProvider(
     create: (_) => ResetPasswordController(),
   ),
 
-   ChangeNotifierProvider(
+  ChangeNotifierProvider(
     create: (_) => CheckInReviewsController(),
   ),
-ChangeNotifierProvider(
+  ChangeNotifierProvider(
     create: (_) => EditAiSuggestionController(),
   ),
 
-  
   ////////Tutor Dashboard//////
   ChangeNotifierProvider(create: (context) => TutorHomeScreenController()),
 
@@ -181,4 +188,21 @@ ChangeNotifierProvider(
       create: (context) => TutorProfileSettingsSectionS3Controller()),
   ChangeNotifierProvider(
       create: (context) => TutorProfileSettingsSectionS4Controller()),
+
+  ChangeNotifierProvider(
+      create: (context) => TutorCertificateSectionController()),
+  ChangeNotifierProvider(
+      create: (context) => TutorCertificateSectionS1Controller()),
+  ChangeNotifierProvider(
+      create: (context) => TutorCertificateSectionS2Controller()),
+  ChangeNotifierProvider(
+      create: (context) => TutorCertificateSectionS3Controller()),
+  ChangeNotifierProvider(
+      create: (context) => TutorCertificateSectionS4Controller()),
+  ChangeNotifierProvider(
+      create: (context) => TutorSubmissionSectionController()),
+  ChangeNotifierProvider(
+      create: (context) => TutorSubmissionSectionS1Controller()),
+  ChangeNotifierProvider(
+      create: (context) => TutorSubmissionSectionS2Controller()),
 ];

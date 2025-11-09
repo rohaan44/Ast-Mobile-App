@@ -1,3 +1,4 @@
+import 'package:ast_official/app_ui_helpers/app_routes/route_paths.dart';
 import 'package:ast_official/feature/tutor_dashboard/tutor_screens/tutor_profile_settings_section/sub_screens/tutor_profile_settings_section_s4/tutor_profile_settings_section_s4_controller.dart';
 import 'package:ast_official/helpers/app_layout_helper.dart';
 import 'package:ast_official/ui_molecules/app_dismis_keyboard.dart';
@@ -126,8 +127,8 @@ class _TutorProfileSettingsSectionS4ViewState
 
                 AppButton(
                   onPressed: () {
-                    // Navigator.pushNamed(
-                    //     context, RoutePaths.tutorCourseSectionS5View);
+                    Navigator.pushNamed(
+                        context, RoutePaths.tutorCourseSectionView);
                   },
                   text: "Salva e continua",
                   fontSize: AppFontSize.f18,

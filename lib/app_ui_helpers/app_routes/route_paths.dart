@@ -62,12 +62,13 @@ class RoutePaths {
   static const String coachEditProfileView = '/coachEditProfileView';
   static const String resetPasswordEmailScreen = '/resetPasswordEmailScreen';
   static const String resetPasswordScreen = '/resetPasswordScreen';
-  static const String coachRenewCertificationView = '/coachRenewCertificationView';
+  static const String coachRenewCertificationView =
+      '/coachRenewCertificationView';
   static const String coachInfoView = '/coachInfoView';
   static const String selectedChatScreen = '/selectedChatScreen';
   static const String languageSelectedScreen = '/languageSelectedScreen';
   static const String selectedCheckInScreen = '/selectedCheckInScreen';
-static const String editCheckInScreen = '/editCheckInScreen';
+  static const String editCheckInScreen = '/editCheckInScreen';
   // static const String plansRoyaltiesScreen= '/plansRoyaltiesScreen';
 
 ///////////////////////////Tutor Sectio//////////////////////////////
@@ -82,6 +83,10 @@ static const String editCheckInScreen = '/editCheckInScreen';
   static const String athleteProfileView = '/athleteProfileView';
   static const String tutorSubmissionSectionView =
       '/tutorSubmissionSectionView';
+  static const String tutorSubmissionSectionS1View =
+      '/tutorSubmissionSectionS1View';
+  static const String tutorSubmissionSectionS2View =
+      '/tutorSubmissionSectionS2View';
   static const String tutorProfileSettingsSectionView =
       '/tutorProfileSettingsSectionView';
   static const String tutorProfileSettingsSectionS1View =
@@ -92,4 +97,15 @@ static const String editCheckInScreen = '/editCheckInScreen';
       '/tutorProfileSettingsSectionS3View';
   static const String tutorProfileSettingsSectionS4View =
       '/tutorProfileSettingsSectionS4View';
+
+  static const String tutorCertificateSectionView =
+      '/tutorCertificateSectionView';
+  static const String tutorCertificateSectionS1View =
+      '/tutorCertificateSectionS1View';
+  static const String tutorCertificateSectionS2View =
+      '/tutorCertificateSectionS2View';
+  static const String tutorCertificateSectionS3View =
+      '/tutorCertificateSectionS3View';
+  static const String tutorCertificateSectionS4View =
+      '/tutorCertificateSectionS4View';
 }

@@ -1,3 +1,4 @@
+import 'package:ast_official/app_ui_helpers/app_routes/route_paths.dart';
 import 'package:ast_official/helpers/app_layout_helper.dart';
 import 'package:ast_official/ui_molecules/app_dismis_keyboard.dart';
 import 'package:ast_official/ui_molecules/app_text/app_text.dart';
@@ -19,7 +20,6 @@ class TutorProfileSettingsSectionS3View extends StatelessWidget {
 
     return AppDismissKeyboard(
       child: Scaffold(
-        backgroundColor: AppColor.black,
         body: SafeArea(
           child: Padding(
             padding: EdgeInsets.symmetric(horizontal: cw(24)),
@@ -75,8 +75,8 @@ class TutorProfileSettingsSectionS3View extends StatelessWidget {
 
                 AppButton(
                   onPressed: () {
-                    // Navigator.pushNamed(
-                    //     context, RoutePaths.tutorCourseSectionS5View);
+                    Navigator.pushNamed(
+                        context, RoutePaths.tutorProfileSettingsSectionS4View);
                   },
                   text: "Aggiorna password",
                   fontSize: AppFontSize.f18,
