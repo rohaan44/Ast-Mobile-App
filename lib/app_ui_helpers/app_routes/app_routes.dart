@@ -202,9 +202,13 @@ class AppRouter {
         );
 
       case RoutePaths.dashboardView:
+        final firstPage = settings.arguments as Widget?; // optional argument
+
         return PageRouteBuilder(
           pageBuilder: (context, animation, secondaryAnimation) {
-            return const DashboardView();
+            return DashboardView(
+              firstPage: firstPage,
+            );
           },
           transitionsBuilder: (context, animation, secondaryAnimation, child) {
             return child;
@@ -411,7 +415,7 @@ class AppRouter {
           },
         );
 
-        case RoutePaths.coachProfileSettingScreen:
+      case RoutePaths.coachProfileSettingScreen:
         return PageRouteBuilder(
           pageBuilder: (context, animation, secondaryAnimation) {
             return const CoachProfileSettingView();
@@ -421,7 +425,7 @@ class AppRouter {
           },
         );
 
-case RoutePaths.coachEditProfileView:
+      case RoutePaths.coachEditProfileView:
         return PageRouteBuilder(
           pageBuilder: (context, animation, secondaryAnimation) {
             return const CoachEditProfileView();
@@ -431,7 +435,7 @@ case RoutePaths.coachEditProfileView:
           },
         );
 
-        case RoutePaths.coachInfoView:
+      case RoutePaths.coachInfoView:
         return PageRouteBuilder(
           pageBuilder: (context, animation, secondaryAnimation) {
             return const CoachInfoView();
@@ -440,7 +444,7 @@ case RoutePaths.coachEditProfileView:
             return child;
           },
         );
-     case RoutePaths.coachRenewCertificationView:
+      case RoutePaths.coachRenewCertificationView:
         return PageRouteBuilder(
           pageBuilder: (context, animation, secondaryAnimation) {
             return const CoachRenewCertificationView();
@@ -449,7 +453,7 @@ case RoutePaths.coachEditProfileView:
             return child;
           },
         );
-         case RoutePaths.integrationScreen:
+      case RoutePaths.integrationScreen:
         return PageRouteBuilder(
           pageBuilder: (context, animation, secondaryAnimation) {
             return const IntegrationView();
@@ -459,7 +463,7 @@ case RoutePaths.coachEditProfileView:
           },
         );
 
-         case RoutePaths.languageSelectedScreen:
+      case RoutePaths.languageSelectedScreen:
         return PageRouteBuilder(
           pageBuilder: (context, animation, secondaryAnimation) {
             return const LanguageView();
@@ -469,7 +473,7 @@ case RoutePaths.coachEditProfileView:
           },
         );
 
-        case RoutePaths.resetPasswordEmailScreen:
+      case RoutePaths.resetPasswordEmailScreen:
         return PageRouteBuilder(
           pageBuilder: (context, animation, secondaryAnimation) {
             return const ResetPasswordEmailView();
@@ -479,7 +483,7 @@ case RoutePaths.coachEditProfileView:
           },
         );
 
-            case RoutePaths.resetPasswordScreen:
+      case RoutePaths.resetPasswordScreen:
         return PageRouteBuilder(
           pageBuilder: (context, animation, secondaryAnimation) {
             return const ResetPasswordView();
@@ -489,7 +493,7 @@ case RoutePaths.coachEditProfileView:
           },
         );
 
-               case RoutePaths.selectedCheckInScreen:
+      case RoutePaths.selectedCheckInScreen:
         return PageRouteBuilder(
           pageBuilder: (context, animation, secondaryAnimation) {
             return const SelectedCheckInView();
@@ -499,7 +503,7 @@ case RoutePaths.coachEditProfileView:
           },
         );
 
-                 case RoutePaths.editCheckInScreen:
+      case RoutePaths.editCheckInScreen:
         return PageRouteBuilder(
           pageBuilder: (context, animation, secondaryAnimation) {
             return const EditAiSuggestionView();

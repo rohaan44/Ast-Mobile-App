@@ -35,7 +35,7 @@ class DashboardHomeScreen extends StatelessWidget {
               padding: EdgeInsets.symmetric(horizontal: cw(20)),
               child: Row(
                 children: [
-                SvgPicture.asset(AssetUtils.cloudIcon,width: cw(20)),
+                  SvgPicture.asset(AssetUtils.cloudIcon, width: cw(20)),
                   SizedBox(
                     width: cw(7),
                   ),
@@ -125,8 +125,6 @@ class DashboardHomeScreen extends StatelessWidget {
                             const SnackBar(content: Text("Slide !")),
                           );
                         });
-
-//
                   }),
                   SizedBox(
                     height: ch(24),
@@ -159,7 +157,7 @@ class DashboardHomeScreen extends StatelessWidget {
                   ),
                   const SimpleWeightChart(),
                   SizedBox(
-                    height: ch(20),
+                    height: ch(120),
                   ),
                 ],
               ),
@@ -497,7 +495,10 @@ Widget walkingBox() {
       children: [
         Row(
           children: [
-               SvgPicture.asset(AssetUtils.walkIcon,width: cw(20),),
+            SvgPicture.asset(
+              AssetUtils.walkIcon,
+              width: cw(20),
+            ),
             SizedBox(
               width: cw(7),
             ),
@@ -510,13 +511,13 @@ Widget walkingBox() {
             SizedBox(
               width: cw(7),
             ),
-              AppText(
-                          txt: "Camminando",
-                          fontWeight: FontWeight.w500,
-                          color: AppColor.cFFFFFF,
-                          fontSize: AppFontSize.f16,
-                          height: 1.5,
-                        ),
+            AppText(
+              txt: "Camminando",
+              fontWeight: FontWeight.w500,
+              color: AppColor.cFFFFFF,
+              fontSize: AppFontSize.f16,
+              height: 1.5,
+            ),
             const Spacer(),
             Container(
               height: ch(26),

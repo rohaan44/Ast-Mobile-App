@@ -157,8 +157,8 @@ class _YourPersonalizedPlanViewState extends State<YourPersonalizedPlanView> {
             AppButton(
                 buttonColor: AppColor.primary,
                 onPressed: () {
-                  Navigator.pushNamedAndRemoveUntil(context,
-                      RoutePaths.homeScreenView, (route) => false);
+                  Navigator.pushNamedAndRemoveUntil(
+                      context, RoutePaths.dashboardView, (route) => false);
                 },
                 text: "Procedi con il piano",
                 fontSize: AppFontSize.f16,

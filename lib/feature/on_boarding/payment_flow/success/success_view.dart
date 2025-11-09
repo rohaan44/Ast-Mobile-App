@@ -1,4 +1,5 @@
 import 'package:ast_official/app_ui_helpers/app_routes/route_paths.dart';
+import 'package:ast_official/feature/athelete_dashboard/sub_screen/home_screen/home_screen_view.dart';
 import 'package:ast_official/feature/on_boarding/payment_flow/success/success_controller.dart';
 import 'package:ast_official/feature/on_boarding/payment_flow/wallet/wallet_controller.dart';
 import 'package:ast_official/feature/on_boarding/select_role/select_role_controller.dart';
@@ -102,7 +103,9 @@ class SuccessView extends StatelessWidget {
                       context.read<SelectRoleController>().selectedRole ==
                               "Athlete"
                           ? "€79.00"
-                          : isRenew? "€249.00": "€549.00"),
+                          : isRenew
+                              ? "€249.00"
+                              : "€549.00"),
 
                   SizedBox(height: ch(20)),
 
@@ -188,27 +191,31 @@ class SuccessView extends StatelessWidget {
                       // Right button
                       Expanded(
                         child: AppButton(
-                            text: "Fato",
+                          text: "Fato",
                           onPressed: () {
-  final athleteFlowData = context
-      .read<FlowDataProvider>()
-      .getFlowData(customerOnboarding);
-  final role = athleteFlowData != null ? athleteFlowData["value"] ?? "" : "";
+                            final athleteFlowData = context
+                                .read<FlowDataProvider>()
+                                .getFlowData(customerOnboarding);
+                            final role = athleteFlowData != null
+                                ? athleteFlowData["value"] ?? ""
+                                : "";
 
-  if (role == "Coach") {
-    Navigator.pushNamedAndRemoveUntil(
-      context,
-      RoutePaths.coachMainScreenView,
-      (route) => false,
-    );
-  } else {
-    Navigator.pushNamedAndRemoveUntil(
-      context,
-      RoutePaths.homeScreenView,
-      (route) => false,
-    );
-  }
-},),
+                            if (role == "Coach") {
+                              Navigator.pushNamedAndRemoveUntil(
+                                context,
+                                RoutePaths.coachMainScreenView,
+                                (route) => false,
+                              );
+                            } else {
+                              Navigator.pushNamedAndRemoveUntil(
+                                context,
+                                RoutePaths.dashboardView,
+                                arguments: const HomeScreenview(),
+                                (route) => false,
+                              );
+                            }
+                          },
+                        ),
                       ),
                     ],
                   ),
