@@ -20,6 +20,8 @@ class OtpView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+           final flowData = context.read<FlowDataProvider>().getFlowData(resetPassword);
+final isReset = flowData != null ? flowData["isReset"] ?? false : false;
     return Scaffold(
         body: AppDismissKeyboard(
       child: Stack(children: [
@@ -33,19 +35,27 @@ class OtpView extends StatelessWidget {
               children: [
                 // Left logo
                 GestureDetector(
-                  onTap: () {
-                    Navigator.pop(context);
-                  },
-                  child: SvgPicture.asset(
-                    AssetUtils.backArrow,
+                  behavior: HitTestBehavior.opaque,
+                  onTap: () => Navigator.pop(context),
+                  child: Padding(
+                    padding: const EdgeInsets.all(8.0), // small tap area
+                    child: SvgPicture.asset(
+                      AssetUtils.backArrow,
+                      height: ch(20),
+                      width: cw(20),
+                    ),
                   ),
                 ),
-                SvgPicture.asset(
-                  AssetUtils.logoIcon,
-                  width: cw(60),
-                  height: ch(25),
+                Expanded(
+                  child: SvgPicture.asset(
+                    AssetUtils.logoIcon,
+                    width: cw(60),
+                    height: ch(25),
+                  ),
                 ),
-                const SizedBox.shrink()
+                SizedBox(
+                  width: cw(40),
+                )
               ],
             )),
         SizedBox(
@@ -96,7 +106,7 @@ class OtpView extends StatelessWidget {
                             Consumer<OtpController>(
                                 builder: (context, model, child) {
                               return primaryTextField(
-                                keyboardType:TextInputType.number,
+                                  keyboardType: TextInputType.number,
                                   obscureText: true,
                                   border: InputBorder.none,
                                   hintText: "Inserisci il codice qui",
@@ -109,18 +119,27 @@ class OtpView extends StatelessWidget {
                             ),
                             AppButton(
                               onPressed: () {
-                                final data =context.read<FlowDataProvider>().getFlowData(customerOnboarding);
-                                if (data!["value"]=="Tutor") {
-                             Navigator.pushNamedAndRemoveUntil(context,
-                                    RoutePaths.tutorMainScreen, (route) => false);
-                                
-                                }else{
-                                  Navigator.pushNamedAndRemoveUntil(context,
-                                    RoutePaths.dateOfBirth, (route) => false);
-                             
+                                final data = context
+                                    .read<FlowDataProvider>()
+                                    .getFlowData(customerOnboarding);
 
+                                final role = data?["value"] ?? "";
+
+                                if (role == "Tutor") {
+                                  Navigator.pushNamedAndRemoveUntil(
+                                    context,
+                                    RoutePaths.tutorMainScreen,
+                                    (route) => false,
+                                  );
+                                } else {
+                                  Navigator.pushNamed(
+                                    context,
+                                    isReset
+                                        ? RoutePaths.resetPasswordScreen
+                                        : RoutePaths.dateOfBirth,
+                                  );
                                 }
-                                 },
+                              },
                               text: "Verifica",
                             ),
                             SizedBox(

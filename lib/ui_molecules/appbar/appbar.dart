@@ -1,15 +1,15 @@
-
 import 'package:ast_official/app_ui_helpers/app_routes/route_paths.dart';
 import 'package:ast_official/helpers/app_layout_helper.dart';
+import 'package:ast_official/ui_molecules/app_text/app_text.dart';
 import 'package:ast_official/utils/asset_utils.dart';
 import 'package:ast_official/utils/colors_utils.dart';
+import 'package:ast_official/utils/font_size.dart';
 import 'package:ast_official/utils/gradients/app_gradients.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:sizer/sizer.dart';
-
-
 
 Widget appBar({
   double? appBarWidth,
@@ -31,7 +31,6 @@ Widget appBar({
   bool showLogo = true,
   bool isLogoCentered = false,
   bool showSlider = false,
-
   double? appBarMargin,
 }) {
   return Container(
@@ -50,8 +49,10 @@ Widget appBar({
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             // Left side area
-            if (showBackButton && backButton != null) backButton
-            else if (!isLogoCentered && showLogo && logo != null) logo,
+            if (showBackButton && backButton != null)
+              backButton
+            else if (!isLogoCentered && showLogo && logo != null)
+              logo,
 
             // Centered logo (if required)
             if (isLogoCentered && showLogo && logo != null)
@@ -86,10 +87,8 @@ Widget appBar({
 
         // 🔹 Custom slider (if any)
         if (showSlider && customSlider != null) ...[
-         
           Align(
-            alignment:
-                isLogoCentered ? Alignment.centerLeft : Alignment.center,
+            alignment: isLogoCentered ? Alignment.centerLeft : Alignment.center,
             child: customSlider,
           ),
         ],
@@ -97,6 +96,7 @@ Widget appBar({
     ),
   );
 }
+
 Widget customSlider(int totalSegments, int activeSegments, Color color) {
   return Row(
     mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -117,41 +117,126 @@ Widget customSlider(int totalSegments, int activeSegments, Color color) {
   );
 }
 
+Widget onboaridngAppBar(
+    {required BuildContext context,
+    required int activeSegments,
+    required int totalSegments}) {
+  return Container(
+      padding: EdgeInsets.all(cw(20)),
+      height: ch(150),
+      decoration: const BoxDecoration(gradient: AppGradients.redGradient),
+      child: Row(
+        crossAxisAlignment: CrossAxisAlignment.center,
+        children: [
+          // Left logo
+          SvgPicture.asset(
+            AssetUtils.logoIcon,
+            width: cw(60),
+            height: ch(25),
+          ),
 
-Widget onboaridngAppBar({required BuildContext context,required int activeSegments, required int totalSegments}){return 
+          SizedBox(width: cw(12)),
 
+          Expanded(
+            child: customSlider(totalSegments, activeSegments, AppColor.white),
+          ),
 
-            Container(
-              padding: EdgeInsets.all(cw(20)),
-              height: ch(150),
-              decoration: const BoxDecoration(gradient: AppGradients.redGradient),
-              child:Row(
-  crossAxisAlignment: CrossAxisAlignment.center,
-  children: [
-    // Left logo
-    SvgPicture.asset(
-      AssetUtils.logoIcon,
-      width: cw(60),
-      height: ch(25),
-    ),
+          SizedBox(width: cw(57)),
 
-    SizedBox(width: cw(12)),
+          GestureDetector(
+            onTap: () {
+              Navigator.pushNamedAndRemoveUntil(
+                  context, RoutePaths.selectRole, (route) => false);
+            },
+            child: SvgPicture.asset(
+              AssetUtils.appCrossIcon,
+            ),
+          ),
+        ],
+      ));
+}
 
-    Expanded(
-      child: customSlider(totalSegments, activeSegments, AppColor.white),
-    ),
+Widget centerTextBackIconAppbar({
+  required BuildContext context,
+  required String text,
+  bool textIsItalic = false,
+  Function? onTap,
+}) {
+  return Column(
+    children: [
+      SizedBox(height: ch(20)),
+      Row(
+        children: [
+          // back icon
+          GestureDetector(
+            behavior: HitTestBehavior.opaque,
+            onTap: () => onTap != null ? onTap() : Navigator.pop(context),
+            child: Padding(
+              padding: const EdgeInsets.all(8.0), // small tap area
+              child: SvgPicture.asset(
+                AssetUtils.backArrow,
+                height: ch(20),
+                width: cw(20),
+              ),
+            ),
+          ),
 
-    SizedBox(width: cw(57)),
+          // center text
+          Expanded(
+            child: Center(
+              child: AppText(
+                txt: text,
+                fontSize: AppFontSize.f16 + 4,
+                isItalic: textIsItalic,
+                color: AppColor.white,
+                fontWeight: FontWeight.w600,
+              ),
+            ),
+          ),
 
-    GestureDetector(
-      onTap: (){
-        Navigator.pushNamedAndRemoveUntil(context, RoutePaths.selectRole, (route) => false);
-      },
-      child: SvgPicture.asset(
-        AssetUtils.appCrossIcon,
+      
+          SizedBox(width: cw(20)),
+        ],
       ),
-    ),
-  ],
-)
+      SizedBox(height: ch(20)),
+    ],
+  );
+}
 
-            );}
+
+Widget textProfileSettingAppbar({
+  required BuildContext context,
+  required String text,
+  double? fontSize,
+  bool textIsItalic = false,
+  Function? onTap,
+}) {
+  return Column(
+    children: [
+    SizedBox(height: ch(20)),
+      Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: [
+          AppText(
+            txt: text,
+            fontSize: fontSize?? AppFontSize.f24,
+            isItalic: true,
+            color: AppColor.white,
+            fontWeight: FontWeight.w600,
+          ),
+          GestureDetector(
+            onTap: () =>
+                onTap ??
+                Navigator.pushNamed(
+                    context, RoutePaths.coachProfileSettingScreen),
+            child: SvgPicture.asset(
+              AssetUtils.profileIcon,
+              height: ch(40),
+            ),
+          )
+        ],
+      ),
+       SizedBox(height: ch(20)),
+    ],
+  );
+}

@@ -1,10 +1,32 @@
 import 'package:ast_official/feature/athelete_dashboard/dashboard/dashboard_controller.dart';
-import 'package:ast_official/feature/athelete_dashboard/home_screen/home_screen_controller.dart';
-import 'package:ast_official/feature/athelete_dashboard/home_screen/sub_screen/personalize_your_experience/personalize_your_experience_Controller.dart';
-import 'package:ast_official/feature/athelete_dashboard/home_screen/sub_screen/what_is_your_activity/what_is_your_activity_controller.dart';
-import 'package:ast_official/feature/athelete_dashboard/home_screen/sub_screen/what_is_your_diet_type/what_is_your_diet_type_controller.dart';
+import 'package:ast_official/feature/athelete_dashboard/sub_screen/athelet_chat/athelet_chat_controller.dart';
+import 'package:ast_official/feature/athelete_dashboard/sub_screen/dashboard_home_screen/dashboard_home_screen_controller.dart';
+import 'package:ast_official/feature/athelete_dashboard/sub_screen/athelet_coaches/athelet_coaches_controller.dart';
+import 'package:ast_official/feature/athelete_dashboard/sub_screen/check_in/check_in_controller.dart';
+import 'package:ast_official/feature/athelete_dashboard/sub_screen/check_in/sub_screen/body_measurement/body_measurement_controller.dart';
+import 'package:ast_official/feature/athelete_dashboard/sub_screen/check_in/sub_screen/checkin_diet/checkin_diet_controller.dart';
+import 'package:ast_official/feature/athelete_dashboard/sub_screen/check_in/sub_screen/review_your_checkin/review_your_checkin_controller.dart';
+import 'package:ast_official/feature/athelete_dashboard/sub_screen/check_in/sub_screen/status_feedback/status_feedback_controller..dart';
+import 'package:ast_official/feature/athelete_dashboard/sub_screen/home_screen/home_screen_controller.dart';
+import 'package:ast_official/feature/athelete_dashboard/sub_screen/home_screen/sub_screen/breakfast_time/breakfast_time_controller.dart';
+import 'package:ast_official/feature/athelete_dashboard/sub_screen/home_screen/sub_screen/dinner_time/dinner_time_controller.dart';
+import 'package:ast_official/feature/athelete_dashboard/sub_screen/home_screen/sub_screen/personalize_your_experience/personalize_your_experience_Controller.dart';
+import 'package:ast_official/feature/athelete_dashboard/sub_screen/home_screen/sub_screen/what_is_your_activity/what_is_your_activity_controller.dart';
+import 'package:ast_official/feature/athelete_dashboard/sub_screen/home_screen/sub_screen/what_is_your_diet_type/what_is_your_diet_type_controller.dart';
+import 'package:ast_official/feature/athelete_dashboard/sub_screen/home_screen/sub_screen/your_personalized_plan/your_personalized_plan_controller.dart';
+import 'package:ast_official/feature/athelete_dashboard/sub_screen/training/sub_screen/training_complete/training_complete_controller.dart';
+import 'package:ast_official/feature/athelete_dashboard/sub_screen/training/sub_screen/training_detail/training_detail_controller.dart';
+import 'package:ast_official/feature/athelete_dashboard/sub_screen/training/training_controller.dart';
 import 'package:ast_official/feature/coach_dashboard/athelete_management/athlete_management_controller.dart';
 import 'package:ast_official/feature/coach_dashboard/athelete_management/athlete_profile/athlete_profile_controller.dart';
+import 'package:ast_official/feature/coach_dashboard/check_in/check_in_reviews/check_in_reviews_controller.dart';
+import 'package:ast_official/feature/coach_dashboard/check_in/edit_ai_suggestion/edit_ai_suggestion_controller.dart';
+import 'package:ast_official/feature/coach_dashboard/coach_Message/coach_chat_controller.dart';
+import 'package:ast_official/feature/coach_dashboard/coach_profile_setting/coach_edit_profile/coach_edit_profile_controller.dart';
+import 'package:ast_official/feature/coach_dashboard/coach_profile_setting/forgot_password/reset_password/reset_password_controller.dart';
+import 'package:ast_official/feature/coach_dashboard/coach_profile_setting/forgot_password/reset_password_email/reset_password_email_controller.dart';
+import 'package:ast_official/feature/coach_dashboard/coach_profile_setting/integration/integration_controller.dart';
+import 'package:ast_official/feature/coach_dashboard/coach_profile_setting/language/language_controller.dart';
 import 'package:ast_official/feature/coach_dashboard/home_screen/coach_home_screen_controller.dart';
 import 'package:ast_official/feature/coach_dashboard/plans/nutrition_plan/nutrition_plan_controller.dart';
 import 'package:ast_official/feature/coach_dashboard/plans/plan_preview/plan_preview_controller.dart';
@@ -26,16 +48,31 @@ import 'package:ast_official/feature/on_boarding/select_weight/select_weight_con
 import 'package:ast_official/feature/on_boarding/sign_in/sign_in_controller.dart';
 import 'package:ast_official/feature/on_boarding/welcome_screen/welcome_controller.dart';
 import 'package:ast_official/feature/tutor_dashboard/home_screen/tutor_home_screen_controller.dart';
-import 'package:ast_official/feature/tutor_dashboard/tutor_screens/tutor_courses_section/sub_screens/tutor_course_section_s1/tutor_course_section_s1_controller.dart';
-import 'package:ast_official/feature/tutor_dashboard/tutor_screens/tutor_courses_section/sub_screens/tutor_course_section_s2/tutor_course_section_s2_controller.dart';
-import 'package:ast_official/feature/tutor_dashboard/tutor_screens/tutor_courses_section/sub_screens/tutor_course_section_s3/tutor_course_section_s3_controller.dart';
-import 'package:ast_official/feature/tutor_dashboard/tutor_screens/tutor_courses_section/sub_screens/tutor_course_section_s4/tutor_course_section_s4_controller.dart';
-import 'package:ast_official/feature/tutor_dashboard/tutor_screens/tutor_courses_section/tutor_course_section_controller.dart';
+import 'package:ast_official/feature/tutor_dashboard/tutor_screens/tutor_certificate_section/sub_screens/tutor_certificate_section_s1/tutor_certificate_section_s1_controller.dart';
+import 'package:ast_official/feature/tutor_dashboard/tutor_screens/tutor_certificate_section/sub_screens/tutor_certificate_section_s2/tutor_certificate_section_s2_controller.dart';
+import 'package:ast_official/feature/tutor_dashboard/tutor_screens/tutor_certificate_section/sub_screens/tutor_certificate_section_s3/tutor_certificate_section_s3_controller.dart';
+import 'package:ast_official/feature/tutor_dashboard/tutor_screens/tutor_certificate_section/sub_screens/tutor_certificate_section_s4/tutor_certificate_section_s4_controller.dart';
+import 'package:ast_official/feature/tutor_dashboard/tutor_screens/tutor_certificate_section/tutor_certificate_section_controller.dart';
+import 'package:ast_official/feature/tutor_dashboard/tutor_screens/tutor_course_section/sub_screens/tutor_course_section_s1/tutor_course_section_s1_controller.dart';
+import 'package:ast_official/feature/tutor_dashboard/tutor_screens/tutor_course_section/sub_screens/tutor_course_section_s2/tutor_course_section_s2_controller.dart';
+import 'package:ast_official/feature/tutor_dashboard/tutor_screens/tutor_course_section/sub_screens/tutor_course_section_s3/tutor_course_section_s3_controller.dart';
+import 'package:ast_official/feature/tutor_dashboard/tutor_screens/tutor_course_section/sub_screens/tutor_course_section_s4/tutor_course_section_s4_controller.dart';
+import 'package:ast_official/feature/tutor_dashboard/tutor_screens/tutor_course_section/tutor_course_section_controller.dart';
+import 'package:ast_official/feature/tutor_dashboard/tutor_screens/tutor_profile_settings_section/sub_screens/tutor_profile_settings_section_s1/tutor_profile_settings_section_s1_controller.dart';
+import 'package:ast_official/feature/tutor_dashboard/tutor_screens/tutor_profile_settings_section/sub_screens/tutor_profile_settings_section_s2/tutor_profile_settings_section_s2_controller.dart';
+import 'package:ast_official/feature/tutor_dashboard/tutor_screens/tutor_profile_settings_section/sub_screens/tutor_profile_settings_section_s3/tutor_profile_settings_section_s3_controller.dart';
+import 'package:ast_official/feature/tutor_dashboard/tutor_screens/tutor_profile_settings_section/sub_screens/tutor_profile_settings_section_s4/tutor_profile_settings_section_s4_controller.dart';
+import 'package:ast_official/feature/tutor_dashboard/tutor_screens/tutor_profile_settings_section/tutor_profile_settings_section_controller.dart';
+import 'package:ast_official/feature/tutor_dashboard/tutor_screens/tutor_submission_section/sub_screens/tutor_submission_section_s1/tutor_submission_section_s1_controller.dart';
+import 'package:ast_official/feature/tutor_dashboard/tutor_screens/tutor_submission_section/sub_screens/tutor_submission_section_s2/tutor_submission_section_s2_controller.dart';
+import 'package:ast_official/feature/tutor_dashboard/tutor_screens/tutor_submission_section/tutor_submission_section_controller.dart';
 import 'package:ast_official/ui_molecules/app_helper/app_helpers.dart';
 import 'package:ast_official/ui_molecules/bottombar/coach_bottombar/coach_bottombar_controller.dart';
 import 'package:ast_official/ui_molecules/bottombar/tutor_bottombar/tutor_bottombar_controller.dart';
 import 'package:provider/provider.dart';
 import 'package:provider/single_child_widget.dart';
+
+import '../../feature/coach_dashboard/coach_profile_setting/coach_profile_setting_controller.dart';
 
 List<SingleChildWidget> providersList = [
   ChangeNotifierProvider(create: (context) => SelectRoleController()),
@@ -48,9 +85,7 @@ List<SingleChildWidget> providersList = [
   ChangeNotifierProvider(create: (context) => SignInController()),
   ChangeNotifierProvider(create: (context) => HomeScreenController()),
   ChangeNotifierProvider(create: (context) => WhatIsYourDietTypeController()),
-
   ChangeNotifierProvider(create: (context) => WalletController()),
-
   ChangeNotifierProvider(create: (context) => ChooseYourPlanController()),
   ChangeNotifierProvider(create: (context) => WelcomeController()),
   ChangeNotifierProvider(create: (context) => SuccessController()),
@@ -58,7 +93,21 @@ List<SingleChildWidget> providersList = [
   ChangeNotifierProvider(
       create: (context) => PersonalizYourExperienceController()),
   ChangeNotifierProvider(create: (context) => HomeScreenController()),
+  ChangeNotifierProvider(create: (context) => BreakFastTimeController()),
+  ChangeNotifierProvider(create: (context) => DinnerTimeController()),
+  ChangeNotifierProvider(create: (context) => YourPersonalizedPlanController()),
   ChangeNotifierProvider(create: (context) => WhatIsYourActivityController()),
+  ChangeNotifierProvider(create: (context) => DashboardHomeScreenController()),
+  ChangeNotifierProvider(create: (context) => TrainingViewController()),
+  ChangeNotifierProvider(create: (context) => TrainingDetailController()),
+  ChangeNotifierProvider(create: (context) => TrainingCompleteController()),
+  ChangeNotifierProvider(create: (context) => AtheletCoachesController()),
+  ChangeNotifierProvider(create: (context) => CheckInController()),
+  ChangeNotifierProvider(create: (context) => CheckInDietController()),
+  ChangeNotifierProvider(create: (context) => BodyMeasurementController()),
+  ChangeNotifierProvider(create: (context) => StatusFeedbackController()),
+  ChangeNotifierProvider(create: (context) => ReviewYourCheckInController()),
+  ChangeNotifierProvider(create: (context) => AtheletChatController()),
 
   ////////Coaches Dashboard//////
 
@@ -74,16 +123,49 @@ List<SingleChildWidget> providersList = [
   ChangeNotifierProvider(create: (_) => TrainingPlanController()),
   ChangeNotifierProvider(create: (_) => NutritionPlanController()),
 
-ChangeNotifierProvider(
-  create: (_) => PaymentsRoyaltiesController(),
-),
+  ChangeNotifierProvider(
+    create: (_) => PaymentsRoyaltiesController(),
+  ),
 
-ChangeNotifierProvider(
-  create: (_) => AthleteSubscriptionsController(),
-),
-ChangeNotifierProvider(
-  create: (_) => TransactionsHistoryController(),
-),
+  ChangeNotifierProvider(
+    create: (_) => AthleteSubscriptionsController(),
+  ),
+  ChangeNotifierProvider(
+    create: (_) => TransactionsHistoryController(),
+  ),
+
+  ChangeNotifierProvider(
+    create: (_) => CoachChatController(),
+  ),
+  ChangeNotifierProvider(
+    create: (_) => CoachProfileSettingController(),
+  ),
+
+  ChangeNotifierProvider(
+    create: (_) => CoachEditProfileController(),
+  ),
+
+  ChangeNotifierProvider(
+    create: (_) => IntegrationController(),
+  ),
+  ChangeNotifierProvider(
+    create: (_) => LanguageSelectorController(),
+  ),
+
+  ChangeNotifierProvider(
+    create: (_) => ResetPasswordEmailController(),
+  ),
+  ChangeNotifierProvider(
+    create: (_) => ResetPasswordController(),
+  ),
+
+  ChangeNotifierProvider(
+    create: (_) => CheckInReviewsController(),
+  ),
+  ChangeNotifierProvider(
+    create: (_) => EditAiSuggestionController(),
+  ),
+
   ////////Tutor Dashboard//////
   ChangeNotifierProvider(create: (context) => TutorHomeScreenController()),
 
@@ -95,4 +177,32 @@ ChangeNotifierProvider(
   ),
   ChangeNotifierProvider(create: (context) => TutorCourseSectionS3Controller()),
   ChangeNotifierProvider(create: (context) => TutorCourseSectionS4Controller()),
+  ChangeNotifierProvider(
+      create: (context) => TutorProfileSettingsSectionController()),
+  ChangeNotifierProvider(
+      create: (context) => TutorProfileSettingsSectionS1Controller()),
+
+  ChangeNotifierProvider(
+      create: (context) => TutorProfileSettingsSectionS2Controller()),
+  ChangeNotifierProvider(
+      create: (context) => TutorProfileSettingsSectionS3Controller()),
+  ChangeNotifierProvider(
+      create: (context) => TutorProfileSettingsSectionS4Controller()),
+
+  ChangeNotifierProvider(
+      create: (context) => TutorCertificateSectionController()),
+  ChangeNotifierProvider(
+      create: (context) => TutorCertificateSectionS1Controller()),
+  ChangeNotifierProvider(
+      create: (context) => TutorCertificateSectionS2Controller()),
+  ChangeNotifierProvider(
+      create: (context) => TutorCertificateSectionS3Controller()),
+  ChangeNotifierProvider(
+      create: (context) => TutorCertificateSectionS4Controller()),
+  ChangeNotifierProvider(
+      create: (context) => TutorSubmissionSectionController()),
+  ChangeNotifierProvider(
+      create: (context) => TutorSubmissionSectionS1Controller()),
+  ChangeNotifierProvider(
+      create: (context) => TutorSubmissionSectionS2Controller()),
 ];

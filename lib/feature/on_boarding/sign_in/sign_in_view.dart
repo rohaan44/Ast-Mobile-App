@@ -101,7 +101,7 @@ class _SignInViewState extends State<SignInView> {
                               fillColor: AppColor.c161616,
                               border: InputBorder.none,
                               hintText: "Indirizzo E-mail",
-                              prefixIcon: const Icon(CupertinoIcons.mail),
+                              prefixIcon: SvgPicture.asset(AssetUtils.emailIcon),
                               controller: emailController,
                             ),
                             //  SvgPicture.asset(
@@ -115,7 +115,7 @@ class _SignInViewState extends State<SignInView> {
                                 obscureText: true,
                                 border: InputBorder.none,
                                 hintText: "Password",
-                                prefixIcon: const Icon(CupertinoIcons.lock),
+                                prefixIcon: SvgPicture.asset(AssetUtils.lockIcon),
                                 // suffixIcon: Icon(Icons.remove_red_eye),
                                 controller: passwordController),
                             SizedBox(

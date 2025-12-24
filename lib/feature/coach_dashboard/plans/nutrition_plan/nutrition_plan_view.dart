@@ -34,10 +34,13 @@ class NutritionPlanView extends StatelessWidget {
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  GestureDetector(
-                    onTap: () => Navigator.pop(context),
-                    child: SvgPicture.asset(AssetUtils.backArrow),
-                  ),
+                  IconButton(
+          highlightColor: AppColor.transparent,
+          focusColor: AppColor.transparent,
+          splashColor: AppColor.transparent,
+          icon: SvgPicture.asset(AssetUtils.backArrow),
+          onPressed: () => Navigator.pop(context),
+        ),
                   AppText(
                     txt: "Piano Nutrizionale",
                     fontSize: AppFontSize.f19 + 2,

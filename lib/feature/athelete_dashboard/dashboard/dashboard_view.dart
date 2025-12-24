@@ -1,13 +1,22 @@
 import 'package:ast_official/feature/athelete_dashboard/dashboard/dashboard_controller.dart';
-import 'package:ast_official/feature/athelete_dashboard/home_screen/home_screen_view.dart';
+import 'package:ast_official/feature/athelete_dashboard/sub_screen/athelet_chat/athelet_chat_view.dart';
+import 'package:ast_official/feature/athelete_dashboard/sub_screen/athelet_coaches/athelet_coaches_view.dart';
+import 'package:ast_official/feature/athelete_dashboard/sub_screen/check_in/check_in_view.dart';
+import 'package:ast_official/feature/athelete_dashboard/sub_screen/dashboard_home_screen/dashboard_home_screen.dart';
+import 'package:ast_official/feature/athelete_dashboard/sub_screen/training/training_view.dart';
 import 'package:ast_official/helpers/app_layout_helper.dart';
 import 'package:ast_official/utils/colors_utils.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:provider/provider.dart';
 
+// ignore: must_be_immutable
 class DashboardView extends StatefulWidget {
-  const DashboardView({super.key});
+  Widget? firstPage;
+  DashboardView({
+    super.key,
+    this.firstPage,
+  });
 
   @override
   State<DashboardView> createState() => _DashboardViewState();
@@ -15,13 +24,29 @@ class DashboardView extends StatefulWidget {
 
 class _DashboardViewState extends State<DashboardView> {
   int selectedIndex = 0;
-  final List<Widget> screenList = [
-    const HomeScreenview(),
-    homeScreen(),
-    homeScreen(),
-    homeScreen(),
-    homeScreen(),
-  ];
+  late List<Widget> screenList; // ✅ Declare here
+
+  // final List<Widget> screenList = [
+  //   widget.firstPage ?? const DashboardHomeScreen(),
+  //   // const HomeScreenview(),
+  //   const TrainingView(),
+  //   const AtheletCoachesView(),
+  //   const CheckIn(),
+  //   const AtheletChatView()
+  // ];
+
+  @override
+  void initState() {
+    super.initState();
+    screenList = [
+      widget.firstPage ?? const DashboardHomeScreen(),
+      const TrainingView(),
+      const AtheletCoachesView(),
+      const CheckIn(),
+      const AtheletChatView(),
+    ];
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -32,6 +57,8 @@ class _DashboardViewState extends State<DashboardView> {
           children: [
             Positioned.fill(
               child: PageView(
+                physics: const NeverScrollableScrollPhysics(),
+                clipBehavior: Clip.none,
                 controller: model.pageController,
                 onPageChanged: model.setSelectedIndex,
                 children: screenList,
@@ -65,7 +92,11 @@ Widget _bottomNavBar() {
       height: 72,
       width: double.infinity,
       decoration: BoxDecoration(
-        color: Colors.black.withOpacity(0.25),
+        color: AppColor.c252525.withOpacity(0.25),
+        boxShadow: [
+          BoxShadow(
+              offset: Offset(30, 16), color: AppColor.c000000.withOpacity(0.15))
+        ],
         borderRadius: BorderRadius.circular(50),
       ),
       child: Consumer<DashboardController>(
@@ -94,15 +125,15 @@ Widget _bottomNavBar() {
                     shape: BoxShape.circle,
                     color: isSelected
                         ? Colors.red.withOpacity(0.9)
-                        : Colors.transparent,
+                        : AppColor.c1E1E1E,
                   ),
                   child: Center(
                     child: SvgPicture.asset(
                       model.iconsList[index],
-                      colorFilter: ColorFilter.mode(
-                        isSelected ? Colors.white : Colors.grey.shade400,
-                        BlendMode.srcIn,
-                      ),
+                      // colorFilter: ColorFilter.mode(
+                      //   isSelected ? AppColor.cFFFFFF : AppColor.cFFFFFF,
+                      //   BlendMode.srcIn,
+                      // ),
                       height: ch(24),
                       width: cw(24),
                     ),
