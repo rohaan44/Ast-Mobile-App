@@ -1,9 +1,9 @@
 import 'package:ast_official/utils/asset_utils.dart';
-import 'package:carousel_slider/carousel_controller.dart';
+import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 
 class DashboardHomeScreenController with ChangeNotifier {
-  CarouselController carouselController = CarouselController();
+  CarouselSliderController carouselController = CarouselSliderController();
 
   int carouselValue = 0;
 
