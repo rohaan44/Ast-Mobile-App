@@ -5,6 +5,7 @@ import 'package:ast_official/ui_molecules/app_helper/app_constant.dart';
 import 'package:ast_official/ui_molecules/app_helper/app_helpers.dart';
 import 'package:ast_official/ui_molecules/app_text/app_text.dart';
 import 'package:ast_official/ui_molecules/primary_textfield/primary_text_field.dart';
+import 'package:ast_official/utils/app_divider.dart';
 import 'package:ast_official/utils/asset_utils.dart';
 import 'package:ast_official/utils/colors_utils.dart';
 import 'package:ast_official/utils/font_size.dart';
@@ -21,7 +22,7 @@ class CoachChatView extends StatelessWidget {
     return Scaffold(
       body: SafeArea(
           child: Column(
-        children: [
+                  children: [
           Padding(
             padding: EdgeInsets.symmetric(horizontal: cw(20), vertical: ch(10)),
             child: Row(
@@ -44,8 +45,9 @@ class CoachChatView extends StatelessWidget {
               ],
             ),
           ),
+          //SizedBox(height: ch(),),
           Padding(
-            padding: EdgeInsets.symmetric(horizontal: cw(20)),
+             padding: EdgeInsets.symmetric(horizontal: cw(20)),
             child: primaryTextField(
                 hintText: "Ricerca",
                 prefixIcon: SvgPicture.asset(AssetUtils.searchIcon),
@@ -54,10 +56,12 @@ class CoachChatView extends StatelessWidget {
                 border: InputBorder.none,
                 borderRadius: cw(50)),
           ),
+          SizedBox(height: ch(20),),
           Expanded(
-            child: ListView.builder(
+            child: ListView.separated(
+              separatorBuilder: (c,incex){return appDivider();},
               physics: const BouncingScrollPhysics(),
-              padding: EdgeInsets.symmetric(horizontal: cw(10)),
+              padding: EdgeInsets.symmetric(horizontal: cw(20)),
               itemCount: model.chats.length,
               itemBuilder: (context, index) {
                 final chat = model.chats[index];
@@ -65,11 +69,11 @@ class CoachChatView extends StatelessWidget {
                   onTap: () {
                     context.read<FlowDataProvider>().addOrUpdateFlow(
                         flowTag: customerOnboarding, data: model.chats[index]);
-
+          
                     Navigator.pushNamed(context, RoutePaths.selectedChatScreen);
                   },
                   child: Padding(
-                    padding: EdgeInsets.symmetric(vertical: ch(10)),
+                    padding: EdgeInsets.symmetric(vertical: ch(15)),
                     child: Row(
                       crossAxisAlignment: CrossAxisAlignment.center,
                       children: [
@@ -80,7 +84,7 @@ class CoachChatView extends StatelessWidget {
                               NetworkImage(chat["image"].toString()),
                         ),
                         SizedBox(width: cw(12)),
-
+          
                         /// Chat Info
                         Expanded(
                           child: Column(
@@ -102,7 +106,7 @@ class CoachChatView extends StatelessWidget {
                             ],
                           ),
                         ),
-
+          
                         /// Time + Unread badge
                         Column(
                           crossAxisAlignment: CrossAxisAlignment.end,
@@ -136,7 +140,7 @@ class CoachChatView extends StatelessWidget {
                 );
               },
             ),
-
+          
             // ListTile(
             //   contentPadding: EdgeInsets.zero,
             //   leading: CircleAvatar(
@@ -155,8 +159,8 @@ class CoachChatView extends StatelessWidget {
             //   ),
             // )
           )
-        ],
-      )),
+                  ],
+                )),
     );
   }
 }
