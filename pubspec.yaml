@@ -46,6 +46,11 @@ dependencies:
   dotted_border: ^2.1.0
   fl_chart: ^0.67.0
   simple_circular_progress_bar: ^1.0.2
+  flutter_secure_storage: ^10.0.0
+  flutter_local_notifications: ^19.5.0
+  firebase_messaging: ^16.1.0
+  app_settings: ^7.0.0
+  firebase_core: ^4.3.0
 
 dev_dependencies:
   flutter_test:

@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "131175468738",
+    "project_id": "ast-app-80205",
+    "storage_bucket": "ast-app-80205.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:131175468738:android:399a5759f7163bc9bfb55b",
+        "android_client_info": {
+          "package_name": "com.example.ast_official"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAtTGTeRHZPPxPLqIgtNh_ptgNXMqpSHF0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
