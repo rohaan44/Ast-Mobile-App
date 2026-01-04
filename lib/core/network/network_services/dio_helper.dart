@@ -1,100 +1,72 @@
-
+import 'package:ast_official/core/network/auth_service/auth_service.dart';
 import 'package:ast_official/core/network/network_services/api_interceptors.dart';
 import 'package:dio/dio.dart';
 class DioHelper {
-  Dio dio = getDio();
+  final Dio dio = getDio();
 
-  Options option = Options(
-      receiveDataWhenStatusError: true,
-      sendTimeout: const Duration(seconds: 10),
-      receiveTimeout: const Duration(seconds: 10),
-      contentType: "application/json");
-  Map<String, dynamic> headers = {"isAuthRequired": "Bearer token"};
+  Options baseOptions = Options(
+    contentType: "application/json",
+    receiveDataWhenStatusError: true,
+  );
 
-  Future get({required String url, bool isAuthRequired = false}) async {
-    if (isAuthRequired) {
-      option.headers = headers;
-    }
-    try {
-      Response response = await dio.get(url, options: option);
-      return response.data;
-    } catch (e) {
-      return null;
-    }
-  }
+  Future<dynamic> get({
+    required String url,
+    bool isAuthRequired = false,
+    Map<String, dynamic>? headers,
+  }) async {
+    final option = baseOptions.copyWith(
+      headers: headers ?? {},
+    );
 
-  Future post({required String url,Object? requestBody,
-      bool isAuthRequired = false}) async {
-    if (isAuthRequired) {
-      option.headers = headers;
-    }
-    try {
-      Response response;
-      if (requestBody == null) {
-        response = await dio.post(url, options: option);
-      } else {
-      response = await dio.post(url,data:requestBody ,options: option);
-        
-      }
-      return response.data;
-    } catch (e) {
-      return null;
-    }
-  }
-    Future put({required String url,Object? requestBody,
-      bool isAuthRequired = false}) async {
-    if (isAuthRequired) {
-      option.headers = headers;
-    }
-    try {
-      Response response;
-      if (requestBody == null) {
-        response = await dio.put(url, options: option);
-      } else {
-      response = await dio.put(url,data:requestBody ,options: option);
-        
-      }
-      return response.data;
-    } catch (e) {
-      return null;
-    }
-  }
-    Future patch({required String url,Object? requestBody,
-      bool isAuthRequired = false}) async {
-    if (isAuthRequired) {
-      option.headers = headers;
-    }
-    try {
-      Response response;
-      if (requestBody == null) {
-        response = await dio.patch(url, options: option);
-      } else {
-      response = await dio.patch(url,data:requestBody ,options: option);
-        
-      }
-      return response.data;
-    } catch (e) {
-      return null;
-    }
+    final res = await dio.get(url, options: option);
+    return res.data;
   }
 
-  Future delete({required String url,Object? requestBody,
-      bool isAuthRequired = false}) async {
-    if (isAuthRequired) {
-      option.headers = headers;
-    }
-    try {
-      Response response;
-      if (requestBody == null) {
-        response = await dio.delete(url, options: option);
-      } else {
-      response = await dio.delete(url,data:requestBody ,options: option);
-        
-      }
-      return response.data;
-    } catch (e) {
-      return null;
-    }
+  Future<dynamic> post({
+    required String url,
+    Object? requestBody,
+    bool isAuthRequired = false,
+    Map<String, dynamic>? headers,
+  }) async {
+    final option = baseOptions.copyWith(
+      headers: isAuthRequired
+          ? {
+              "Authorization": "Bearer ${await AuthStorage.getToken()}",
+              "Content-Type": "application/json",
+            }
+          : {
+              "Content-Type": "application/json",
+            },
+    );
+
+    final res = await dio.post(
+      url,
+      data: requestBody,
+      options: option,
+    );
+
+    return res.data;
   }
- 
+
+  Future<dynamic> put({
+    required String url,
+    Object? requestBody,
+    Map<String, dynamic>? headers,
+  }) async {
+    final option = baseOptions.copyWith(headers: headers);
+
+    final res = await dio.put(url, data: requestBody, options: option);
+    return res.data;
+  }
+
+  Future<dynamic> delete({
+    required String url,
+    Object? requestBody,
+    Map<String, dynamic>? headers,
+  }) async {
+    final option = baseOptions.copyWith(headers: headers);
+
+    final res = await dio.delete(url, data: requestBody, options: option);
+    return res.data;
+  }
 }
