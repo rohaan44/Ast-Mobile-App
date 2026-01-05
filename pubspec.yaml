@@ -37,6 +37,7 @@ dependencies:
   # ✅ FLUTTER LOCALIZATIONS
   flutter_localizations:
     sdk: flutter
+  flutter_localization: ^0.3.3
 
 dev_dependencies:
   flutter_test:
