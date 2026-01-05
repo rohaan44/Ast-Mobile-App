@@ -194,6 +194,8 @@
 // ];
 import 'package:ast_official/feature/on_boarding/select_role/select_role_controller.dart';
 import 'package:ast_official/helpers/app_layout_helper.dart';
+import 'package:ast_official/ui_molecules/app_helper/app_constant.dart';
+import 'package:ast_official/ui_molecules/app_helper/app_helpers.dart';
 import 'package:ast_official/ui_molecules/app_text/app_text.dart';
 import 'package:ast_official/ui_molecules/buttons/app_primary_button.dart';
 import 'package:ast_official/utils/asset_utils.dart';
@@ -328,12 +330,15 @@ class SelectRoleView extends StatelessWidget {
                 if (controller.currentIndex != null) ...[
                   AppButton(
                     buttonColor: AppColor.cFFFFFF,
-                    onPressed: () => controller.onContinuePressed(context),
+                    onPressed: () {
+                      controller.onContinuePressed(context);
+                      
+                    },
                     child: AppText(
                       txt: "Continuare",
                       color: AppColor.black,
                       fontSize: AppFontSize.f16,
-                      fontWeight: FontWeight.w400,
+                      fontWeight: FontWeight.w600,
                     ),
                   ),
                   SizedBox(height: ch(40)),
