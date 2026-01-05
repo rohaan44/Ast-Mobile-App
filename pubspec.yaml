@@ -51,6 +51,8 @@ dependencies:
   firebase_messaging: ^16.1.0
   app_settings: ^7.0.0
   firebase_core: ^4.3.0
+  connectivity_plus: ^6.1.5
+  internet_connection_checker: ^3.0.1
 
 dev_dependencies:
   flutter_test:
