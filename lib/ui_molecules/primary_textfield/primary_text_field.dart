@@ -49,6 +49,7 @@ Widget primaryTextField({
             ? Alignment.topCenter
             : Alignment.center, // 👈 smart alignment
         child: TextFormField(
+          textAlignVertical: TextAlignVertical.center,
           autovalidateMode: AutovalidateMode.onUserInteraction,
           cursorColor: AppColor.red,
           controller: controller,

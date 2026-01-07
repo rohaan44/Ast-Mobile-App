@@ -12,6 +12,8 @@ import 'package:ast_official/utils/colors_utils.dart';
 import 'package:ast_official/utils/font_size.dart';
 import 'package:ast_official/utils/gradients/app_gradients.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_countdown_timer/current_remaining_time.dart';
+import 'package:flutter_countdown_timer/flutter_countdown_timer.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:provider/provider.dart';
 
@@ -20,8 +22,8 @@ class OtpView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-           final flowData = context.read<FlowDataProvider>().getFlowData(resetPassword);
-final isReset = flowData != null ? flowData["isReset"] ?? false : false;
+    final flowData =
+        context.read<FlowDataProvider>().getFlowData(resetPassword);
     return Scaffold(
         body: AppDismissKeyboard(
       child: Stack(children: [
@@ -97,7 +99,7 @@ final isReset = flowData != null ? flowData["isReset"] ?? false : false;
                                   "Inserisci il codice di verifica che abbiamo inviato\n alla tua email kel**@gmail.com.   ",
                               fontSize: AppFontSize.f18,
                               fontWeight: FontWeight.w400,
-                              color: AppColor.cFFFFFF.withOpacity(0.5),
+                              color: AppColor.cFFFFFF.withValues(alpha: 0.5),
                               height: 1.5,
                             ),
                             SizedBox(
@@ -110,8 +112,6 @@ final isReset = flowData != null ? flowData["isReset"] ?? false : false;
                                   obscureText: true,
                                   border: InputBorder.none,
                                   hintText: "Inserisci il codice qui",
-                                  // prefixIcon: const Icon(CupertinoIcons.lock),
-                                  // suffixIcon: Icon(Icons.remove_red_eye),
                                   controller: model.otpTextController);
                             }),
                             SizedBox(
@@ -132,11 +132,10 @@ final isReset = flowData != null ? flowData["isReset"] ?? false : false;
                                     (route) => false,
                                   );
                                 } else {
-                                  Navigator.pushNamed(
+                                  Navigator.pushNamedAndRemoveUntil(
                                     context,
-                                    isReset
-                                        ? RoutePaths.resetPasswordScreen
-                                        : RoutePaths.dateOfBirth,
+                                    RoutePaths.dateOfBirth,
+                                    (route) => false,
                                   );
                                 }
                               },
@@ -145,20 +144,75 @@ final isReset = flowData != null ? flowData["isReset"] ?? false : false;
                             SizedBox(
                               height: ch(25),
                             ),
-                            Row(
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              children: [
-                                AppText(
-                                  txt: "Non hai ricevuto il codice?",
-                                  color: AppColor.white.withOpacity(0.50),
-                                  fontSize: AppFontSize.f15,
-                                ),
-                                AppText(
-                                  txt: "Invia di nuovo il codice",
-                                  color: AppColor.white,
-                                  fontSize: AppFontSize.f15,
-                                )
-                              ],
+                            Consumer<OtpController>(
+                              builder: (context, model, child) {
+                                return Center(
+                                  child: CountdownTimer(
+                                    key: ValueKey(model.endTime),
+                                    controller: model.countdownTimerController,
+                                    endTime: model.endTime!,
+                                    widgetBuilder:
+                                        (_, CurrentRemainingTime? time) {
+                                      if (time == null) {
+                                        return Row(
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.center,
+                                          children: [
+                                            AppText(
+                                              txt:
+                                                  "Non hai ricevuto il codice? ",
+                                              color: AppColor.white
+                                                  .withValues(alpha: 0.50),
+                                              fontSize: AppFontSize.f15,
+                                            ),
+                                            GestureDetector(
+                                              onTap: () async {
+                                                model
+                                                    .clearAndFocusPinCodeField();
+                                                model.startTimerAgainSafely();
+                                                final data = context
+                                                    .read<FlowDataProvider>()
+                                                    .getFlowData(
+                                                        customerSignIn);
+                                                final email =
+                                                    data?["email"] ?? "";
+                                                model.resendOtp(context, email);
+                                              },
+                                              child: AppText(
+                                                txt: "Invia di nuovo il codice",
+                                                color: AppColor.white,
+                                                fontSize: AppFontSize.f15,
+                                                fontWeight: FontWeight.w600,
+                                              ),
+                                            ),
+                                          ],
+                                        );
+                                      }
+
+                                      return Row(
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.center,
+                                        children: [
+                                          AppText(
+                                            txt:
+                                                "Invia nuovamente il codice in ",
+                                            color: AppColor.white
+                                                .withValues(alpha: 0.50),
+                                            fontSize: AppFontSize.f15,
+                                          ),
+                                          AppText(
+                                            txt:
+                                                "${model.formatTimer(time.min)}:${model.formatTimer(time.sec)}",
+                                            color: AppColor.white,
+                                            fontSize: AppFontSize.f15,
+                                            fontWeight: FontWeight.w600,
+                                          ),
+                                        ],
+                                      );
+                                    },
+                                  ),
+                                );
+                              },
                             )
                           ],
                         ),

@@ -1,6 +1,7 @@
 import 'package:ast_official/core/network/auth_service/auth_service.dart';
 import 'package:ast_official/core/network/network_services/api_interceptors.dart';
 import 'package:dio/dio.dart';
+
 class DioHelper {
   final Dio dio = getDio();
 
@@ -29,6 +30,9 @@ class DioHelper {
     Map<String, dynamic>? headers,
   }) async {
     final option = baseOptions.copyWith(
+      validateStatus: (status) {
+        return status != null && status < 500;
+      },
       headers: isAuthRequired
           ? {
               "Authorization": "Bearer ${await AuthStorage.getToken()}",

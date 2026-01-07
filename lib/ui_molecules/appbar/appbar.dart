@@ -194,7 +194,6 @@ Widget centerTextBackIconAppbar({
             ),
           ),
 
-      
           SizedBox(width: cw(20)),
         ],
       ),
@@ -202,7 +201,6 @@ Widget centerTextBackIconAppbar({
     ],
   );
 }
-
 
 Widget textProfileSettingAppbar({
   required BuildContext context,
@@ -213,13 +211,13 @@ Widget textProfileSettingAppbar({
 }) {
   return Column(
     children: [
-    SizedBox(height: ch(20)),
+      SizedBox(height: ch(20)),
       Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           AppText(
             txt: text,
-            fontSize: fontSize?? AppFontSize.f24,
+            fontSize: fontSize ?? AppFontSize.f24,
             isItalic: true,
             color: AppColor.white,
             fontWeight: FontWeight.w600,
@@ -236,7 +234,7 @@ Widget textProfileSettingAppbar({
           )
         ],
       ),
-       SizedBox(height: ch(20)),
+      SizedBox(height: ch(20)),
     ],
   );
 }
