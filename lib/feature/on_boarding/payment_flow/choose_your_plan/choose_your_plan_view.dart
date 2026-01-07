@@ -115,11 +115,11 @@ final isRenew = flowData != null ? flowData["isRenew"] ?? false : false;
 
               if (context.read<SelectRoleController>().selectedRole ==
                 "Coach") ...[
-                  plainCard("Quota di Certificazione ", "€549/mese", "(Una tantum)",(isRenew!=null&& isRenew==true)?false:true),
+                  plainCard("Quota di Certificazione ", "€599/mese", "(Una tantum)",(isRenew!=null&& isRenew==true)?false:true),
                  SizedBox(
                 height: ch(10),
               ),
-                   plainCard("Rinnovo della Licenza", "€549/mese", "Annuale",(isRenew!=null&& isRenew==true)?true:false),
+                   plainCard("Rinnovo della Licenza", "€249/mese", "Annuale",(isRenew!=null&& isRenew==true)?true:false),
                  
 
                 ]else

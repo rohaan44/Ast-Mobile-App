@@ -50,18 +50,20 @@ class SelectRoleController extends ChangeNotifier {
           flowTag: customerOnboarding,
           data: {"value": "Coach"},
         );
+        context
+            .read<FlowDataProvider>()
+            .getFlowData(customerOnboarding)!["value"];
         Navigator.pushNamedAndRemoveUntil(
             context, RoutePaths.signIn, (route) => false);
-      }if (currentIndex == 2) {
+      }
+      if (currentIndex == 2) {
         context.read<FlowDataProvider>().addOrUpdateFlow(
           flowTag: customerOnboarding,
           data: {"value": "Tutor"},
         );
         Navigator.pushNamedAndRemoveUntil(
             context, RoutePaths.signIn, (route) => false);
-      }  
-      
-      else {
+      } else {
         Navigator.pushNamedAndRemoveUntil(
             context, RoutePaths.signIn, (route) => false);
       }
