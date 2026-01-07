@@ -138,7 +138,9 @@ class AppButton extends StatelessWidget {
                       ],
                     ],
                   )
-                : const CircularProgressIndicator(color: AppColor.white)),
+                : const CircularProgressIndicator(
+                    color: AppColor.black,
+                  )),
       ),
     );
   }

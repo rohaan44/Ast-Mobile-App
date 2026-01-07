@@ -192,6 +192,8 @@
 //       subtitle: "Eroga corsi e certifica nuovi coach.",
 //       image: AssetUtils.selectedRoleTutor),
 // ];
+import 'dart:developer';
+
 import 'package:ast_official/feature/on_boarding/select_role/select_role_controller.dart';
 import 'package:ast_official/helpers/app_layout_helper.dart';
 import 'package:ast_official/ui_molecules/app_helper/app_constant.dart';
@@ -331,8 +333,12 @@ class SelectRoleView extends StatelessWidget {
                   AppButton(
                     buttonColor: AppColor.cFFFFFF,
                     onPressed: () {
+                      final flowProvider = context.read<FlowDataProvider>();
+                      final data = flowProvider.getFlowData(customerOnboarding);
+
+                      log(data.toString());
+
                       controller.onContinuePressed(context);
-                      
                     },
                     child: AppText(
                       txt: "Continuare",
