@@ -3,7 +3,6 @@ import 'dart:developer';
 import 'package:ast_official/core/network/network_properties/network_properties.dart';
 import 'package:ast_official/core/network/network_services/dio_helper.dart';
 import 'package:ast_official/data/models/get_all_users.dart';
-import 'package:ast_official/data/models/map_model.dart';
 import 'package:ast_official/data/models/products_model.dart';
 import 'package:ast_official/data/models/response_model.dart';
 import 'package:ast_official/services/api_cache.dart';
@@ -39,32 +38,32 @@ class Repository {
   }
 //Data coming from Map
 
-  Future<MapModel?> getMapData(bool isCacheOn) async {
-    const cacheKey = "map_data";
-    try {
-      if (isCacheOn) {
-        final cacheData = CacheService.getResponse(cacheKey);
-        if (cacheData != null && cacheData is Map<String, dynamic>) {
-          log("📦 Returning cached MapModel");
-          return MapModel.fromJson(cacheData);
-        }
-      }
-      final response =
-          await _dioHelper.get(url: "${NetworkProperties.baseMapUrl}page=2");
-      if (response != null && response is Map<String, dynamic>) {
-        // ✅ 3. Save API response into cache
-        if (isCacheOn) {
-          await CacheService.saveResponse(cacheKey, response);
-          log("✅ API response cached");
-        }
-        return MapModel.fromJson(response);
-      }
-      return null;
-    } catch (e) {
-      log(" Error in getMapData: $e");
-      return null;
-    }
-  }
+  // Future<MapModel?> getMapData(bool isCacheOn) async {
+  //   const cacheKey = "map_data";
+  //   try {
+  //     if (isCacheOn) {
+  //       final cacheData = CacheService.getResponse(cacheKey);
+  //       if (cacheData != null && cacheData is Map<String, dynamic>) {
+  //         log("📦 Returning cached MapModel");
+  //         return MapModel.fromJson(cacheData);
+  //       }
+  //     }
+  //     final response =
+  //         await _dioHelper.get(url: "${NetworkProperties.baseMapUrl}page=2");
+  //     if (response != null && response is Map<String, dynamic>) {
+  //       // ✅ 3. Save API response into cache
+  //       if (isCacheOn) {
+  //         await CacheService.saveResponse(cacheKey, response);
+  //         log("✅ API response cached");
+  //       }
+  //       return MapModel.fromJson(response);
+  //     }
+  //     return null;
+  //   } catch (e) {
+  //     log(" Error in getMapData: $e");
+  //     return null;
+  //   }
+  // }
 
 //********************************************* */
 /*For Data which is coming in Map in Post API*/

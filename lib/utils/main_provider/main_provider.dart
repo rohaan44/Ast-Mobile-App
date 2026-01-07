@@ -1,3 +1,5 @@
+import 'package:ast_official/data/repository/auth_repo.dart';
+import 'package:ast_official/domain/repository/auth_repo_service.dart';
 import 'package:ast_official/feature/athelete_dashboard/dashboard/dashboard_controller.dart';
 import 'package:ast_official/feature/athelete_dashboard/sub_screen/athelet_chat/athelet_chat_controller.dart';
 import 'package:ast_official/feature/athelete_dashboard/sub_screen/dashboard_home_screen/dashboard_home_screen_controller.dart';
@@ -75,14 +77,26 @@ import 'package:provider/single_child_widget.dart';
 import '../../feature/coach_dashboard/coach_profile_setting/coach_profile_setting_controller.dart';
 
 List<SingleChildWidget> providersList = [
+  Provider<AuthRepository>(
+    create: (context) => AuthRepository(),
+  ),
+  Provider<AuthRepoService>(
+    create: (context) => AuthRepoService(
+      authRepository: context.read<AuthRepository>(),
+    ),
+  ),
   ChangeNotifierProvider(create: (context) => SelectRoleController()),
   ChangeNotifierProvider(create: (context) => SelectGenderController()),
   ChangeNotifierProvider(create: (context) => PersonHeightController()),
   ChangeNotifierProvider(create: (context) => SelectWeightController()),
-  ChangeNotifierProvider(create: (context) => OtpController()),
+  ChangeNotifierProvider(
+      create: (context) =>
+          OtpController(authRepoService: context.read<AuthRepoService>())),
   ChangeNotifierProvider(create: (context) => DateOfBirthController()),
   ChangeNotifierProvider(create: (context) => DashboardController()),
-  ChangeNotifierProvider(create: (context) => SignInController()),
+  ChangeNotifierProvider(
+      create: (context) =>
+          SignInController(authRepoService: context.read<AuthRepoService>())),
   ChangeNotifierProvider(create: (context) => HomeScreenController()),
   ChangeNotifierProvider(create: (context) => WhatIsYourDietTypeController()),
   ChangeNotifierProvider(create: (context) => WalletController()),
