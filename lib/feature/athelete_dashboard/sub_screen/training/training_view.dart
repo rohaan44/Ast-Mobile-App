@@ -577,34 +577,34 @@ Widget cardGridView({
   );
 }
 
-Widget _buildChip(String label, int index, model) {
-  bool isSelected = model.selectedIndex == index;
+// Widget _buildChip(String label, int index, model) {
+//   bool isSelected = model.selectedIndex == index;
 
-  return InkWell(
-    onTap: () {
-      model.selectedIndex = index;
-      UpdateShouldNotify;
-    },
-    child: Container(
-      margin: const EdgeInsets.only(right: 8),
-      padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 8),
-      decoration: BoxDecoration(
-        color: isSelected ? Colors.blue : Colors.transparent,
-        border: Border.all(
-          color: isSelected ? Colors.blue : Colors.grey.shade400,
-        ),
-        borderRadius: BorderRadius.circular(20),
-      ),
-      child: Center(
-        child: Text(
-          label,
-          style: TextStyle(
-            fontWeight: FontWeight.w500,
-            fontSize: 12,
-            color: isSelected ? Colors.white : Colors.black,
-          ),
-        ),
-      ),
-    ),
-  );
-}
+//   return InkWell(
+//     onTap: () {
+//       model.selectedIndex = index;
+//       UpdateShouldNotify;
+//     },
+//     child: Container(
+//       margin: const EdgeInsets.only(right: 8),
+//       padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 8),
+//       decoration: BoxDecoration(
+//         color: isSelected ? Colors.blue : Colors.transparent,
+//         border: Border.all(
+//           color: isSelected ? Colors.blue : Colors.grey.shade400,
+//         ),
+//         borderRadius: BorderRadius.circular(20),
+//       ),
+//       child: Center(
+//         child: Text(
+//           label,
+//           style: TextStyle(
+//             fontWeight: FontWeight.w500,
+//             fontSize: 12,
+//             color: isSelected ? Colors.white : Colors.black,
+//           ),
+//         ),
+//       ),
+//     ),
+//   );
+// }

@@ -1,4 +1,5 @@
 import 'package:ast_official/app_ui_helpers/app_routes/route_paths.dart';
+import 'package:ast_official/feature/athelete_dashboard/sub_screen/check_in/sub_screen/body_measurement/body_measurement_controller.dart';
 import 'package:ast_official/helpers/app_layout_helper.dart';
 import 'package:ast_official/ui_molecules/app_text/app_text.dart';
 import 'package:ast_official/ui_molecules/appbar/appbar.dart';
@@ -7,10 +8,9 @@ import 'package:ast_official/ui_molecules/primary_textfield/primary_text_field.d
 import 'package:ast_official/utils/asset_utils.dart';
 import 'package:ast_official/utils/colors_utils.dart';
 import 'package:ast_official/utils/font_size.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:provider/provider.dart';
 
 class BodyMeasurementView extends StatelessWidget {
   const BodyMeasurementView({super.key});
@@ -70,29 +70,84 @@ class BodyMeasurementView extends StatelessWidget {
                     SizedBox(
                       height: ch(48),
                     ),
-                    ListView.separated(
-                        shrinkWrap: true,
-                        primary: false,
-                        itemBuilder: (context, index) {
-                          return primaryTextField(
-                              textFieldHeight: ch(49),
-                              border: InputBorder.none,
-                              hintText: index == 0
-                                  ? "Torace"
-                                  : index == 1
-                                      ? "Circonferenza vita"
-                                      : index == 2
-                                          ? "Fianchi"
-                                          : index == 3
-                                              ? "Braccia"
-                                              : "Cosce");
-                        },
-                        separatorBuilder: (context, index) {
-                          return SizedBox(
-                            height: ch(16),
-                          );
-                        },
-                        itemCount: 5),
+                    Consumer<BodyMeasurementController>(
+                      builder: (context, model, child) {
+                        // bool isNext = model.email.text.isNotEmpty &&
+                        //     model
+                        //         .waistCircumferenceController.text.isNotEmpty &&
+                        //     model.armController.text.isNotEmpty &&
+                        //     model.flanksController.text.isNotEmpty &&
+                        //     model.thighsController.text.isNotEmpty;
+                        return Column(
+                          children: [
+                            primaryTextField(
+                                textFieldHeight: ch(49),
+                                controller: model.email,
+                                border: InputBorder.none,
+                                hintText: "Torace"),
+                            SizedBox(
+                              height: ch(16),
+                            ),
+                            primaryTextField(
+                                textFieldHeight: ch(49),
+                                controller: model.waistCircumferenceController,
+                                border: InputBorder.none,
+                                hintText: "Circonferenza vita"),
+                            SizedBox(
+                              height: ch(16),
+                            ),
+                            primaryTextField(
+                                textFieldHeight: ch(49),
+                                controller: model.flanksController,
+                                border: InputBorder.none,
+                                hintText: "Fianchi"),
+                            SizedBox(
+                              height: ch(16),
+                            ),
+                            primaryTextField(
+                                textFieldHeight: ch(49),
+                                controller: model.armController,
+                                border: InputBorder.none,
+                                hintText: "Braccia"),
+                            SizedBox(
+                              height: ch(16),
+                            ),
+                            primaryTextField(
+                                textFieldHeight: ch(49),
+                                controller: model.thighsController,
+                                border: InputBorder.none,
+                                hintText: "Cosce"),
+                            SizedBox(
+                              height: ch(16),
+                            ),
+                          ],
+                        );
+                      },
+                    ),
+                    // ListView.separated(
+                    //     shrinkWrap: true,
+                    //     primary: false,
+                    //     itemBuilder: (context, index) {
+                    //       return primaryTextField(
+                    //           textFieldHeight: ch(49),
+                    //           border: InputBorder.none,
+                    //           hintText: index == 0
+                    //               ? "Torace"
+                    //               : index == 1
+                    //                   ? "Circonferenza vita"
+                    //                   : index == 2
+                    //                       ? "Fianchi"
+                    //                       : index == 3
+                    //                           ? "Braccia"
+                    //                           : "Cosce");
+                    //     },
+                    //     separatorBuilder: (context, index) {
+                    //       return SizedBox(
+                    //         height: ch(16),
+                    //       );
+                    //     },
+                    //     itemCount: 5),
+
                     SizedBox(
                       height: ch(16),
                     ),
@@ -180,18 +235,23 @@ class BodyMeasurementView extends StatelessWidget {
                     SizedBox(
                       height: ch(75),
                     ),
-                    AppButton(
-                        buttonColor: AppColor.primary,
-                        onPressed: () {
-                          Navigator.pushNamed(
-                            context,
-                            RoutePaths.statusFeedbackView,
-                          );
-                        },
-                        text: "Avanti",
-                        fontSize: 16,
-                        textColor: AppColor.cFFFFFF,
-                        fontWeight: FontWeight.w600),
+                    Consumer<BodyMeasurementController>(
+                      builder: (context, model, child) {
+                        return AppButton(
+                            isButtonEnable: model.isNextEnabled,
+                            buttonColor: AppColor.primary,
+                            onPressed: () {
+                              Navigator.pushNamed(
+                                context,
+                                RoutePaths.statusFeedbackView,
+                              );
+                            },
+                            text: "Avanti",
+                            fontSize: 16,
+                            textColor: AppColor.cFFFFFF,
+                            fontWeight: FontWeight.w600);
+                      },
+                    ),
                     SizedBox(
                       height: ch(40),
                     ),

@@ -120,7 +120,7 @@ class AppButton extends StatelessWidget {
                           style: textStyle ??
                               TextStyle(
                                 fontFamily: "SF-Pro",
-                                fontSize: fontSize ?? AppFontSize.f16 - 1.5,
+                                fontSize: fontSize ?? AppFontSize.f16 - 2,
                                 color: isButtonEnable
                                     ? textColor ?? AppColor.background
                                     : AppColor.white.withOpacity(0.5),
@@ -138,9 +138,7 @@ class AppButton extends StatelessWidget {
                       ],
                     ],
                   )
-                : const CircularProgressIndicator(
-                    color: AppColor.black,
-                  )),
+                : const CircularProgressIndicator(color: AppColor.white)),
       ),
     );
   }

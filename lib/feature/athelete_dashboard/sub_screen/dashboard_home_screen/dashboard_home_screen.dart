@@ -632,12 +632,22 @@ Widget walkingBox() {
               ],
             ),
             const Spacer(),
-            const CircularProgressIndicator(
-              color: AppColor.primary,
-
-              backgroundColor: AppColor.c252525,
-              // progressColor: AppColor.primary,))
-            )
+            SizedBox(
+              height: ch(56),
+              width: cw(56),
+              child: CircularPercentIndicator(
+                radius: 30.0,
+                lineWidth: cw(5),
+                percent: 0.5,
+                animation: true,
+                animationDuration: 1000,
+                circularStrokeCap: CircularStrokeCap.round,
+                linearGradient: const LinearGradient(
+                    colors: [AppColor.primary, AppColor.red]),
+                backgroundColor: AppColor.c252525,
+                // progressColor: AppColor.primary,
+              ),
+            ),
           ],
         ),
 
