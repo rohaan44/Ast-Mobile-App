@@ -33,6 +33,9 @@ class AtheletCoachesView extends StatelessWidget {
                     hintText: "Cerca",
                     borderRadius: cw(50),
                     border: InputBorder.none,
+                    onChanged: (value) {
+                      model.setSearchQuery(value);
+                    },
                   ),
                 ),
                 SizedBox(height: ch(20)),
@@ -42,12 +45,13 @@ class AtheletCoachesView extends StatelessWidget {
                   child: ListView.separated(
                     padding: EdgeInsets.symmetric(horizontal: cw(20)),
                     physics: const BouncingScrollPhysics(),
-                    itemCount: model.atheletCoaches.length,
+                    itemCount: model.filteredCoaches.length,
                     separatorBuilder: (_, __) => SizedBox(height: ch(12)),
                     itemBuilder: (context, index) {
-                      final img = model.atheletCoaches[index]["img"];
-                      final title = model.atheletCoaches[index]["title"];
-                      final subTitle = model.atheletCoaches[index]["title"];
+                      final coach = model.filteredCoaches[index];
+                      final img = coach["img"]!;
+                      final title = coach["title"]!;
+                      final subTitle = coach["subTitle"]!;
                       return Row(
                         children: [
                           Container(

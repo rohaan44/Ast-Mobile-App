@@ -91,7 +91,7 @@ class _MyAppState extends State<MyApp> {
         theme: AppTheme.darkTheme,
         debugShowCheckedModeBanner: false,
         // home: const PaymentsRoyaltiesView(),
-        initialRoute: RoutePaths.splashScreen,
+        initialRoute: RoutePaths.atheletCoachesView,
         onGenerateRoute: AppRouter.generateRoute,
       );
     });
