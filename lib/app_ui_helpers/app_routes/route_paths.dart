@@ -5,6 +5,7 @@ class RoutePaths {
   static const String selectRole = '/selectRole';
 
   static const String signIn = '/signIn';
+  static const String signUp = '/signUp';
   static const String selectGender = '/selectGender';
 
   static const String personHeight = '/personHeight';

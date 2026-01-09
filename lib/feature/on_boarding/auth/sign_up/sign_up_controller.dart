@@ -6,13 +6,13 @@ import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-class SignInController with ChangeNotifier {
+class SignUpController with ChangeNotifier {
   final TextEditingController nameController = TextEditingController();
   final TextEditingController emailController = TextEditingController();
   final TextEditingController passwordController = TextEditingController();
 
   final AuthRepoService authRepoService;
-  SignInController({required this.authRepoService});
+  SignUpController({required this.authRepoService});
   bool _isLoading = false;
   String? _errorMessage;
 

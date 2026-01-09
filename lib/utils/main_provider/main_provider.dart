@@ -37,6 +37,8 @@ import 'package:ast_official/feature/coach_dashboard/plans/trainning_plan/traini
 import 'package:ast_official/feature/coach_dashboard/plans_royalties/athlete_subscriptions/athlete_subscriptions_controller.dart';
 import 'package:ast_official/feature/coach_dashboard/plans_royalties/payments_royalties_controller.dart';
 import 'package:ast_official/feature/coach_dashboard/plans_royalties/transaction_history/transaction_history_controller.dart';
+import 'package:ast_official/feature/on_boarding/auth/sign_in/sign_in_controller.dart';
+import 'package:ast_official/feature/on_boarding/auth/sign_up/sign_up_controller.dart';
 import 'package:ast_official/feature/on_boarding/date_of_birth/date_of_birth_controller.dart';
 import 'package:ast_official/feature/on_boarding/otp_view/otp_controller.dart';
 import 'package:ast_official/feature/on_boarding/payment_flow/choose_your_plan/choose_your_plan_controller.dart';
@@ -47,7 +49,6 @@ import 'package:ast_official/feature/on_boarding/select_gender/select_gender_con
 import 'package:ast_official/feature/on_boarding/select_objective/select_objective_controller.dart';
 import 'package:ast_official/feature/on_boarding/select_role/select_role_controller.dart';
 import 'package:ast_official/feature/on_boarding/select_weight/select_weight_controller.dart';
-import 'package:ast_official/feature/on_boarding/sign_in/sign_in_controller.dart';
 import 'package:ast_official/feature/on_boarding/welcome_screen/welcome_controller.dart';
 import 'package:ast_official/feature/tutor_dashboard/home_screen/tutor_home_screen_controller.dart';
 import 'package:ast_official/feature/tutor_dashboard/tutor_screens/tutor_certificate_section/sub_screens/tutor_certificate_section_s1/tutor_certificate_section_s1_controller.dart';
@@ -96,7 +97,12 @@ List<SingleChildWidget> providersList = [
   ChangeNotifierProvider(create: (context) => DashboardController()),
   ChangeNotifierProvider(
       create: (context) =>
-          SignInController(authRepoService: context.read<AuthRepoService>())),
+          SignUpController(authRepoService: context.read<AuthRepoService>())),
+  ChangeNotifierProvider(create: (context) => HomeScreenController()),
+  ChangeNotifierProvider(
+      create: (context) => SignInController(
+          // authRepoService: context.read<AuthRepoService>()
+          )),
   ChangeNotifierProvider(create: (context) => HomeScreenController()),
   ChangeNotifierProvider(create: (context) => WhatIsYourDietTypeController()),
   ChangeNotifierProvider(create: (context) => WalletController()),
