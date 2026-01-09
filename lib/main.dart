@@ -2,7 +2,6 @@
 
 import 'package:ast_official/app_ui_helpers/app_routes/app_routes.dart';
 import 'package:ast_official/app_ui_helpers/app_routes/route_paths.dart';
-import 'package:ast_official/core/network/network_services/dio_helper.dart';
 import 'package:ast_official/generated/l10n.dart';
 import 'package:ast_official/services/notification_service/app_notification_service.dart';
 import 'package:ast_official/utils/colors_utils.dart';
@@ -92,7 +91,7 @@ class _MyAppState extends State<MyApp> {
         theme: AppTheme.darkTheme,
         debugShowCheckedModeBanner: false,
         // home: const PaymentsRoyaltiesView(),
-        initialRoute: RoutePaths.splashScreen,
+        initialRoute: RoutePaths.atheletCoachesView,
         onGenerateRoute: AppRouter.generateRoute,
       );
     });

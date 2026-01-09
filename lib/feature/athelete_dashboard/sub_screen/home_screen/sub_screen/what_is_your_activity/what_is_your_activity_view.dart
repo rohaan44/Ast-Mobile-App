@@ -20,7 +20,9 @@ class WhatIsYourActivity extends StatefulWidget {
 
 class _WhatIsYourActivityState extends State<WhatIsYourActivity> {
   @override
-  Widget build(BuildContext context) {
+  Widget build(
+    BuildContext context,
+  ) {
     return Scaffold(
       body: Padding(
         padding: EdgeInsets.symmetric(horizontal: cw(20)),
@@ -29,26 +31,24 @@ class _WhatIsYourActivityState extends State<WhatIsYourActivity> {
           children: [
             SizedBox(
               height: ch(50),
-
-              
             ),
             Row(
               crossAxisAlignment: CrossAxisAlignment.center,
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 // Left logo
-               GestureDetector(
-            behavior: HitTestBehavior.opaque,
-            onTap: () =>  Navigator.pop(context),
-            child: Padding(
-              padding: const EdgeInsets.all(8.0), // small tap area
-              child: SvgPicture.asset(
-                AssetUtils.backArrow,
-                height: ch(20),
-                width: cw(15),
-              ),
-            ),
-          ),
+                GestureDetector(
+                  behavior: HitTestBehavior.opaque,
+                  onTap: () => Navigator.pop(context),
+                  child: Padding(
+                    padding: const EdgeInsets.all(8.0), // small tap area
+                    child: SvgPicture.asset(
+                      AssetUtils.backArrow,
+                      height: ch(20),
+                      width: cw(15),
+                    ),
+                  ),
+                ),
                 SizedBox(
                     width: cw(158), child: customSlider(5, 2, AppColor.white)),
                 Container(
@@ -100,7 +100,10 @@ class _WhatIsYourActivityState extends State<WhatIsYourActivity> {
                     final isSelected = model.selectedIndex == index;
 
                     return GestureDetector(
-                      onTap: () => model.setSelectIndex(index),
+                      onTap: () {
+                        model.setSelectIndex(index);
+                        print("====${model.selectCat}");
+                      },
                       child: Container(
                         width: cw(160), // 2 per row
                         height: ch(53),
@@ -139,16 +142,23 @@ class _WhatIsYourActivityState extends State<WhatIsYourActivity> {
               },
             ),
             const Spacer(),
-            AppButton(
-                buttonColor: AppColor.primary,
-                onPressed: () {
-                  Navigator.pushNamed(context,
-                      RoutePaths.whatIsYourDietTypeView);
-                },
-                text: "Avanti",
-                fontSize: 16,
-                textColor: AppColor.cFFFFFF,
-                fontWeight: FontWeight.w600),
+            Consumer<WhatIsYourActivityController>(
+              builder: (context, model, child) {
+                bool isNext =
+                    model.selectCat.isNotEmpty && model.selectedIndex != null;
+                return AppButton(
+                    isButtonEnable: isNext,
+                    buttonColor: AppColor.primary,
+                    onPressed: () {
+                      Navigator.pushNamed(
+                          context, RoutePaths.whatIsYourDietTypeView);
+                    },
+                    text: "Avanti",
+                    fontSize: 16,
+                    textColor: AppColor.cFFFFFF,
+                    fontWeight: FontWeight.w600);
+              },
+            ),
             SizedBox(
               height: ch(32),
             )

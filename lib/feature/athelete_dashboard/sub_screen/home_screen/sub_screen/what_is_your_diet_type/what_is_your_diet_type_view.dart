@@ -22,13 +22,12 @@ class _WhatIsYourDietTypeViewState extends State<WhatIsYourDietTypeView> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-     
       body: SafeArea(
         child: Padding(
           padding: EdgeInsets.symmetric(horizontal: cw(20)),
           child: Column(
             children: [
-  SizedBox(
+              SizedBox(
                 height: ch(20),
               ),
               Row(
@@ -36,20 +35,21 @@ class _WhatIsYourDietTypeViewState extends State<WhatIsYourDietTypeView> {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   // Left logo
-                GestureDetector(
-              behavior: HitTestBehavior.opaque,
-              onTap: () =>  Navigator.pop(context),
-              child: Padding(
-                padding: const EdgeInsets.all(8.0), // small tap area
-                child: SvgPicture.asset(
-                  AssetUtils.backArrow,
-                  height: ch(20),
-                  width: cw(20),
-                ),
-              ),
-            ),
+                  GestureDetector(
+                    behavior: HitTestBehavior.opaque,
+                    onTap: () => Navigator.pop(context),
+                    child: Padding(
+                      padding: const EdgeInsets.all(8.0), // small tap area
+                      child: SvgPicture.asset(
+                        AssetUtils.backArrow,
+                        height: ch(20),
+                        width: cw(20),
+                      ),
+                    ),
+                  ),
                   SizedBox(
-                      width: cw(158), child: customSlider(5, 3, AppColor.white)),
+                      width: cw(158),
+                      child: customSlider(5, 3, AppColor.white)),
                   Container(
                     width: cw(57),
                     height: ch(26),
@@ -68,7 +68,6 @@ class _WhatIsYourDietTypeViewState extends State<WhatIsYourDietTypeView> {
                   ),
                 ],
               ),
-              
               SizedBox(
                 height: ch(20),
               ),
@@ -91,7 +90,7 @@ class _WhatIsYourDietTypeViewState extends State<WhatIsYourDietTypeView> {
                 builder: (context, model, child) {
                   final types = model.catType["type"]!;
                   final icons = model.catType["iconImage"]!;
-        
+
                   return Wrap(
                     alignment: WrapAlignment.center,
                     spacing: cw(12),
@@ -101,7 +100,7 @@ class _WhatIsYourDietTypeViewState extends State<WhatIsYourDietTypeView> {
                       final int itemCount = types.length;
                       final int lastIndex = itemCount - 1;
                       final bool isLastItem = index == lastIndex;
-        
+
                       // Conditional width based on your specified logic
                       final double itemWidth = isLastItem ? cw(353) : cw(160);
                       return GestureDetector(
@@ -144,21 +143,26 @@ class _WhatIsYourDietTypeViewState extends State<WhatIsYourDietTypeView> {
                 },
               ),
               const Spacer(),
-              AppButton(
-                  buttonColor: AppColor.primary,
-                  onPressed: () {
-                    Navigator.pushNamed(
-                        context, RoutePaths.breakFastTimeView);
-                  },
-                  text: "Avanti",
-                  fontSize: 16,
-                  textColor: AppColor.cFFFFFF,
-                  fontWeight: FontWeight.w600),
+              Consumer<WhatIsYourDietTypeController>(
+                builder: (context, model, child) {
+                  bool isNext = model.selectedIndexes.length > 2;
+                  return AppButton(
+                      isButtonEnable: isNext,
+                      buttonColor: AppColor.primary,
+                      onPressed: () {
+                        Navigator.pushNamed(
+                            context, RoutePaths.breakFastTimeView);
+                      },
+                      text: "Avanti",
+                      fontSize: 16,
+                      textColor: AppColor.cFFFFFF,
+                      fontWeight: FontWeight.w600);
+                },
+              ),
               SizedBox(
                 height: ch(32),
               )
             ],
-          
           ),
         ),
       ),

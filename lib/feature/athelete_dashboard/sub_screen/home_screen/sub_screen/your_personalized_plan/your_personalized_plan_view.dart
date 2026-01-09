@@ -154,16 +154,22 @@ class _YourPersonalizedPlanViewState extends State<YourPersonalizedPlanView> {
               },
             ),
             const Spacer(),
-            AppButton(
-                buttonColor: AppColor.primary,
-                onPressed: () {
-                  Navigator.pushNamedAndRemoveUntil(
-                      context, RoutePaths.dashboardView, (route) => false);
-                },
-                text: "Procedi con il piano",
-                fontSize: AppFontSize.f16,
-                textColor: AppColor.cFFFFFF,
-                fontWeight: FontWeight.w600),
+            Consumer<YourPersonalizedPlanController>(
+              builder: (context, model, child) {
+                bool isNext = model.selectCat.isNotEmpty;
+                return AppButton(
+                    isButtonEnable: isNext,
+                    buttonColor: AppColor.primary,
+                    onPressed: () {
+                      Navigator.pushNamedAndRemoveUntil(
+                          context, RoutePaths.dashboardView, (route) => false);
+                    },
+                    text: "Procedi con il piano",
+                    fontSize: AppFontSize.f16,
+                    textColor: AppColor.cFFFFFF,
+                    fontWeight: FontWeight.w600);
+              },
+            ),
             SizedBox(
               height: ch(32),
             )

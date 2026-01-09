@@ -6,6 +6,7 @@ import 'package:ast_official/utils/colors_utils.dart';
 import 'package:ast_official/utils/font_size.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:percent_indicator/circular_percent_indicator.dart';
 import 'package:sizer/sizer.dart';
 
 class HomeScreenview extends StatefulWidget {
@@ -33,7 +34,7 @@ class _HomeScreenviewState extends State<HomeScreenview> {
               ),
               Row(
                 children: [
-                  SvgPicture.asset(AssetUtils.cloudIcon,width: cw(20)),
+                  SvgPicture.asset(AssetUtils.cloudIcon, width: cw(20)),
                   SizedBox(
                     width: cw(7),
                   ),
@@ -61,9 +62,9 @@ class _HomeScreenviewState extends State<HomeScreenview> {
               InkWell(
                 onTap: () {
                   Navigator.pushNamed(
-                      context,
-                      RoutePaths.personalizeYourExperienceView,
-                      );
+                    context,
+                    RoutePaths.personalizeYourExperienceView,
+                  );
                 },
                 child: Container(
                   height: ch(63),
@@ -134,7 +135,10 @@ class _HomeScreenviewState extends State<HomeScreenview> {
                   children: [
                     Row(
                       children: [
-                        SvgPicture.asset(AssetUtils.walkIcon,width: cw(20),),
+                        SvgPicture.asset(
+                          AssetUtils.walkIcon,
+                          width: cw(20),
+                        ),
                         SizedBox(
                           width: cw(7),
                         ),
@@ -196,7 +200,7 @@ class _HomeScreenviewState extends State<HomeScreenview> {
                                   txt: "Passi",
                                   fontWeight: FontWeight.w200,
                                   color: AppColor.cFFFFFF.withOpacity(0.7),
-                                fontSize: AppFontSize.f20,
+                                  fontSize: AppFontSize.f20,
                                 ),
                               ],
                             ),
@@ -216,9 +220,8 @@ class _HomeScreenviewState extends State<HomeScreenview> {
                                 AppText(
                                   txt: "km  ",
                                   fontWeight: FontWeight.w200,
-                                  
                                   color: AppColor.cFFFFFF.withOpacity(0.7),
-                                 fontSize: AppFontSize.f20,
+                                  fontSize: AppFontSize.f20,
                                 ),
                                 SizedBox(
                                   width: cw(7),
@@ -277,11 +280,22 @@ class _HomeScreenviewState extends State<HomeScreenview> {
                           ],
                         ),
                         const Spacer(),
-                        const CircularProgressIndicator(
-                          color: AppColor.primary,
-                          backgroundColor: AppColor.c252525,
-                          // progressColor: AppColor.primary,))
-                        )
+                        SizedBox(
+                          height: ch(56),
+                          width: cw(56),
+                          child: CircularPercentIndicator(
+                            radius: 30.0,
+                            lineWidth: cw(5),
+                            percent: 0.5,
+                            animation: true,
+                            animationDuration: 1000,
+                            circularStrokeCap: CircularStrokeCap.round,
+                            linearGradient: const LinearGradient(
+                                colors: [AppColor.primary, AppColor.red]),
+                            backgroundColor: AppColor.c252525,
+                            // progressColor: AppColor.primary,
+                          ),
+                        ),
                       ],
                     ),
 

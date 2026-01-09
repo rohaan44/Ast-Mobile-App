@@ -1,14 +1,18 @@
+// ignore_for_file: deprecated_member_use
+
 import 'package:ast_official/app_ui_helpers/app_routes/route_paths.dart';
 import 'package:ast_official/helpers/app_layout_helper.dart';
 import 'package:ast_official/ui_molecules/app_text/app_text.dart';
-import 'package:ast_official/ui_molecules/buttons/app_glass_button.dart';
 import 'package:ast_official/ui_molecules/buttons/app_primary_button.dart';
 import 'package:ast_official/utils/asset_utils.dart';
 import 'package:ast_official/utils/colors_utils.dart';
 import 'package:ast_official/utils/font_size.dart';
+import 'package:ast_official/utils/gradients/app_gradients.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:sizer/sizer.dart';
+
+import '../../../ui_molecules/buttons/app_glass_button.dart' show GlassButton;
 
 class WalkThroughScreen extends StatefulWidget {
   const WalkThroughScreen({super.key});
@@ -92,11 +96,27 @@ class _WalkThroughScreenState extends State<WalkThroughScreen> {
             child: Row(
               children: [
                 GlassButton(
-                  text: "Salta",
-                  onPressed: () {},
+                  onPressed: () {
+                    pageController.previousPage(
+                      duration: const Duration(milliseconds: 400),
+                      curve: Curves.ease,
+                    );
+                  },
                   width: cw(66),
                   height: ch(66),
                   borderRadius: cw(24.91),
+                  child: currentPage == 0
+                      ? AppText(
+                          txt: "Salta",
+                          color: AppColor.white,
+                          fontWeight: FontWeight.w700,
+                          fontSize: AppFontSize.f16 - 2,
+                        )
+                      : const Icon(
+                          Icons.keyboard_arrow_left_outlined,
+                          color: AppColor.cFFFFFF,
+                          size: 30,
+                        ),
                 ),
 
                 // AppButton(
@@ -133,29 +153,52 @@ class _WalkThroughScreenState extends State<WalkThroughScreen> {
                   ),
                 ),
                 const Spacer(),
-                AppButton(
-                  height: ch(66),
-                  width: cw(66),
-                  borderRadius: cw(24.91),
-                  buttonColor: AppColor.cFFFFFF,
-                  onPressed: () {
-                    if (currentPage == onboardingData.length - 1) {
-                      // goToReplace(context, const SelectPlan());
-                      Navigator.pushNamedAndRemoveUntil(
-                          context, RoutePaths.selectRole, (route) => false);
-                    } else {
-                      pageController.nextPage(
-                        duration: const Duration(milliseconds: 400),
-                        curve: Curves.ease,
-                      );
-                    }
-                  },
-                  showIcon: true,
-                  icon: const Icon(
-                    Icons.keyboard_arrow_right_outlined,
-                    color: AppColor.black,
-                  ),
-                ),
+
+                currentPage == 3
+                    ? InkWell(
+                        onTap: () {
+                          Navigator.pushNamedAndRemoveUntil(
+                              context, RoutePaths.selectRole, (route) => false);
+                        },
+                        child: Container(
+                          height: ch(66),
+                          width: cw(66),
+                          decoration: BoxDecoration(
+                              gradient: AppGradients.redGradient,
+                              borderRadius: BorderRadius.circular(cw(24.91))),
+                          child: Center(
+                            child: AppText(
+                              txt: "Avanti",
+                              color: AppColor.cFFFFFF,
+                              fontWeight: FontWeight.w700,
+                              fontSize: AppFontSize.f16 - 2,
+                            ),
+                          ),
+                        ),
+                      )
+                    : AppButton(
+                        height: ch(66),
+                        width: cw(66),
+                        borderRadius: cw(24.91),
+                        buttonColor: currentPage == 3
+                            ? AppColor.primary
+                            : AppColor.cFFFFFF,
+                        onPressed: () {
+                          if (currentPage == onboardingData.length - 1) {
+                            // goToReplace(context, const SelectPlan());
+                            Navigator.pushNamedAndRemoveUntil(context,
+                                RoutePaths.selectRole, (route) => false);
+                          } else {
+                            pageController.nextPage(
+                              duration: const Duration(milliseconds: 400),
+                              curve: Curves.ease,
+                            );
+                          }
+                        },
+                        showIcon: true,
+                        icon: const Icon(Icons.keyboard_arrow_right_outlined,
+                            color: AppColor.black, size: 30),
+                      ),
               ],
             ),
           ),

@@ -148,19 +148,21 @@ class SignInView extends StatelessWidget {
                                   if (success) {
                                     // ignore: use_build_context_synchronously
                                     showApiSnackBar(context,
-                                        title: "Success", message: "OTP sent successfully", isSuccess: true);
+                                        title: "Success",
+                                        message: "OTP sent successfully",
+                                        isSuccess: true);
                                     Navigator.pushNamed(
                                         context, RoutePaths.otpView);
                                   }
                                 } else {
                                   showApiSnackBar(context,
-                                      title: "Error", message: "Flow data missing for registration", isSuccess: false);
+                                      title: "Error",
+                                      message:
+                                          "Flow data missing for registration",
+                                      isSuccess: false);
                                 }
                               },
-                              buttonColor: AppColor.cFFFFFF,
                               text: "Continua",
-                              textColor: AppColor.black,
-                              fontWeight: FontWeight.w600,
                             ),
                             SizedBox(height: ch(50)),
                             Row(

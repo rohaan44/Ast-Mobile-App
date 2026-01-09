@@ -12,6 +12,12 @@ class YourPersonalizedPlanController with ChangeNotifier {
       AssetUtils.pinAppleIcon,
     ]
   };
+  String _selectCat = "";
+  String get selectCat => _selectCat;
+  set selectCat(String value) {
+    _selectCat = value;
+    notifyListeners();
+  }
 
   int? _selectedIndex;
 
@@ -22,6 +28,7 @@ class YourPersonalizedPlanController with ChangeNotifier {
       _selectedIndex = null;
     } else {
       _selectedIndex = index;
+      selectCat = catType["title"]![index];
     }
     notifyListeners();
   }

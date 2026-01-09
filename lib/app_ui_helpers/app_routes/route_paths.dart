@@ -108,4 +108,5 @@ class RoutePaths {
       '/tutorCertificateSectionS3View';
   static const String tutorCertificateSectionS4View =
       '/tutorCertificateSectionS4View';
+  static const String atheletCoachesView = '/atheletCoachesView';
 }

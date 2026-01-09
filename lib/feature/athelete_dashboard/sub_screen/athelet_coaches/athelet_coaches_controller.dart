@@ -2,13 +2,19 @@ import 'package:flutter/material.dart';
 
 class AtheletCoachesController extends ChangeNotifier {
   int selectedCategoryIndex = 0;
+  String _searchQuery = "";
 
   void setSelectedCategory(int index) {
     selectedCategoryIndex = index;
-    notifyListeners(); // or model.notify() if you're using your base viewmodel
+    notifyListeners();
   }
 
-  final List categories = [
+  void setSearchQuery(String value) {
+    _searchQuery = value.toLowerCase();
+    notifyListeners();
+  }
+
+  final List<String> categories = [
     "Tutti",
     "Cardio",
     "Squat",
@@ -19,7 +25,7 @@ class AtheletCoachesController extends ChangeNotifier {
     "Sports",
   ];
 
-  final List atheletCoaches = [
+  final List<Map<String, String>> atheletCoaches = [
     {
       "img":
           "https://static.vecteezy.com/system/resources/thumbnails/046/836/977/small/african-male-fitness-trainer-in-gym-fitness-and-wellness-african-american-coach-healthy-lifestyle-photo.jpg",
@@ -93,4 +99,24 @@ class AtheletCoachesController extends ChangeNotifier {
       "subTitle": "Forza • Cardio • Equilibrio"
     },
   ];
+
+  List<Map<String, String>> get filteredCoaches {
+    return atheletCoaches.where((coach) {
+      final title = coach["title"]!.toLowerCase();
+      final subTitle = coach["subTitle"]!.toLowerCase();
+
+      final matchesSearch =
+          title.contains(_searchQuery) || subTitle.contains(_searchQuery);
+
+      if (selectedCategoryIndex == 0) {
+        return matchesSearch; // Tutti
+      }
+
+      final selectedCategory = categories[selectedCategoryIndex].toLowerCase();
+
+      final matchesCategory = subTitle.contains(selectedCategory);
+
+      return matchesSearch && matchesCategory;
+    }).toList();
+  }
 }

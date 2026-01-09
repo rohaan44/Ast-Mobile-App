@@ -12,6 +12,13 @@ class WhatIsYourActivityController with ChangeNotifier {
     ]
   };
 
+  String _selectCat = "";
+  String get selectCat => _selectCat;
+  set selectCat(String value) {
+    _selectCat = value;
+    notifyListeners();
+  }
+
   int? _selectedIndex;
 
   int? get selectedIndex => _selectedIndex;
@@ -21,6 +28,7 @@ class WhatIsYourActivityController with ChangeNotifier {
       _selectedIndex = null;
     } else {
       _selectedIndex = index;
+      _selectCat = catType["type"]![index];
     }
     notifyListeners();
   }
