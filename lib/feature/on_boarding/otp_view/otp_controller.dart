@@ -66,6 +66,41 @@ void startTimerAgainSafely() {
       );
     }
   }
+  bool _isLoading = false;
+  bool get isLoading => _isLoading;
+
+  Future verifyOtp(BuildContext context, String email, String code) async {
+    _isLoading = true; 
+     notifyListeners();
+     try {
+    final response = await authRepoService.verifyOtp(email: email,
+        code: code);
+
+    if (response == true) {
+     
+    } else {
+      showApiSnackBar(
+        context,
+        title: "Error",
+        message: "Failed to verify OTP",
+        isSuccess: false,
+      );
+    }
+    _isLoading = false;
+    notifyListeners();
+  }catch (e) {
+    _isLoading = false;
+    notifyListeners();
+    showApiSnackBar(
+      context,
+      title: "Error",
+      message: e.toString(),
+      isSuccess: false,
+    );
+  }
+  }
+
+
 
   @override
   void dispose() {

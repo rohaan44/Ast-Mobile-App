@@ -58,11 +58,26 @@ class AuthRepoService {
       if (response['success'] == true) {
         return true;
       } else {
-        return response; // Return the whole failure response map
+        return response;
       }
     }
     return false;
   }
+
+ Future verifyOtp({required String email,
+      required String code}) async {
+    final response = await authRepository.verifyOtp(email: email,
+        code: code);
+    if (response is Map) {
+      if (response['success'] == true) {
+        return response;
+      } else {
+        return response;
+      }
+    }
+    return response;
+  }
+
 
    Future<bool> refreshToken() async {
   final refreshToken = await AuthStorage.getRefreshToken();
