@@ -14,34 +14,36 @@ class AuthRepository {
         requestBody: {"role": role, "email": email, "password": password});
     return AuthResponseModel.fromJson(response);
   }
+
   Future<AuthResponseModel> login(
-      {required String email,
-      required String password}) async {
+      {required String email, required String password}) async {
     var response = await _dioHelper.post(
         url: "${NetworkProperties.baseUrl}/v1/auth/login",
         requestBody: {"email": email, "password": password});
     return AuthResponseModel.fromJson(response);
   }
 
-    Future refreshToken(
-      {required String refreshToken}) async {
+  Future refreshToken({required String refreshToken}) async {
     var response = await _dioHelper.post(
         url: "${NetworkProperties.baseUrl}/v1/auth/refresh-token",
         requestBody: {"refreshToken": refreshToken});
     return response;
   }
 
-  Future sendOtp(
-      {required String email}) async {
+  Future sendOtp({required String email}) async {
     var response = await _dioHelper.post(
-      isAuthRequired: true,
+        isAuthRequired: true,
         url: "${NetworkProperties.baseUrl}/v1/auth/send-otp",
-        requestBody: {"email": email, "purpose":"verification"});
+        requestBody: {"email": email, "purpose": "verification"});
     return response;
   }
 
-
-
-
-  
+  Future<Map<String, dynamic>> verifyOtp(
+      {required String email, required String code}) async {
+    var response = await _dioHelper.post(
+        isAuthRequired: true,
+        url: "${NetworkProperties.baseUrl}/v1/auth/verify-otp",
+        requestBody: {"email": email, "code": code});
+    return response;
+  }
 }
