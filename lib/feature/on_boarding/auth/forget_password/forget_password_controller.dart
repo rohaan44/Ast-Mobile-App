@@ -1,11 +1,10 @@
 import 'package:flutter/material.dart';
 
-class SignInController with ChangeNotifier {
+class ForgetPasswordController with ChangeNotifier {
   final TextEditingController emailController = TextEditingController();
-  final TextEditingController passwordController = TextEditingController();
 
 //   final AuthRepoService authRepoService;
-//   SignInController({required this.authRepoService});
+//   ForgetPasswordController({required this.authRepoService});
 //   bool _isLoading = false;
 //   String? _errorMessage;
 
@@ -152,12 +151,7 @@ class SignInController with ChangeNotifier {
     return emailRegex.hasMatch(emailController.text);
   }
 
-  bool get isPasswordValid {
-    final passwordRegex = RegExp(r'^(?=.*[A-Za-z])(?=.*\d)(?=.*[\W_]).{8,}$');
-    return passwordRegex.hasMatch(passwordController.text);
-  }
-
-  bool get isButtonEnabled => isEmailValid && isPasswordValid;
+  bool get isButtonEnabled => isEmailValid;
 
   void onTextChanged() {
     notifyListeners();
@@ -166,7 +160,6 @@ class SignInController with ChangeNotifier {
   @override
   void dispose() {
     emailController.dispose();
-    passwordController.dispose();
     super.dispose();
   }
 }
